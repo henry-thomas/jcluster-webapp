@@ -6,6 +6,7 @@ package com.mypower24.test2.interfaces;
 
 import java.io.Serializable;
 import javax.ejb.Remote;
+import org.jcluster.lib.annotation.JcBroadcast;
 import org.jcluster.lib.annotation.JcInstanceFilter;
 import org.jcluster.lib.annotation.JcRemote;
 
@@ -17,6 +18,7 @@ import org.jcluster.lib.annotation.JcRemote;
 @JcRemote(appName = "lws")
 public interface IBusinessMethods extends Serializable {
 
+    @JcBroadcast
     public String getJndiName();
 
     public String execBusinessMethod(Object message, @JcInstanceFilter(filterName = "loggerSerial") String serialNumber);
