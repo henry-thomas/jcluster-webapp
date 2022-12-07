@@ -10,7 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       xmlns:ui="http://java.sun.com/jsf/facelets"
       lang="en">
     <h:head>
-        <title>TODO supply a title</title>
+        <title>J-Cluster Test</title>
         <f:facet name="first">
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -20,12 +20,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <div>TODO write content</div>
+        <div>J-Cluster Test View</div>
         <h:form>
             <h:commandButton value="test" action="#{coolView.test()}"/>
             <h:commandButton value="getSurname" action="#{coolView.testAnother()}"/>
             <h:commandButton value="stopSocket" action="#{coolView.stopSocket()}"/>
+            Result: <h:outputLabel value="#{coolView.result}"></h:outputLabel>
+
+
+            <h:dataTable value="#{coolView.allMetrics}" var="metric">
+                <h:column>
+                    <f:facet name="header">Conn ID</f:facet>
+                        #{metric.connId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Rx Count</f:facet>
+                        #{metric.rxCount}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Tx Count</f:facet>
+                        #{metric.txCount}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Err Count</f:facet>
+                        #{metric.errCount}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Timeout Count</f:facet>
+                        #{metric.timeoutCount}
+                </h:column>
+            </h:dataTable>
+            <br/>
+
+            Conn Reset Count: <h:outputLabel value="#{coolView.appData.totalReconnects}"></h:outputLabel><br/>
+            Total Outbound Conn Count: <h:outputLabel value="#{coolView.appData.totalOutboundConnections}"></h:outputLabel><br/>
+            Total Inbound Conn Count: <h:outputLabel value="#{coolView.appData.totalInboundConnections}"></h:outputLabel><br/>
+
         </h:form>
-        Result: <h:outputLabel value="#{coolView.result}"></h:outputLabel>
     </h:body>
 </html>
