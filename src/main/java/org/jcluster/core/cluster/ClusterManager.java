@@ -236,7 +236,7 @@ public final class ClusterManager {
 
             if (sendInstanceId == null) {
                 //ex
-                throw new JcInstanceNotFoundException("Instance not found for [" + proxyMethod.getMethodName() + "] with params: [" + Arrays.toString(args) + "]");
+                throw new JcInstanceNotFoundException("Instance not found for [" + proxyMethod.getMethodSignature() + "] with params: [" + Arrays.toString(args) + "]");
             }
 
             return cluster.send(proxyMethod, args, sendInstanceId);
