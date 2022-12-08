@@ -54,8 +54,9 @@ public class JcServerEndpoint implements Runnable {
 
                 JcAppInstanceData.getInstance().addInboundConnection(jcClientConnection);
 
-                Thread cThread = new Thread(jcClientConnection);
-                cThread.start();
+//                Thread cThread = new Thread(jcClientConnection);
+//                cThread.start();
+                JcFactory.getManager().getExecutorService().submit(jcClientConnection);
             }
 
             server.close();

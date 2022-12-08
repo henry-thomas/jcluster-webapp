@@ -44,7 +44,7 @@ public final class ClusterManager {
 
     private final Map<String, JcAppCluster> clusterMap = new HashMap<>();
 //    private final Map<String, JcAppInstanceZ> clientMap = new HashMap<>();
-    private final JcAppDescriptor thisDescriptor = new JcAppDescriptor(); //representst this app instance, configured at bootstrap
+    private final JcAppDescriptor thisDescriptor; //representst this app instance, configured at bootstrap
 
     private static final ClusterManager INSTANCE = new ClusterManager();
     private boolean running = false;
@@ -61,6 +61,12 @@ public final class ClusterManager {
         } catch (NamingException ex) {
             Logger.getLogger(ClusterManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Integer port = JcAppConfig.getINSTANCE().getPort();
+        String hostName = JcAppConfig.getINSTANCE().getHostName();
+        String appName = JcAppConfig.getINSTANCE().getAppName();
+        thisDescriptor = new JcAppDescriptor(hostName, port, appName);
+        LOG.log(Level.INFO, "ClusterManager: initConfig() HOSTNAME: {0} PORT: {1} APPNAME: {2}", new Object[]{hostName, port, appName});
+
     }
 
     protected static ClusterManager getInstance() {
@@ -96,16 +102,10 @@ public final class ClusterManager {
     }
 
     protected ClusterManager initConfig() {
-        Integer port = JcAppConfig.getINSTANCE().getPort();
-        String hostName = JcAppConfig.getINSTANCE().getHostName();
-        String appName = JcAppConfig.getINSTANCE().getAppName();
 
         if (!running) {
-            thisDescriptor.setAppName(appName);
-            thisDescriptor.setIpPort(port);
-            thisDescriptor.setIpAddress(hostName);
+
             configDone = true;
-            LOG.log(Level.INFO, "ClusterManager: initConfig() HOSTNAME: {0} PORT: {1} APPNAME: {2}", new Object[]{hostName, port, appName});
             init();
         } else {
             LOG.log(Level.WARNING, "Cannot set JC App instance config, already running! instance ID: {0}", thisDescriptor.getInstanceId());
@@ -178,6 +178,12 @@ public final class ClusterManager {
 
             if (desc == null || desc.getIpAddress() == null || Objects.equals(desc.getIpAddress(), "null")) {
                 LOG.severe("NULL value in HZ distributed map!");
+//                try {
+//                    Thread.sleep(500);
+//                } catch (InterruptedException ex) {
+//                    Logger.getLogger(ClusterManager.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                onNewMemberJoin(appDesc);
                 continue;
             }
 
