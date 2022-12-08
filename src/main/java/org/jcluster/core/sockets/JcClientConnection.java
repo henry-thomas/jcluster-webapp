@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jcluster.core.bean.JcAppDescriptor;
+import org.jcluster.core.bean.JcAppInstanceData;
 import org.jcluster.core.bean.JcConnectionMetrics;
 import org.jcluster.core.cluster.ClusterManager;
 import org.jcluster.core.cluster.JcFactory;
@@ -30,6 +31,7 @@ public class JcClientConnection implements Runnable {
 
     private static final Logger LOG = Logger.getLogger(JcClientConnection.class.getName());
     private final ClusterManager manager = JcFactory.getManager();
+    private static int inboundConnCount = 0;
 
     private final JcAppDescriptor desc;
     private final String connId;
@@ -51,6 +53,7 @@ public class JcClientConnection implements Runnable {
     private final ConcurrentHashMap<Long, JcMessage> reqRespMap = new ConcurrentHashMap<>();
 
     public JcClientConnection(Socket sock) {
+
         this.desc = JcFactory.getManager().getThisDescriptor();
         this.connType = ConnectionType.INBOUND;
         this.socket = sock;
@@ -63,7 +66,7 @@ public class JcClientConnection implements Runnable {
             System.out.println("Number of connections reached: " + paralConnWaterMark);
         }
 
-        this.connId = desc.getAppName() + "-" + hostName + ":" + port + "-INBOUND";
+        this.connId = desc.getAppName() + "-" + hostName + ":" + port + "-INBOUND-" + (++inboundConnCount);
         metrics = new JcConnectionMetrics(this.connId);
     }
 
@@ -231,6 +234,7 @@ public class JcClientConnection implements Runnable {
             while (running) {
                 getResponse();
             }
+            JcAppInstanceData.getInstance().getOuboundConnections().remove(connId);
         } else {
             while (running) {
                 try {
@@ -246,6 +250,7 @@ public class JcClientConnection implements Runnable {
                     Logger.getLogger(JcClientConnection.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            JcAppInstanceData.getInstance().getInboundConnections().remove(connId);
         }
 
     }

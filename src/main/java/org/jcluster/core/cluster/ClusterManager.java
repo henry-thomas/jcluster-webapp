@@ -146,6 +146,7 @@ public final class ClusterManager {
 
                 JcMessage req = new JcMessage("ping", null, null);
                 JcMsgResponse resp = conn.send(req, 1000);
+                LOG.log(Level.INFO, "pinging to: {0} {1}:{2}", new Object[]{conn.getConnId()});
                 if (resp.getData() == null || !resp.getData().equals("pong")) {
                     JcAppDescriptor desc = conn.getDesc();
 
@@ -174,6 +175,11 @@ public final class ClusterManager {
 
             String id = entry.getKey();
             JcAppDescriptor desc = entry.getValue();
+
+            if (desc == null || desc.getIpAddress() == null || Objects.equals(desc.getIpAddress(), "null")) {
+                LOG.severe("NULL value in HZ distributed map!");
+                continue;
+            }
 
             String addr = "tcp://" + desc.getIpAddress() + ":" + desc.getIpPort();
 

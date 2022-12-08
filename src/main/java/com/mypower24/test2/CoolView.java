@@ -71,12 +71,11 @@ public class CoolView implements Serializable {
     }
 
     public void test() {
-//        try {
-        result = iFace.get().execBusinessMethod("", "SLV012345");
-//        } 
-//        catch (Throwable e) {
-//            LOG.info("Could not get message");
-//        }
+        try {
+            result = iFace.get().execBusinessMethod("", "SLV012345");
+        } catch (Throwable e) {
+            LOG.info("Could not get message");
+        }
     }
 
     public void stopSocket() {

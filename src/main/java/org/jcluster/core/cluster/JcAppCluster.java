@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 import org.jcluster.core.bean.JcAppDescriptor;
+import org.jcluster.core.bean.JcAppInstanceData;
 import org.jcluster.core.messages.JcMessage;
 import org.jcluster.core.proxy.JcProxyMethod;
 import org.jcluster.core.sockets.JcClientConnection;
@@ -73,7 +74,7 @@ public class JcAppCluster {
 
         String instanceId = connList.get(lastSendAppIndex).getDesc().getInstanceId();
 
-        if (lastSendAppIndex < size) {
+        if (lastSendAppIndex < size - 1) {
             lastSendAppIndex++;
         } else {
             lastSendAppIndex = 0;
