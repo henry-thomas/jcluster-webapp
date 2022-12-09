@@ -5,6 +5,7 @@
 package org.jcluster.core.cluster;
 
 import com.hazelcast.map.IMap;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -53,6 +54,11 @@ public final class ClusterManager {
     private ManagedExecutorService executorService = null;
 
     private ClusterManager() {
+        Integer port = JcAppConfig.getINSTANCE().getPort();
+        String hostName = JcAppConfig.getINSTANCE().getHostName();
+        String appName = JcAppConfig.getINSTANCE().getAppName();
+        thisDescriptor = new JcAppDescriptor(hostName, port, appName);
+
         HzController hzController = HzController.getInstance();
         appMap = hzController.getMap();
         try {
@@ -61,10 +67,6 @@ public final class ClusterManager {
         } catch (NamingException ex) {
             Logger.getLogger(ClusterManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Integer port = JcAppConfig.getINSTANCE().getPort();
-        String hostName = JcAppConfig.getINSTANCE().getHostName();
-        String appName = JcAppConfig.getINSTANCE().getAppName();
-        thisDescriptor = new JcAppDescriptor(hostName, port, appName);
         LOG.log(Level.INFO, "ClusterManager: initConfig() HOSTNAME: {0} PORT: {1} APPNAME: {2}", new Object[]{hostName, port, appName});
 
     }
@@ -127,7 +129,9 @@ public final class ClusterManager {
             //which is visible to all other apps in the Hazelcast Cluster
             appMap.put(thisDescriptor.getInstanceId(), thisDescriptor);
 
-            executorService.submit(this::initConnectionChecker);
+//            executorService.submit(this::initConnectionChecker);
+            Thread t = new Thread(this::initConnectionChecker);
+            t.start();
             running = true;
         }
     }
@@ -137,28 +141,37 @@ public final class ClusterManager {
         while (running) {
 
             Map<String, JcClientConnection> ouboundConnections = JcAppInstanceData.getInstance().getOuboundConnections();
-            for (Map.Entry<String, JcClientConnection> entry : ouboundConnections.entrySet()) {
-                JcClientConnection conn = entry.getValue();
-                long now = System.currentTimeMillis();
-                if (now - conn.getLastSuccessfulSend() < JcAppConfig.getINSTANCE().getJcLastSendMaxTimeout()) {
-                    continue;
+            synchronized (ouboundConnections) {
+
+                for (Map.Entry<String, JcClientConnection> entry : ouboundConnections.entrySet()) {
+                    JcClientConnection conn = entry.getValue();
+                    long now = System.currentTimeMillis();
+                    if (now - conn.getLastSuccessfulSend() < JcAppConfig.getINSTANCE().getJcLastSendMaxTimeout()) {
+                        continue;
+                    }
+
+                    JcMessage req = new JcMessage("ping", null, null);
+                    JcMsgResponse resp = null;
+                    try {
+                        resp = conn.send(req, 1000);
+                    } catch (IOException ex) {
+                        conn.destroy();
+                    }
+                    LOG.log(Level.INFO, "pinging to: {0} {1}:{2}", new Object[]{conn.getConnId()});
+                    if (resp == null || resp.getData() == null || !resp.getData().equals("pong")) {
+                        JcAppDescriptor desc = conn.getDesc();
+
+                        JcAppInstanceData.getInstance().getOuboundConnections().remove(conn.getConnId());
+                        JcAppInstanceData.getInstance().incrReconnectCount();
+                        conn.destroy();
+                        onMemberLeave(desc);
+                        onNewMemberJoin(desc);
+
+                        LOG.log(Level.INFO, "Reconnected to: {0} {1}:{2}", new Object[]{desc.getAppName(), desc.getIpAddress(), desc.getIpPort()});
+                    }
                 }
 
-                JcMessage req = new JcMessage("ping", null, null);
-                JcMsgResponse resp = conn.send(req, 1000);
-                LOG.log(Level.INFO, "pinging to: {0} {1}:{2}", new Object[]{conn.getConnId()});
-                if (resp.getData() == null || !resp.getData().equals("pong")) {
-                    JcAppDescriptor desc = conn.getDesc();
-
-                    JcAppInstanceData.getInstance().getOuboundConnections().remove(conn.getConnId());
-                    JcAppInstanceData.getInstance().incrReconnectCount();
-                    onMemberLeave(desc);
-                    onNewMemberJoin(desc);
-
-                    LOG.log(Level.INFO, "Reconnected to: {0} {1}:{2}", new Object[]{desc.getAppName(), desc.getIpAddress(), desc.getIpPort()});
-                }
             }
-
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException ex) {
@@ -205,9 +218,9 @@ public final class ClusterManager {
 
             //Creating an outbound connection as soon as a new member joins.
             JcClientConnection jcClientConnection = new JcClientConnection(desc);
-            executorService.submit(jcClientConnection);
-//            Thread t = new Thread(jcClientConnection);
-//            t.start();
+//            executorService.submit(jcClientConnection);
+            Thread t = new Thread(jcClientConnection);
+            t.start();
 
             JcAppInstanceData.getInstance().addOutboundConnection(jcClientConnection);
             cluster.addConnection(jcClientConnection);
@@ -244,52 +257,36 @@ public final class ClusterManager {
             throw new JcClusterNotFoundException("Cluster not found for " + proxyMethod.getAppName());
         }
 
-        if (proxyMethod.isInstanceFilter()) {
-            Map<String, JcAppDescriptor> idDescMap = getIdDescMap(cluster);
+        try {
 
-            Map<String, Integer> paramNameIdxMap = proxyMethod.getParamNameIdxMap();
+            if (proxyMethod.isInstanceFilter()) {
+                Map<String, JcAppDescriptor> idDescMap = getIdDescMap(cluster);
 
-            String sendInstanceId = getSendInstance(idDescMap, paramNameIdxMap, args);
+                Map<String, Integer> paramNameIdxMap = proxyMethod.getParamNameIdxMap();
 
-            if (sendInstanceId == null) {
-                //ex
-                throw new JcInstanceNotFoundException("Instance not found for [" + proxyMethod.getMethodSignature() + "] with params: [" + Arrays.toString(args) + "]");
+                String sendInstanceId = getSendInstance(idDescMap, paramNameIdxMap, args);
+
+                if (sendInstanceId == null) {
+                    //ex
+                    throw new JcInstanceNotFoundException("Instance not found for [" + proxyMethod.getMethodSignature() + "] with params: [" + Arrays.toString(args) + "]");
+                }
+
+                return cluster.send(proxyMethod, args, sendInstanceId);
+            } else if (proxyMethod.isBroadcast()) {
+
+                return cluster.broadcast(proxyMethod, args);
+
+            } else {
+
+                return cluster.sendWithLoadBalancing(proxyMethod, args);
+
             }
 
-            return cluster.send(proxyMethod, args, sendInstanceId);
-        } else if (proxyMethod.isBroadcast()) {
-
-            return cluster.broadcast(proxyMethod, args);
-
-        } else {
-
-            return cluster.sendWithLoadBalancing(proxyMethod, args);
+        } catch (IOException ex) {
 
         }
 
-//        if (!proxyMethod.isInstanceFilter() && !proxyMethod.isBroadcast()) {
-//
-//            return cluster.sendWithLoadBalancing(proxyMethod, args);
-//
-//        } else if (!proxyMethod.isInstanceFilter() && proxyMethod.isBroadcast()) {
-//
-//            return cluster.broadcast(proxyMethod, args);
-//
-//        } else {
-//
-//            Map<String, JcAppDescriptor> idDescMap = getIdDescMap(cluster);
-//
-//            Map<String, Integer> paramNameIdxMap = proxyMethod.getParamNameIdxMap();
-//
-//            String sendInstanceId = getSendInstance(idDescMap, paramNameIdxMap, args);
-//
-//            if (sendInstanceId == null) {
-//                //ex
-//                throw new JcInstanceNotFoundException("Instance not found for [" + proxyMethod.getMethodName() + "] with params: [" + Arrays.toString(args) + "]");
-//            }
-//
-//            return cluster.send(proxyMethod, args, sendInstanceId);
-//        }
+        return null;
     }
 
     private Map<String, JcAppDescriptor> getIdDescMap(JcAppCluster cluster) {

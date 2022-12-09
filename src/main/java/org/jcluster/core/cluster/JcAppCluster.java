@@ -4,6 +4,7 @@
  */
 package org.jcluster.core.cluster;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +44,7 @@ public class JcAppCluster {
         return remove != null;
     }
 
-    public Object send(JcProxyMethod proxyMethod, Object[] args, String sendInstanceId) {
+    public Object send(JcProxyMethod proxyMethod, Object[] args, String sendInstanceId) throws IOException {
         JcMessage msg = new JcMessage(proxyMethod.getMethodSignature(), proxyMethod.getClassName(), args);
 //        return null;
         if (!instanceMap.get(sendInstanceId).isRunning()) {
@@ -52,7 +53,7 @@ public class JcAppCluster {
         return instanceMap.get(sendInstanceId).send(msg).getData();
     }
 
-    public boolean broadcast(JcProxyMethod proxyMethod, Object[] args) {
+    public boolean broadcast(JcProxyMethod proxyMethod, Object[] args) throws IOException {
         //if broadcast to 0 instances, fail. Otherwise return true
         for (Map.Entry<String, JcClientConnection> entry : instanceMap.entrySet()) {
             String id = entry.getKey();
@@ -64,7 +65,7 @@ public class JcAppCluster {
         return true;
     }
 
-    public Object sendWithLoadBalancing(JcProxyMethod proxyMethod, Object[] args) {
+    public Object sendWithLoadBalancing(JcProxyMethod proxyMethod, Object[] args) throws IOException {
         int size = instanceMap.size();
 
         List<JcClientConnection> connList = new ArrayList<>();
