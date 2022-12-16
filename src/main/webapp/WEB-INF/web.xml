@@ -17,5 +17,8 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>com.mypower24.test2.LifecycleListener</listener-class>
+    </listener>
   
 </web-app>

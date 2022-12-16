@@ -15,6 +15,7 @@ import com.mypower24.test2.interfaces.IMoreBusinessMethods;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import org.jcluster.core.bean.JcAppInstanceData;
 import org.jcluster.core.bean.JcConnectionMetrics;
 import org.jcluster.core.cluster.JcFactory;
@@ -53,10 +54,10 @@ public class CoolView implements Serializable {
     }
 
     @Inject
-    Instance<IBusinessMethods> iFace;
+    IBusinessMethods iFace;
 
     @Inject
-    Instance<IMoreBusinessMethods> anotherIFace;
+    IMoreBusinessMethods anotherIFace;
 
     private long timeTaken = 0l;
     private String result;
@@ -72,7 +73,7 @@ public class CoolView implements Serializable {
 
     public void test() {
         try {
-            result = iFace.get().execBusinessMethod("", "SLV012345");
+            result = iFace.execBusinessMethod("", "SLV012345");
         } catch (Throwable e) {
             LOG.info("Could not get message");
         }
@@ -84,7 +85,7 @@ public class CoolView implements Serializable {
 
     public void testAnother() {
 //        result = iFace.execBusinessMethod("sad", "SLV01234");
-        result = anotherIFace.get().execAnotherBusinessMethod("Pieter").getSurname();
+        result = anotherIFace.execAnotherBusinessMethod("Pieter").getSurname();
 //        long start = System.currentTimeMillis();
 //
 //        largeDataResult = anotherIFace.get().getLargeData();
