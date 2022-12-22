@@ -1,0 +1,244 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 3: 8.10.1.2; Ref 4: 12",
+      "description": "Dynamic Reactive Current",
+      "label": "Dynamic Reactive Current"
+    },
+    "id": 128,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Activate dynamic reactive current model",
+        "id": "ModEna",
+        "label": "ModEna"
+      },
+      {
+        "notes": "",
+        "description": "Indicates if gradients trend toward zero at the edges of the deadband or trend toward zero at the center of the deadband.",
+        "id": "ArGraMod",
+        "label": "ArGraMod"
+      },
+      {
+        "notes": "",
+        "description": "The gradient used to increase capacitive dynamic current. A value of 0 indicates no additional reactive current support.",
+        "id": "ArGraSag",
+        "label": "ArGraSag"
+      },
+      {
+        "notes": "",
+        "description": "The gradient used to increase inductive dynamic current.  A value of 0 indicates no additional reactive current support.",
+        "id": "ArGraSwell",
+        "label": "ArGraSwell"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for the gradients.",
+        "id": "ArGra_SF",
+        "label": "ArGra_SF"
+      },
+      {
+        "notes": "",
+        "description": "The time window used to calculate the moving average voltage.",
+        "id": "FilTms",
+        "label": "FilTms"
+      },
+      {
+        "notes": "",
+        "description": "The lower delta voltage limit for which negative voltage deviations less than this value no dynamic vars are produced.",
+        "id": "DbVMin",
+        "label": "DbVMin"
+      },
+      {
+        "notes": "",
+        "description": "The upper delta voltage limit for which positive voltage deviations less than this value no dynamic current produced.",
+        "id": "DbVMax",
+        "label": "DbVMax"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for the voltage zone and limit settings.",
+        "id": "VRefPct_SF",
+        "label": "VRefPct_SF"
+      },
+      {
+        "notes": "",
+        "description": "Block zone voltage which defines a lower voltage boundary below which no dynamic current is produced.",
+        "id": "BlkZnV",
+        "label": "BlkZnV"
+      },
+      {
+        "notes": "",
+        "description": "Hysteresis voltage used with BlkZnV.",
+        "id": "HysBlkZnV",
+        "label": "HysBlkZnV"
+      },
+      {
+        "notes": "",
+        "description": "Block zone time the time before which reactive current support remains active regardless of how low the voltage drops.",
+        "id": "BlkZnTmms",
+        "label": "BlkZnTmms"
+      },
+      {
+        "notes": "",
+        "description": "Hold time during which reactive current support continues after the average voltage has entered the dead zone.",
+        "id": "HoldTmms",
+        "label": "HoldTmms"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 14,
+    "name": "reactive_current",
+    "block": {
+      "len": 14,
+      "type": "fixed",
+      "point": [
+        {
+          "symbol": [
+            {
+              "id": "EDGE",
+              "content": 0
+            },
+            {
+              "id": "CENTER",
+              "content": 1
+            }
+          ],
+          "access": "rw",
+          "offset": 0,
+          "len": 1,
+          "id": "ArGraMod",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "ArGra_SF",
+          "offset": 1,
+          "len": 1,
+          "id": "ArGraSag",
+          "units": "%ARtg/%dV",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "ArGra_SF",
+          "offset": 2,
+          "len": 1,
+          "id": "ArGraSwell",
+          "units": "%ARtg/%dV",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "symbol": {
+            "id": "ENABLED",
+            "content": 0
+          },
+          "access": "rw",
+          "offset": 3,
+          "len": 1,
+          "id": "ModEna",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 4,
+          "len": 1,
+          "id": "FilTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VRefPct_SF",
+          "offset": 5,
+          "len": 1,
+          "id": "DbVMin",
+          "units": "% VRef",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VRefPct_SF",
+          "offset": 6,
+          "len": 1,
+          "id": "DbVMax",
+          "units": "% VRef",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VRefPct_SF",
+          "offset": 7,
+          "len": 1,
+          "id": "BlkZnV",
+          "units": "% VRef",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VRefPct_SF",
+          "offset": 8,
+          "len": 1,
+          "id": "HysBlkZnV",
+          "units": "% VRef",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 9,
+          "len": 1,
+          "id": "BlkZnTmms",
+          "units": "mSecs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 10,
+          "len": 1,
+          "id": "HoldTmms",
+          "units": "mSecs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 11,
+          "len": 1,
+          "id": "ArGra_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 12,
+          "len": 1,
+          "id": "VRefPct_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 13,
+          "len": 1,
+          "id": "Pad",
+          "type": "pad",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 128
+  }
+}}

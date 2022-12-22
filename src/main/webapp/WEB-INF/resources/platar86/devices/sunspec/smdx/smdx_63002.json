@@ -1,0 +1,41 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {"label": "SunSpec Test Model 2"},
+    "id": 63002,
+    "locale": "en"
+  },
+  "v": 1,
+  "model": {
+    "len": 8,
+    "block": {
+      "len": 4,
+      "type": "repeating",
+      "point": [
+        {
+          "offset": 0,
+          "id": "sunssf_1",
+          "type": "sunssf"
+        },
+        {
+          "sf": "sunssf_1",
+          "access": "rw",
+          "offset": 1,
+          "id": "int16_1",
+          "type": "int16"
+        },
+        {
+          "sf": "sunssf_2",
+          "offset": 2,
+          "id": "int16_2",
+          "type": "int16"
+        },
+        {
+          "offset": 3,
+          "id": "sunssf_2",
+          "type": "sunssf"
+        }
+      ]
+    },
+    "id": 63002
+  }
+}}

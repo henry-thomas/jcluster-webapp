@@ -1,0 +1,197 @@
+body {
+    .smdui-chart-container{
+
+    }
+    .smdui-setPanel-wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .smdui-setPanel-container{
+        width: 260px;
+        border-bottom: 1px solid #d9d9d9;
+        padding: 10px 2px 1px 2px;
+        margin: 0px 12px;
+        display: flex;
+        font-size: 14px;
+        color: #666666;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .smdui-chart-settings{
+        border: 1px solid #cbcbcb;
+    }
+
+    .smdui-chart-control {
+        /*border: 1px solid;*/
+        /*height: 34px;*/
+        /*min-height: 34px;*/
+        /*width: 100%;*/
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        /*flex-direction: row-reverse;*/
+        /*margin-right: 34px;*/
+        margin-bottom: 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .smdui-chart-control .smdui-chart-controlLeft{
+        /*border: 1px solid;*/
+        /*width: 58px;*/
+    }
+    .smdui-chart-control .smdui-chart-controlRight{
+        display: flex;
+        align-items: center;
+
+        .smdui-button{
+            height: 30px;
+        }
+    }
+    .smdui-chart-control .smdui-chart-control-templateMenu{
+        /*border: 1px solid;*/
+        /*width: 300px;*/
+        min-width: 58px;
+        text-align: center;
+        /*background: #f4f4f4;*/
+        padding: 6px 10px;
+        border-radius: 3px;
+        color: #666666;
+
+        .smdui-chart-mobile{
+            margin-right: 5px;
+            padding: 6px 2px;
+        }
+
+    }
+
+    .chCtrl-datePicker .chCtrl-datePicker-control{
+        margin: auto;
+        padding: 0px 7px;
+        color: #6060a2;
+        cursor: pointer;
+
+
+    }
+
+    .chCtrl-datePicker .chCtrl-datePicker-control:hover{
+        color: #4b4bff;
+
+    }
+
+    .chCtrl-datePicker .chCtrl-datePicker-icon{
+        display: inline-block;
+        position: relative;
+        width: 25px;
+        height: 34px;
+    }
+    .chCtrl-datePicker .chCtrl-datePicker-icon i{
+        position: absolute;
+        top: 5px;
+        font-size: 24px;
+        cursor: pointer;
+        color: $primaryColor;
+    }
+    .chCtrl-datePicker .chCtrl-datePicker-icon i:hover{
+        color: #787878;
+    }
+
+
+
+    .smdui-chart-control .chCtrl-datePicker{
+        /*font-size: 18px!important;*/
+        display: flex;
+        color: #666666;
+        align-items: center;
+        /*background: #cccccc;*/
+        border-radius: 3px;
+        padding: 0px 5px 0px 5px;
+        /*                margin-top: 3px;
+                        margin-bottom: 3px;*/
+    }
+
+
+    .smdui-chart-control .chCtrl-icon-fullscreen{
+        margin-right: 42px;
+    }
+
+    .smdui-chart-container .chCtrl-icon{
+        font-size: 12px!important;
+        color: #636363;
+        background: #d9d9d9;
+        border-radius: 3px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+
+    .chart-fullscreen{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smdui-chart-container .chCtrl-icon:hover{
+        /*background: rgb(163, 163, 163)!important;*/
+        background: rgb(163, 163, 163)!important;
+        color: #434343;
+    }
+
+    .smdui-chart-control .amcharts-amexport-menu{
+        /*position: relative;*/
+        top: 2px;
+        right: -40px;
+    }
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+
+
+    .chCtrl-label {
+        font-weight: normal;
+        font-size: 14px;
+        border-radius: 3px;
+        border: none;
+        height: fit-content;
+        width: fit-content;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: #666666;
+        background-color: #f4f4f4;
+        -webkit-font-smoothing: antialiased;
+        margin: 2px;
+    }
+
+
+    .period-control{
+
+        /*        .smdui-chart-mobile{
+                    margin-right: 5px;
+                }*/
+
+        display: flex;
+        margin-right: 15px;
+        padding: 3px;
+        background: #f5f5f5;
+        height: 40px;
+        border-radius: $borderRadius;
+    }
+
+
+    .smdui-chart-legendContainer{
+        padding-top: 10px;
+    }
+    
+    .data-record-set-container{
+        display: grid;
+        grid-template-areas: "devSelect chartEnable";
+        grid-template-columns: 30% 70%;
+            
+    }
+
+}

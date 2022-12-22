@@ -1,0 +1,162 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "Include this block to allow for a proxy server",
+      "label": "Proxy Server"
+    },
+    "id": 14,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Interface name (8 chars)",
+        "id": "Nam",
+        "label": "name"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Turn off the proxy",
+            "id": "NO_PROXY",
+            "label": "No Proxy"
+          },
+          {
+            "notes": "",
+            "description": "Can proxy IPv4",
+            "id": "IPV4_PROXY",
+            "label": "IPv4 Proxy"
+          },
+          {
+            "notes": "",
+            "description": "Can proxy IPv6",
+            "id": "IPV6_PROXY",
+            "label": "IPv6 Proxy"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask value.  Proxy configuration capabilities",
+        "id": "Cap",
+        "label": "Capabilities"
+      },
+      {
+        "notes": "",
+        "description": "Enumerated value.  Set proxy address type",
+        "id": "Cfg",
+        "label": "Config"
+      },
+      {
+        "notes": "",
+        "description": "Enumerate value.  Proxy server type",
+        "id": "Typ",
+        "label": "Type"
+      },
+      {
+        "notes": "",
+        "description": "IPv4 or IPv6 proxy hostname or dotted address (40 chars)",
+        "id": "Addr",
+        "label": "Address"
+      },
+      {
+        "notes": "",
+        "description": "Proxy port number",
+        "id": "Port",
+        "label": "Port"
+      },
+      {
+        "notes": "",
+        "description": "Proxy user name",
+        "id": "User",
+        "label": "Username"
+      },
+      {
+        "notes": "",
+        "description": "Proxy password",
+        "id": "Pw",
+        "label": "Password"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 52,
+    "block": {
+      "len": 52,
+      "point": [
+        {
+          "access": "rw",
+          "offset": 0,
+          "len": 4,
+          "id": "Nam",
+          "type": "string"
+        },
+        {
+          "symbol": [
+            {
+              "id": "NO_PROXY",
+              "content": 0
+            },
+            {
+              "id": "IPV4_PROXY",
+              "content": 1
+            },
+            {
+              "id": "IPV6_PROXY",
+              "content": 2
+            }
+          ],
+          "access": "rw",
+          "offset": 4,
+          "id": "Cap",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 5,
+          "id": "Cfg",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 6,
+          "id": "Typ",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 7,
+          "len": 20,
+          "id": "Addr",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 27,
+          "id": "Port",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 28,
+          "len": 12,
+          "id": "User",
+          "type": "string"
+        },
+        {
+          "access": "rw",
+          "offset": 40,
+          "len": 12,
+          "id": "Pw",
+          "type": "string"
+        }
+      ]
+    },
+    "id": 14
+  }
+}}

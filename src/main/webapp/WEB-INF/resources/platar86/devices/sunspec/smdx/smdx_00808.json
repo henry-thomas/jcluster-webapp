@@ -1,0 +1,53 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "",
+      "label": "Flow Battery Module Model"
+    },
+    "id": 808,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "",
+        "id": "ModuleTBD",
+        "label": "Module Points To Be Determined"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "StackTBD",
+        "label": "Stack Points To Be Determined"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 2,
+    "name": "flow_battery_module",
+    "block": [
+      {
+        "len": 1,
+        "point": {
+          "offset": 0,
+          "id": "ModuleTBD",
+          "type": "uint16",
+          "mandatory": true
+        }
+      },
+      {
+        "len": 1,
+        "name": "stack",
+        "type": "repeating",
+        "point": {
+          "offset": 0,
+          "id": "StackTBD",
+          "type": "uint16",
+          "mandatory": true
+        }
+      }
+    ],
+    "id": 808
+  }
+}}

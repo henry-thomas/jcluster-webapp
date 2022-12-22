@@ -1,0 +1,111 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "All SunSpec compliant devices must include this as the first model",
+      "label": "Common"
+    },
+    "id": 1,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Well known value registered with SunSpec for compliance",
+        "id": "Mn",
+        "label": "Manufacturer"
+      },
+      {
+        "notes": "",
+        "description": "Manufacturer specific value (32 chars)",
+        "id": "Md",
+        "label": "Model"
+      },
+      {
+        "notes": "",
+        "description": "Manufacturer specific value (16 chars)",
+        "id": "Opt",
+        "label": "Options"
+      },
+      {
+        "notes": "",
+        "description": "Manufacturer specific value (16 chars)",
+        "id": "Vr",
+        "label": "Version"
+      },
+      {
+        "notes": "",
+        "description": "Manufacturer specific value (32 chars)",
+        "id": "SN",
+        "label": "Serial Number"
+      },
+      {
+        "notes": "",
+        "description": "Modbus device address",
+        "id": "DA",
+        "label": "Device Address"
+      },
+      {
+        "notes": "",
+        "description": "Force even alignment",
+        "id": "Pad",
+        "label": ""
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 66,
+    "name": "common",
+    "block": {
+      "len": 66,
+      "point": [
+        {
+          "offset": 0,
+          "len": 16,
+          "id": "Mn",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 16,
+          "len": 16,
+          "id": "Md",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 32,
+          "len": 8,
+          "id": "Opt",
+          "type": "string"
+        },
+        {
+          "offset": 40,
+          "len": 8,
+          "id": "Vr",
+          "type": "string"
+        },
+        {
+          "offset": 48,
+          "len": 16,
+          "id": "SN",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 64,
+          "id": "DA",
+          "type": "uint16"
+        },
+        {
+          "access": "r",
+          "offset": 65,
+          "id": "Pad",
+          "type": "pad"
+        }
+      ]
+    },
+    "id": 1
+  }
+}}

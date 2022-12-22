@@ -17,8 +17,25 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>ultima-#{guestPreferences.theme}</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/primefaces-ultima.taglib.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.UPLOADER</param-name>
+        <param-value>native</param-value>
+    </context-param>
+    
     <listener>
-        <listener-class>com.mypower24.test2.LifecycleListener</listener-class>
+        <listener-class>org.jcluster.webTest.LifecycleListener</listener-class>
     </listener>
-  
 </web-app>

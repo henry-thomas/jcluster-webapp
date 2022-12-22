@@ -1,0 +1,117 @@
+/* Copyright (C) Solar MD (Pty) ltd - All Rights Reserved
+
+ Unauthorized copying of this file, via any medium is strictly prohibited
+ Proprietary and confidential
+ 
+ Written by Nathan, 2022
+ 
+ For more information http://www.solarmd.co.za/ 
+ email: info@solarmd.co.za
+ 7 Alternator Ave, Montague Gardens, Cape Town, 7441 South Africa
+ Phone: 021 555 2181
+ 
+*/ 
+/* 
+    Created on : 15 Feb 2022, 12:07:32
+    Author     : Nathan
+*/
+
+
+.smdui-trree-itemChildCont {
+
+    transition: max-height 0.5s ease-out;
+    max-height: 100px;
+}
+
+.smdui-tree-childcontainer-collapse {
+    /* display: none; */
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+    visibility: hidden;
+
+}
+
+.smdui-tree-select-Fully-selected {
+    background-color: rgb(60, 155, 60);
+    border-radius: 2px;
+    margin-top: 3px;
+    margin-right: 5px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(224, 239, 241);
+
+}
+
+.smdui-tree-select-Fully-selected::before {
+
+    content: "✓";
+}
+
+.smdui-tree-select-non-selected {
+    border-radius: 2px;
+    margin-top: 3px;
+    margin-right: 5px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    width: 13px;
+    height: 13px;
+    background-color: white;
+}
+.smdui-tree-select-non-selected:hover {
+    background-color: rgba(236, 160, 18, 0.2);
+}
+
+.smdui-tree-select-partially-selected {
+    margin-top: 3px;
+    margin-right: 5px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    background-image: linear-gradient(
+        to top,
+        rgb(60, 155, 60, 0.5),
+        rgb(60, 155, 60, 0.7))
+        /* background-color: rgb(60, 155, 60); */
+}
+
+
+.smdui-trree-item {
+    margin-left: 40px;
+}
+
+.rowHilight {
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    /* background-color: rgba(28, 122, 184, 0.2); */
+    background-image: linear-gradient(
+        to top,
+        rgba(28, 122, 184, 0.2),
+        rgba(28, 122, 184, 0.1)
+        );
+}
+
+.rowHilightOff {
+    background-color: rgba(28, 122, 184, 0);
+}
+
+.row {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+}
+
+.row:hover {
+    transition: all 0.4s ease;
+    border-radius: 2px;
+    background-color: rgba(28, 122, 184, 0.1);
+}
+

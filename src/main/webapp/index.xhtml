@@ -8,6 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
       lang="en">
     <h:head>
         <title>J-Cluster Test</title>
@@ -18,43 +19,108 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputScript name="js/layout.js" library="ultima-layout"/>
+        <h:outputScript name="js/prism.js" library="ultima-layout"/>
+        <h:outputScript name="js/ripple.js" library="ultima-layout"/>
+
+
+        <h:outputStylesheet name="css/tempDev.css" library="platar86" />
+
+        <h:outputStylesheet name="css/primeicons.css" library="ultima-layout"/>
+        <h:outputStylesheet name="css/primeflex.min.css" library="ultima-layout"/>
+        <h:outputStylesheet name="css/ripple.css" library="ultima-layout" rendered="#{guestPreferences.ripple}"/>
+        <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="ultima-layout"/>
     </h:head>
     <h:body>
-        <div>J-Cluster Test View</div>
+        <h1>J-Cluster Test View Current Instance ID: #{coolView.appDescriptor.instanceId}</h1>
         <h:form>
-            <h:commandButton value="test" action="#{coolView.test()}"/>
-            <h:commandButton value="getSurname" action="#{coolView.testAnother()}"/>
-            <h:commandButton value="stopSocket" action="#{coolView.stopSocket()}"/>
-            Result: <h:outputLabel value="#{coolView.result}"></h:outputLabel>
+            <p:poll autoStart="true" interval="1" update=" outboundTable inboundTable"/>
 
 
-            <h:dataTable value="#{coolView.allMetrics}" var="metric">
-                <h:column>
-                    <f:facet name="header">Conn ID</f:facet>
-                        #{metric.connId}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Rx Count</f:facet>
-                        #{metric.rxCount}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Tx Count</f:facet>
-                        #{metric.txCount}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Err Count</f:facet>
-                        #{metric.errCount}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Timeout Count</f:facet>
-                        #{metric.timeoutCount}
-                </h:column>
-            </h:dataTable>
+            <h3>Inbound connections</h3>
+            <p:dataTable id="inboundTable" 
+                         value="#{coolView.inboundMetrics}"
+                         var="metric"
+                         emptyMessage="No inbound connections found." 
+                         widgetVar="inboundTableWg"
+                         reflow="true"
+                         multiViewState="true"
+                         >
+                <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="App Name:">
+                    <span>#{metric.appName}</span>
+                </p:column>
+                <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
+                    <span>#{metric.instanceId}</span>
+                </p:column>
+                <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
+                    <span>#{metric.ipAddress}</span>
+                </p:column>
+                <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
+                    <span>#{metric.rxCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
+                    <span>#{metric.txCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
+                    <span>#{metric.errCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
+                    <span>#{metric.timeoutCount}</span>
+                </p:column>
+            </p:dataTable>
+
+
             <br/>
+            <h3>Outbound connections</h3>
+            <p:dataTable id="outboundTable" 
+                         value="#{coolView.outboundMetrics}"
+                         var="metric"
+                         emptyMessage="No inbound connections found." 
+                         widgetVar="outboundTableWg"
+                         reflow="true"
+                         multiViewState="true"
+                         >
+                <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="App Name:">
+                    <span>#{metric.appName}</span>
+                </p:column>
+                <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
+                    <span>#{metric.instanceId}</span>
+                </p:column>
+                <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
+                    <span>#{metric.ipAddress}</span>
+                </p:column>
+                <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
+                    <span>#{metric.rxCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
+                    <span>#{metric.txCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
+                    <span>#{metric.errCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
+                    <span>#{metric.timeoutCount}</span>
+                </p:column>
+            </p:dataTable>
 
-            Conn Reset Count: <h:outputLabel value="#{coolView.appData.totalReconnects}"></h:outputLabel><br/>
-            Total Outbound Conn Count: <h:outputLabel value="#{coolView.appData.totalOutboundConnections}"></h:outputLabel><br/>
-            Total Inbound Conn Count: <h:outputLabel value="#{coolView.appData.totalInboundConnections}"></h:outputLabel><br/>
+            <p:outputLabel style="font-size: x-large" id="outputMsg" value="Result: #{coolView.result}"></p:outputLabel>
+
+            <div style="margin-top: 10px; font-size: large; text-align: center">
+                <p:commandButton value="TestFilter and return" update="outputMsg outboundTable inboundTable" actionListener="#{coolView.testFilterAndReturn()}"/>
+                <p:commandButton value="Test No Return" update="outputMsg outboundTable inboundTable" actionListener="#{coolView.testNoReturn()}"/>
+            </div>
+
+            <div style="margin-top: 10px; font-size: large; text-align: center">
+                <p:inputNumber id="delay_ms" value="#{coolView.delay_ms}"/>
+                <p:commandButton value="Test Delay Return" update="delay_ms outputMsg outboundTable inboundTable" actionListener="#{coolView.testDelayReturn()}"/>
+            </div>
+
+
+            <div style="margin-top: 10px; font-size: large; text-align: center">
+                <p:outputLabel value="Conn Reset Count:  #{coolView.appData.totalReconnects}"></p:outputLabel><br/>
+                <p:outputLabel value="Total Outbound Conn Count: #{coolView.appData.totalOutboundConnections}"></p:outputLabel><br/>
+                <p:outputLabel value="Total Inbound Conn Count: #{coolView.appData.totalInboundConnections}"></p:outputLabel><br/>
+            </div>
 
         </h:form>
     </h:body>

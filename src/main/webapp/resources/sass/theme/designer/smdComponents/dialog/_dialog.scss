@@ -1,0 +1,61 @@
+body {
+    .smdui-dialog {
+        position: fixed;
+        padding: 0;
+        box-shadow: $overlayContainerShadow;
+        border: $overlayContentBorder;
+        border-radius: $borderRadius;
+
+        .smdui-dialog-titlebar {
+            background: $primaryColor;
+            color: $dialogHeaderTextColor;
+            font-weight: $dialogHeaderFontWeight;
+            border-bottom: $dialogHeaderBorder;
+            padding: .15em 0em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .smdui-dialog-title {
+                margin: 0;
+                float: none;
+                font-size: $dialogHeaderFontSize;
+            }
+
+            .smdui-dialog-titlebar-icon {
+                border: 0 none;
+                padding: 0;
+                @include action-icon();
+
+                
+            }
+            .smdui-dialog-titlebar-icon:hover {
+                cursor: pointer;
+            }
+                
+                
+        }
+
+        .smdui-dialog-content {
+            background: $dialogContentBg;
+            color: $dialogContentTextColor;
+            border: $dialogContentBorder;
+            padding: 10px 10px 5px 10px;
+            border: $dialogContentBorder;
+        }
+
+        .smdui-dialog-footer {
+            border-top: $dialogContentBg;
+            background: $dialogFooterBg;
+            color: $dialogFooterTextColor;
+            padding: 5px;
+            margin: 0;
+            text-align: right;
+
+            button {
+                margin: 0 $inlineSpacing 0 0;
+                width: auto;
+            }
+        }
+    }
+}

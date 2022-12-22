@@ -1,0 +1,158 @@
+/*
+Copyright (C) 2019 platar86
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+/* 
+    Created on : Mar 2, 2019, 10:01:07 AM
+    Author     : platar86
+*/
+/*
+
++--------------------------------+-------------+-------------+
+|     ss_appleApple Products     |             |             |
++--------------------------------+-------------+-------------+
+| Pixel Size                     | Viewport    |             |
+| iPhone                         |             |             |
+| iPhone XR                      | 828 x 1792  | 414 x 896   |
+| iPhone XS                      | 1125 x 2436 | 375 x 812   |
+| iPhone XS Max                  | 1242 x 2688 | 414 x 896   |
+| iPhone X                       | 1125 x 2436 | 375 x 812   |
+| iPhone 8 Plus                  | 1080 x 1920 | 414 x 736   |
+| iPhone 8                       | 750 x 1334  | 375 x 667   |
+| iPhone 7 Plus                  | 1080 x 1920 | 414 x 736   |
+| iPhone 7                       | 750 x 1334  | 375 x 667   |
+| iPhone 6 Plus/6S Plus          | 1080 x 1920 | 414 x 736   |
+| iPhone 6/6S                    | 750 x 1334  | 375 x 667   |
+| iPhone 5                       | 640 x 1136  | 320 x 568   |
+| iPod                           |             |             |
+| iPod Touch                     | 640 x 1136  | 320 x 568   |
+| iPad                           |             |             |
+| iPad Pro                       | 2048 x 2732 | 1024 x 1366 |
+| iPad Third & Fourth Generation | 1536 x 2048 | 768 x 1024  |
+| iPad Air 1 & 2                 | 1536 x 2048 | 768 x 1024  |
+| iPad Mini 2 & 3                | 1536 x 2048 | 768 x 1024  |
+| iPad Mini                      | 768 x 1024  | 768 x 1024  |
+|                                |             |             |
+| ss_androidAndroid Devices      |             |             |
+| Pixel Size                     | Viewport    |             |
+| Phones                         |             |             |
+| Nexus 6P                       | 1440 x 2560 | 412 x 732   |
+| Nexus 5X                       | 1080 x 1920 | 412 x 732   |
+| Google Pixel 3 XL              | 1440 x 2960 | 412 x 847   |
+| Google Pixel 3                 | 1080 x 2160 | 412 x 824   |
+| Google Pixel 2 XL              | 1440 x 2560 | 412 x 732   |
+| Google Pixel XL                | 1440 x 2560 | 412 x 732   |
+| Google Pixel                   | 1080 x 1920 | 412 x 732   |
+| Samsung Galaxy Note 9          | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy Note 5          | 1440 x 2560 | 480 x 853   |
+| LG G5                          | 1440 x 2560 | 480 x 853   |
+| One Plus 3                     | 1080 x 1920 | 480 x 853   |
+| Samsung Galaxy S9+             | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S9              | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S8+             | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S8              | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S7 Edge         | 1440 x 2560 | 360 x 640   |
+| Samsung Galaxy S7              | 1440 x 2560 | 360 x 640   |
+| Tablets                        |             |             |
+| Nexus 9                        | 1536 x 2048 | 768 x 1024  |
+| Nexus 7 (2013)                 | 1200 x 1920 | 600 x 960   |
+| Samsung Galaxy Tab 10          | 800 x 1280  | 800 x 1280  |
+| Chromebook Pixel               | 2560 x 1700 | 1280 x 850  |
++--------------------------------+-------------+-------------+*/
+
+
+
+.chartWrapper{
+    position: relative;
+}
+.chartWrapper .graphComp{
+    position: absolute;
+    top: 0px;
+    right: 60px;
+    width: 200px;   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.chartWrapper .graphComp a:nth-child(3){
+    margin: auto;
+    padding-top: 6px;
+    transform: scale(1.2);
+}
+.chartWrapper .graphComp span:nth-child(1){
+    padding-right: 5px;
+}
+.chartWrapper .graphFilters{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "callMain scroll" "compCal compCal";
+}
+.chartWrapper .comparatorContainer{
+    grid-area: compCal;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.userRoleTextArea{
+    resize: horizontal;
+    width: 100%;
+}
+
+.chartComparisonArea {
+    width: 100%; 
+    height: 59vh; 
+    background-color: #FFFFFF;
+}
+
+.calendarContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.calendarContainer.next {
+    padding-top: 10px;
+}
+
+.comparatorLabel {
+    padding-top: 6px;
+}
+
+.comparatorDataPicker {
+    margin-left: -50px;
+    opacity: 0;
+    width: 46px;
+    z-index: 200;
+}
+
+.comparatorIcon {
+    font-size: x-large;
+    color: #212121;
+    cursor: pointer;
+    padding-left: 12px;
+}
+
+.comparatorIcon:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .chartWrapper .graphFilters{
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "callMain" "scroll" "compCal";
+    }
+}

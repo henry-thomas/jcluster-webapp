@@ -1,0 +1,183 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 3: 8.7.5.1; Ref 4: 6",
+      "description": "Pricing Signal",
+      "label": "Pricing"
+    },
+    "id": 125,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Is price-based charge/discharge mode active?",
+        "id": "ModEna",
+        "label": "ModEna"
+      },
+      {
+        "symbol": [
+          {
+            "description": "Signal type is unknown or other type of  value",
+            "id": "UNKNOWN"
+          },
+          {
+            "description": "Signal is an absolute price value in local rate. E.g. 23 (cents/kWh)",
+            "id": "ABSOLUTE"
+          },
+          {
+            "description": "Signal is a relative price in local rate. E.g. -5 (cents/kWh)",
+            "id": "RELATIVE"
+          },
+          {
+            "description": "Signal is a price multiplier (percentage).  E.g. 15 % uplift in the rate",
+            "id": "MULTIPLIER"
+          },
+          {
+            "description": "Signal is a price level.  E.g. 0=lowest 1=low 2=normal 3=high 4=highest",
+            "id": "LEVEL"
+          }
+        ],
+        "notes": "",
+        "description": "Meaning of the pricing signal. When a Price schedule is used, type must match the schedule range variable description.",
+        "id": "SigType",
+        "label": "SigType"
+      },
+      {
+        "notes": "",
+        "description": "Utility/ESP specific pricing signal. Content depends on pricing signal type. When H/M/L type is specified. Low=0; Med=1; High=2.",
+        "id": "Sig",
+        "label": "Sig"
+      },
+      {
+        "notes": "",
+        "description": "Pricing signal scale factor.",
+        "id": "Sig_SF",
+        "label": "Sig_SF"
+      },
+      {
+        "notes": "",
+        "description": "Time window for charge/discharge pricing change.",
+        "id": "WinTms",
+        "label": "WinTms"
+      },
+      {
+        "notes": "",
+        "description": "Timeout period for charge/discharge pricing change.",
+        "id": "RvtTms",
+        "label": "RvtTms"
+      },
+      {
+        "notes": "",
+        "description": "Ramp time for moving from current charge or discharge level to new level.",
+        "id": "RmpTms",
+        "label": "RmpTms"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 8,
+    "name": "pricing",
+    "block": {
+      "len": 8,
+      "type": "fixed",
+      "point": [
+        {
+          "symbol": {
+            "id": "ENABLE",
+            "content": 0
+          },
+          "access": "rw",
+          "offset": 0,
+          "len": 1,
+          "id": "ModEna",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "UNKNOWN",
+              "content": 0
+            },
+            {
+              "id": "ABSOLUTE",
+              "content": 1
+            },
+            {
+              "id": "RELATIVE",
+              "content": 2
+            },
+            {
+              "id": "MULTIPLIER",
+              "content": 3
+            },
+            {
+              "id": "LEVEL",
+              "content": 4
+            }
+          ],
+          "access": "rw",
+          "offset": 1,
+          "len": 1,
+          "id": "SigType",
+          "type": "enum16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Sig_SF",
+          "offset": 2,
+          "len": 1,
+          "id": "Sig",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 3,
+          "len": 1,
+          "id": "WinTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 4,
+          "len": 1,
+          "id": "RvtTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 5,
+          "len": 1,
+          "id": "RmpTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 6,
+          "len": 1,
+          "id": "Sig_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 7,
+          "len": 1,
+          "id": "Pad",
+          "type": "pad",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 125
+  }
+}}

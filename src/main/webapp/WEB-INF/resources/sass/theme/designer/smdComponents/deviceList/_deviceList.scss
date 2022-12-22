@@ -1,0 +1,138 @@
+body {
+    .devListWrapper{
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+
+        .card{
+            margin: 5px;
+            margin-bottom: 5px!important;
+        }
+    }
+
+    .devGroupDiv{
+        display: grid;
+        grid-template-columns: 100px auto;
+        height: 100%;
+        position: relative;
+
+        .devListTypeIcon{
+            display: grid;
+            grid-template-rows: 5fr 1fr;
+
+            img{
+                max-width: 80px;
+                max-height: 80px;
+                margin: auto;
+                display: block;
+            }
+
+            label{
+                padding-top: 18px;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .deviceListPanel{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: right;
+            margin-left: 10px;
+
+            .deviceModelCard{
+                display: grid;
+                grid-template: 1fr 1fr 4fr 0.5fr /1fr 1fr 1fr;
+
+                animation-duration: 1s;
+                animation-fill-mode: both;
+
+
+                height: auto;
+                width: 168px;
+                margin: 6px 6px;
+                background: rgba(0, 0, 0, .04);
+                min-height: 160px;
+                border: $panelContentBorder;
+                border-radius: $borderRadius;
+
+                &:hover{
+                    -webkit-box-shadow:  0px 0px 20px 7px $highlightBg;
+                    -moz-box-shadow:  0px 0px 20px 7px $highlightBg;
+                    box-shadow: 0px 0px 5px 7px $highlightBg;
+                    cursor: pointer;
+                }
+
+
+                .devTopIcon{
+                    display: flex; 
+                    justify-content: flex-start;
+                    justify-self: center;
+
+                    i{
+                        align-self: center;
+                        margin-top: 2px;
+                        font-size: 24px;
+                        color:#9c9c9c;
+                    }
+                    span{
+                        align-self: center;
+                        font-size: 18px;
+                        color:#9c9c9c;
+                    }
+
+                }
+                .devModelName{
+                    grid-column: 1/4;
+                    color: #505050;
+                    font-size: medium;
+                    text-align: center;
+                }
+
+                .devModelNameImg{
+                    grid-column: 1/4;
+                    max-width: 150px;
+                    max-height: 150px;
+                    margin: auto;
+                }
+                .devModelManufacturer{
+                    grid-column: 1/4;
+                    color: #828282;
+                    font-size: small;
+                    text-align: center;
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 780px) {
+        .devListWrapper .card{
+            width: 100%;
+        }
+        .devGroupDiv{
+            display: flex;
+
+        }
+        .devGroupDiv .devListTypeIcon {
+            display: block;
+            position: absolute;
+            right: 24px;
+            opacity: 0.2;
+        }
+        .devGroupDiv .deviceListPanel {
+            z-index: 50;
+        }
+        .devGroupDiv .devListTypeIcon img {
+            max-width: 64px;
+            max-height: 64px;
+            float: right;
+        }
+        .devGroupDiv .devListTypeIcon label {
+            display: block;
+            font-size: 10px;
+            text-align: right;
+        }
+    }
+
+}

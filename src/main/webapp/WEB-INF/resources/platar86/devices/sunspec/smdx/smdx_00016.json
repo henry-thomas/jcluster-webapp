@@ -1,0 +1,259 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "Include this model for a simple IPv4 network stack",
+      "label": "Simple IP Network"
+    },
+    "id": 16,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Interface name.  (8 chars)",
+        "id": "Nam",
+        "label": "Name"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "A static IP address is assigned",
+            "id": "STATIC",
+            "label": "static"
+          },
+          {
+            "notes": "",
+            "description": "Use DHCP to acquire an IP address",
+            "id": "DHCP",
+            "label": "DHCP"
+          }
+        ],
+        "notes": "",
+        "description": "Enumerated value.  Force IPv4 configuration method",
+        "id": "Cfg",
+        "label": "Config"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Enable DNS use",
+            "id": "ENABLE_DNS",
+            "label": "DNS"
+          },
+          {
+            "notes": "",
+            "description": "Enable NTP use",
+            "id": "ENABLE_NTP",
+            "label": "NTP"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask value Configure use of services",
+        "id": "Ctl",
+        "label": "Control"
+      },
+      {
+        "notes": "",
+        "description": "IP address",
+        "id": "Addr",
+        "label": "Address"
+      },
+      {
+        "notes": "",
+        "description": "Netmask",
+        "id": "Msk",
+        "label": "Netmask"
+      },
+      {
+        "notes": "",
+        "description": "Gateway IP address",
+        "id": "Gw",
+        "label": "Gateway"
+      },
+      {
+        "notes": "",
+        "description": "32 bit IP address of DNS server",
+        "id": "DNS1",
+        "label": "DNS1"
+      },
+      {
+        "notes": "",
+        "description": "32 bit IP address of DNS server",
+        "id": "DNS2",
+        "label": "DNS2"
+      },
+      {
+        "notes": "",
+        "description": "IEEE MAC address of this interface",
+        "id": "MAC",
+        "label": "MAC"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Enable auto-negotiation",
+            "id": "AUTONEGOTIATE",
+            "label": "auto-negotiate"
+          },
+          {
+            "notes": "",
+            "description": "Force full duplex operation",
+            "id": "FULL_DUPLEX",
+            "label": "full duplex"
+          },
+          {
+            "notes": "",
+            "description": "Force 10 Mb/s link speed",
+            "id": "FORCE_10MB",
+            "label": "10Mbs"
+          },
+          {
+            "notes": "",
+            "description": "Force 100 Mb/s link speed",
+            "id": "FORCE_100MB",
+            "label": "100Mbs"
+          },
+          {
+            "notes": "",
+            "description": "Force 1 Gb/s link speed",
+            "id": "FORCE_1GB",
+            "label": "1Gbs"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask value.  Link control flags",
+        "id": "LnkCtl",
+        "label": "Link Control"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 52,
+    "block": {
+      "len": 52,
+      "point": [
+        {
+          "access": "rw",
+          "offset": 0,
+          "len": 4,
+          "id": "Nam",
+          "type": "string"
+        },
+        {
+          "symbol": [
+            {
+              "id": "STATIC",
+              "content": 0
+            },
+            {
+              "id": "DHCP",
+              "content": 1
+            }
+          ],
+          "offset": 4,
+          "id": "Cfg",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "ENABLE_DNS",
+              "content": 0
+            },
+            {
+              "id": "ENABLE_NTP",
+              "content": 1
+            }
+          ],
+          "access": "rw",
+          "offset": 5,
+          "id": "Ctl",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 6,
+          "len": 8,
+          "id": "Addr",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 14,
+          "len": 8,
+          "id": "Msk",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 22,
+          "len": 8,
+          "id": "Gw",
+          "type": "string"
+        },
+        {
+          "access": "rw",
+          "offset": 30,
+          "len": 8,
+          "id": "DNS1",
+          "type": "string"
+        },
+        {
+          "access": "rw",
+          "offset": 38,
+          "len": 8,
+          "id": "DNS2",
+          "type": "string"
+        },
+        {
+          "access": "r",
+          "offset": 46,
+          "id": "MAC",
+          "type": "uint64"
+        },
+        {
+          "symbol": [
+            {
+              "id": "AUTONEGOTIATE",
+              "content": 0
+            },
+            {
+              "id": "FULL_DUPLEX",
+              "content": 1
+            },
+            {
+              "id": "FORCE_10MB",
+              "content": 2
+            },
+            {
+              "id": "FORCE_100MB",
+              "content": 3
+            },
+            {
+              "id": "FORCE_1GB",
+              "content": 3
+            }
+          ],
+          "access": "rw",
+          "offset": 50,
+          "id": "LnkCtl",
+          "type": "bitfield16"
+        },
+        {
+          "offset": 51,
+          "id": "Pad",
+          "type": "pad"
+        }
+      ]
+    },
+    "id": 16
+  }
+}}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="53.681801mm"
+   height="45.855053mm"
+   viewBox="0 0 53.681801 45.855053"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="batProg.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.75633418"
+     inkscape:cx="19.17142"
+     inkscape:cy="59.49751"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <polygon
+       id="path-1"
+       points="24.5,28.571 0.47771,28.571 0.47771,0.10143 24.5,0.10143 " />
+    <mask
+       id="mask-2-9"
+       fill="#ffffff">
+      <use
+         width="100%"
+         height="100%"
+         xlink:href="#path-1"
+         id="use827"
+         x="0"
+         y="0" />
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-100.14497,-133.09367)">
+    <g
+       id="sgscBatteries"
+       transform="matrix(0.19736858,0,0,0.19751675,85.745485,146.80391)">
+      <g
+         stroke-width="0.094526"
+         id="g1338"
+         transform="matrix(31.061432,0,0,31.061432,-6281.3755,-1402.8446)">
+        <path
+           d="m 211.44,47.067 c 0,0.10171 -0.20265,0.18404 -0.45347,0.18404 h -4.0531 c -0.25035,0 -0.453,-0.08243 -0.453,-0.18404 v -3.6086 c 0,-0.10162 0.20265,-0.18385 0.453,-0.18385 h 4.0531 c 0.25082,0 0.45347,0.08233 0.45347,0.18385 z"
+           fill="#a57700"
+           id="path1330" />
+        <path
+           d="m 210.36,45.082 c 0,0.05757 -0.11493,0.10426 -0.25686,0.10426 h -2.3013 c -0.14262,0 -0.25709,-0.0467 -0.25709,-0.10426 v -2.0487 c 0,-0.05747 0.11447,-0.10445 0.25709,-0.10445 h 2.3013 c 0.14169,0 0.25686,0.04707 0.25686,0.10445 z"
+           fill="#a57700"
+           id="path1332" />
+        <path
+           d="m 213.15,50.016 c 0,0.17223 -0.34319,0.31156 -0.76663,0.31156 h -6.8576 c -0.42345,0 -0.7671,-0.13942 -0.7671,-0.31156 v -6.1059 c 0,-0.17213 0.34365,-0.31156 0.7671,-0.31156 h 6.8578 c 0.42346,0 0.76663,0.13952 0.76663,0.31156 v 6.1059 z"
+           fill="#ffffff"
+           id="path1334" />
+        <path
+           d="m 212.38,50.403 h -6.8576 c -0.52397,0 -0.94932,-0.17308 -0.94932,-0.38566 v -6.1059 c 0,-0.21268 0.42531,-0.38548 0.94932,-0.38548 h 6.8578 c 0.52256,0 0.94932,0.17289 0.94932,0.38548 v 6.1059 c 0,0.21259 -0.42671,0.38566 -0.94951,0.38566 z m -6.8576,-6.729 c -0.32271,0 -0.58492,0.10653 -0.58492,0.23754 v 6.1059 c 0,0.13092 0.26221,0.23754 0.58492,0.23754 h 6.8578 c 0.32224,0 0.58492,-0.10662 0.58492,-0.23754 v -6.1059 c 0,-0.13101 -0.26267,-0.23754 -0.58492,-0.23754 z"
+           fill="#a57700"
+           id="path1336" />
+      </g>
+      <path
+         id="batCap"
+         d="m 101.43819,152.49452 c -6.061327,0 -10.974334,-10.74788 -10.974334,-23.90302 V -8.0228907 c 0,-13.2309233 4.912706,-23.9601633 10.974334,-23.9601633 h 215.04449 c 6.04461,0 10.97434,10.72893 10.97434,23.9601633 V 128.5915 c 0,13.15514 -4.92973,23.90302 -10.97434,23.90302 z"
+         fill="#e7b018"
+         stroke-width="3.30773" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:609.114;stroke-linejoin:round"
+         id="rect2375"
+         width="183.89032"
+         height="63.317085"
+         x="117.01528"
+         y="15.2017"
+         ry="31.658543" />
+    </g>
+  </g>
+  <style
+     id="style1566" />
+</svg>

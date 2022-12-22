@@ -1,0 +1,48 @@
+div {
+    width: max-content;
+    max-width: 120px;
+    font-weight: lighter;
+    background-color: #fff;
+    color: black;
+    position: absolute;
+    /* top: 0.25rem; */
+    z-index: -1;
+    padding: 0.15rem;
+    border-radius: 3px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.26);
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition: all 150ms ease-in;
+    pointer-events: none;
+}
+
+.open {
+    z-index: 10;
+    opacity: 0.8;
+    transform: translateY(-100%);
+}
+
+:host {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+:host-context(p) {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.icon {
+    background: black;
+    color: white;
+    padding: 0.15rem 0.5rem;
+    text-align: center;
+    border-radius: 50%;
+}
+
+slot {
+    display: flex;
+    justify-content: center;
+}

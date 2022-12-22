@@ -1,0 +1,106 @@
+body {
+    .smdui-dropdown-wraper{
+        /*border: $inputBorder;*/
+        vertical-align: baseline;
+        position: relative;
+        transform: none;
+        transition: $transition;
+        border-radius: $borderRadius;
+        /*background: $inputBg;*/
+
+        .smdui-dropdown-label{
+            padding-top: 0px;
+            padding-bottom: 0px;
+/*            border: none;
+            border-radius: 0px;*/
+            /*background: transparent;*/
+            /*padding-right: $buttonIconOnlyWidth;*/
+            min-height: calc(2rem + 3px);
+            cursor: pointer;
+            height: 100%;
+            @include flex();
+            @include flex-align-center();
+            @include flex-justify-center();
+            background: transparent;
+            .ui-icon {
+                position: static;
+                margin: 0;
+                margin-left: 15px;
+                color: $inputIconColor;
+                pointer-events: none;
+                @include icon_override("\e902");
+            }
+        }
+        .smdui-dropdown-label:hover, .smdui-dropdown-label:focus {
+            background: $inputListItemHoverBg
+        }
+        .smdui-dropdown-content{
+            background: $inputListBg;
+            border: $inputOverlayBorder;
+            box-shadow: $inputOverlayShadow;
+            border-radius: $borderRadius;
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 100px;
+            overflow: auto;
+            z-index: 1001;
+        }
+        .smdui-dropdown-content span{
+            margin: $inputListItemMargin;
+            padding: $inputListItemPadding;
+            background: $inputListItemBg;
+            color: $inputListItemTextColor;
+            outline: 0 none;
+            border-radius: $inputListItemBorderRadius;
+            transition: $transition;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+        .smdui-dropdown-content span:hover{
+            background: $inputListItemHoverBg;
+            color: $inputListItemTextHoverColor;
+        }
+        /*        .smdui-dropdown-screenFilter{
+                    width: 100%;
+                    display: none;
+                    height: 100%;
+                    position: absolute;
+                    z-index: 1000;
+                    top: 0px;
+                    left: 0px;
+                }*/
+    }
+
+
+}
+/* .smdui-dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+        .smdui-dropdown-content span{
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+        .smdui-dropdown-content span:hover{
+            background-color: #ddd;
+        }
+        .smdui-dropdown-screenFilter{
+            width: 100%;
+            display: none;
+            height: 100%;
+            position: absolute;
+            z-index: 1000;
+            top: 0px;
+            left: 0px;
+        }*/

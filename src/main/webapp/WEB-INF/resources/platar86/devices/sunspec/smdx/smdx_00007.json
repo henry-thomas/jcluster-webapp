@@ -1,0 +1,270 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Used in conjunction with a Secure Write Request",
+      "description": "Include a digital signature over the response",
+      "label": "Secure Write Response Model (DRAFT 1)"
+    },
+    "id": 7,
+    "locale": "en",
+    "point": [
+      {
+        "symbol": [
+          {
+            "notes": "For test purposes only",
+            "description": "No digital signature",
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "notes": "",
+            "description": "64 bit AES signature algorithm is used",
+            "id": "AES-GMAC-64",
+            "label": "AES-GMAC-64"
+          },
+          {
+            "notes": "",
+            "description": "256 bit ECC signature algorithm is used",
+            "id": "ECC-256",
+            "label": "ECC-256"
+          }
+        ],
+        "notes": "For future proof",
+        "description": "Algorithm used to compute the digital signature",
+        "id": "Alg",
+        "label": "Algorithm"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Operation succeeded",
+            "id": "SUCCESS",
+            "label": "SUCCESS"
+          },
+          {
+            "notes": "The signature was not valid",
+            "description": "Operation failed digital signature check",
+            "id": "DS",
+            "label": "DS"
+          },
+          {
+            "notes": "One or more registers were not writable by this role",
+            "description": "Operation failed access control check",
+            "id": "ACL",
+            "label": "ACL"
+          },
+          {
+            "notes": "Offset out of range or missing from multi-register value",
+            "description": "Operation failed offset check",
+            "id": "OFF",
+            "label": "OFF"
+          },
+          {
+            "notes": "Value is out of acceptable range",
+            "description": "Operation failed valid value check",
+            "id": "VAL",
+            "label": "VAL"
+          }
+        ],
+        "notes": "",
+        "description": "Status of last write operation",
+        "id": "Sts",
+        "label": "Status"
+      },
+      {
+        "notes": "A max of 50 (offset, value) pairs are allocated",
+        "description": "Number of (offset, value) pairs being written",
+        "id": "X",
+        "label": "X"
+      },
+      {
+        "notes": "The DS covers all registers from X to N and is N registers in length",
+        "description": "Digital Signature",
+        "id": "DS",
+        "label": "DS"
+      },
+      {
+        "notes": "",
+        "description": "Sequence number from the request",
+        "id": "RqSeq",
+        "label": "Request Sequence"
+      },
+      {
+        "notes": "Shall be advanced for each response",
+        "description": "Sequence number of response",
+        "id": "Seq",
+        "label": "Sequence"
+      },
+      {
+        "notes": "",
+        "description": "Timestamp value is the number of seconds since January 1, 2000",
+        "id": "Ts",
+        "label": "Timestamp"
+      },
+      {
+        "notes": "",
+        "description": "Millisecond counter 0-999",
+        "id": "Ms",
+        "label": "Milliseconds"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "No Alarms",
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "notes": "Tampered",
+            "description": "Security Alarm",
+            "id": "ALM",
+            "label": "ALARM"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask alarm code",
+        "id": "Alm",
+        "label": "Alarm"
+      },
+      {
+        "notes": "The value of N must be at least 4 (64 bits)",
+        "description": "Number of registers comprising the digital signature.",
+        "id": "N",
+        "label": "N"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 11,
+    "block": [
+      {
+        "len": 10,
+        "point": [
+          {
+            "access": "r",
+            "offset": 0,
+            "id": "RqSeq",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "SUCCESS",
+                "content": 0
+              },
+              {
+                "id": "DS",
+                "content": 1
+              },
+              {
+                "id": "ACL",
+                "content": 2
+              },
+              {
+                "id": "OFF",
+                "content": 3
+              },
+              {
+                "id": "VAL",
+                "content": 4
+              }
+            ],
+            "access": "r",
+            "offset": 1,
+            "id": "Sts",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 2,
+            "id": "Ts",
+            "type": "uint32",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 4,
+            "id": "Ms",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 5,
+            "id": "Seq",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "ALM",
+                "content": 1
+              }
+            ],
+            "offset": 6,
+            "id": "Alm",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 7,
+            "id": "Rsrvd",
+            "type": "pad",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "AES-GMAC-64",
+                "content": 1
+              },
+              {
+                "id": "ECC-256",
+                "content": 2
+              }
+            ],
+            "access": "r",
+            "offset": 8,
+            "id": "Alg",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 9,
+            "id": "N",
+            "type": "uint16",
+            "mandatory": true
+          }
+        ]
+      },
+      {
+        "len": 1,
+        "type": "repeating",
+        "point": {
+          "access": "rw",
+          "offset": 0,
+          "id": "DS",
+          "type": "uint16",
+          "mandatory": true
+        }
+      }
+    ],
+    "id": 7
+  }
+}}

@@ -1,0 +1,616 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "Compute a digital signature over a specified set of data registers",
+      "label": "Secure Dataset Read Response"
+    },
+    "id": 4,
+    "locale": "en",
+    "point": [
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "No Alarms",
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "notes": "Tampered",
+            "description": "Security Alarm",
+            "id": "ALM",
+            "label": "ALARM"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask alarm code",
+        "id": "Alm",
+        "label": "Alarm"
+      },
+      {
+        "notes": "",
+        "description": "Timestamp value is the number of seconds since January 1, 2000",
+        "id": "Ts",
+        "label": "Timestamp"
+      },
+      {
+        "notes": "",
+        "description": "Millisecond counter 0-999",
+        "id": "Ms",
+        "label": "Milliseconds"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "For test purposes only",
+            "description": "No digital signature",
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "notes": "",
+            "description": "64 bit AES signature algorithm is used",
+            "id": "AES-GMAC-64",
+            "label": "AES-GMAC-64"
+          },
+          {
+            "notes": "",
+            "description": "256 bit ECC signature algorithm is used",
+            "id": "ECC-256",
+            "label": "ECC-256"
+          }
+        ],
+        "notes": "For future proof",
+        "description": "Algorithm used to compute the digital signature",
+        "id": "Alg",
+        "label": "Algorithm"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Operation succeeded",
+            "id": "SUCCESS",
+            "label": "SUCCESS"
+          },
+          {
+            "notes": "",
+            "description": "Operation failed digital signature check",
+            "id": "DS",
+            "label": "DS"
+          },
+          {
+            "notes": "One or more registers were not writable by this role",
+            "description": "Operation failed access control check",
+            "id": "ACL",
+            "label": "ACL"
+          },
+          {
+            "notes": "Offset out of range or missing from multi-register value",
+            "description": "Operation failed offset check",
+            "id": "OFF",
+            "label": "OFF"
+          }
+        ],
+        "notes": "",
+        "description": "Status of last read operation",
+        "id": "Sts",
+        "label": "Status"
+      },
+      {
+        "notes": "The value of N must be at least 4 (64 bits)",
+        "description": "Number of registers comprising the digital signature.",
+        "id": "N",
+        "label": "N"
+      },
+      {
+        "notes": "A max of 50 values are allocated",
+        "description": "Number of values from the request",
+        "id": "X",
+        "label": "X"
+      },
+      {
+        "notes": "Unused values shall return 0xFFFF (unimplemented)",
+        "description": "Copy of value from register Off1.",
+        "id": "Val1",
+        "label": "Value1"
+      },
+      {
+        "notes": "The DS covers all registers from X to N and is N registers in length",
+        "description": "Digital Signature",
+        "id": "DS",
+        "label": "DS"
+      },
+      {
+        "notes": "",
+        "description": "Sequence number from the request",
+        "id": "RqSeq",
+        "label": "Request Sequence"
+      },
+      {
+        "notes": "Shall be advanced for each response",
+        "description": "Sequence number of response",
+        "id": "Seq",
+        "label": "Sequence"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 61,
+    "block": [
+      {
+        "len": 60,
+        "point": [
+          {
+            "access": "r",
+            "offset": 0,
+            "id": "RqSeq",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "SUCCESS",
+                "content": 0
+              },
+              {
+                "id": "DS",
+                "content": 1
+              },
+              {
+                "id": "ACL",
+                "content": 2
+              },
+              {
+                "id": "OFF",
+                "content": 3
+              }
+            ],
+            "access": "r",
+            "offset": 1,
+            "id": "Sts",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 2,
+            "id": "X",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 3,
+            "id": "Val1",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 4,
+            "id": "Val2",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 5,
+            "id": "Val3",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 6,
+            "id": "Val4",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 7,
+            "id": "Val5",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 8,
+            "id": "Val6",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 9,
+            "id": "Val7",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 10,
+            "id": "Val8",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 11,
+            "id": "Val9",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 12,
+            "id": "Val10",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 13,
+            "id": "Val11",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 14,
+            "id": "Val12",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 15,
+            "id": "Val13",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 16,
+            "id": "Val14",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 17,
+            "id": "Val15",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 18,
+            "id": "Val16",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 19,
+            "id": "Val17",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 20,
+            "id": "Val18",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 21,
+            "id": "Val19",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 22,
+            "id": "Val20",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 23,
+            "id": "Val21",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 24,
+            "id": "Val22",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 25,
+            "id": "Val23",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 26,
+            "id": "Val24",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 27,
+            "id": "Val25",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 28,
+            "id": "Val26",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 29,
+            "id": "Val27",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 30,
+            "id": "Val28",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 31,
+            "id": "Val29",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 32,
+            "id": "Val30",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 33,
+            "id": "Val31",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 34,
+            "id": "Val32",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 35,
+            "id": "Val33",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 36,
+            "id": "Val34",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 37,
+            "id": "Val35",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 38,
+            "id": "Val36",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 39,
+            "id": "Val37",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 40,
+            "id": "Val38",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 41,
+            "id": "Val39",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 42,
+            "id": "Val40",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 43,
+            "id": "Val41",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 44,
+            "id": "Val42",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 45,
+            "id": "Val43",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 46,
+            "id": "Val44",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 47,
+            "id": "Val45",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 48,
+            "id": "Val46",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 49,
+            "id": "Val47",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 50,
+            "id": "Val48",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 51,
+            "id": "Val49",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 52,
+            "id": "Val50",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 53,
+            "id": "Ts",
+            "type": "uint32",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 55,
+            "id": "Ms",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 56,
+            "id": "Seq",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "ALM",
+                "content": 1
+              }
+            ],
+            "offset": 57,
+            "id": "Alm",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "AES-GMAC-64",
+                "content": 1
+              },
+              {
+                "id": "ECC-256",
+                "content": 2
+              }
+            ],
+            "access": "r",
+            "offset": 58,
+            "id": "Alg",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 59,
+            "id": "N",
+            "type": "uint16",
+            "mandatory": true
+          }
+        ]
+      },
+      {
+        "len": 1,
+        "type": "repeating",
+        "point": {
+          "access": "r",
+          "offset": 0,
+          "id": "DS",
+          "type": "uint16",
+          "mandatory": true
+        }
+      }
+    ],
+    "id": 4
+  }
+}}

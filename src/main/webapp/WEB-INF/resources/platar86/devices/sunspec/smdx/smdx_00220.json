@@ -1,0 +1,675 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "Include this model for secure metering",
+      "label": "Secure AC Meter Selected Readings"
+    },
+    "id": 220,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Total AC Current",
+        "id": "A",
+        "label": "Amps"
+      },
+      {
+        "description": "Current scale factor",
+        "id": "A_SF"
+      },
+      {
+        "description": "Average phase or line voltage",
+        "id": "PhV",
+        "label": "Voltage"
+      },
+      {
+        "description": "Voltage scale factor",
+        "id": "V_SF"
+      },
+      {
+        "notes": "",
+        "description": "Frequency",
+        "id": "Hz",
+        "label": "Hz"
+      },
+      {
+        "description": "Frequency scale factor",
+        "id": "Hz_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Real Power",
+        "id": "W",
+        "label": "Watts"
+      },
+      {
+        "description": "Real Power scale factor",
+        "id": "W_SF"
+      },
+      {
+        "notes": "",
+        "description": "AC Apparent Power",
+        "id": "VA",
+        "label": "VA"
+      },
+      {
+        "description": "Apparent Power scale factor",
+        "id": "VA_SF"
+      },
+      {
+        "notes": "",
+        "description": "Reactive Power",
+        "id": "VAR",
+        "label": "VAR"
+      },
+      {
+        "description": "Reactive Power scale factor",
+        "id": "VAR_SF"
+      },
+      {
+        "notes": "",
+        "description": "Power Factor",
+        "id": "PF",
+        "label": "PF"
+      },
+      {
+        "description": "Power Factor scale factor",
+        "id": "PF_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Real Energy Exported",
+        "id": "TotWhExp",
+        "label": "Total Watt-hours Exported"
+      },
+      {
+        "description": "Real Energy scale factor",
+        "id": "TotWh_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Real Energy Imported",
+        "id": "TotWhImp",
+        "label": "Total Watt-hours Imported"
+      },
+      {
+        "notes": "",
+        "description": "Total Apparent Energy Exported",
+        "id": "TotVAhExp",
+        "label": "Total VA-hours Exported"
+      },
+      {
+        "description": "Apparent Energy scale factor",
+        "id": "TotVAh_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Apparent Energy Imported",
+        "id": "TotVAhImp",
+        "label": "Total VA-hours Imported"
+      },
+      {
+        "description": "Reactive Energy scale factor",
+        "id": "TotVArh_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Energy Imported Quadrant 1",
+        "id": "TotVArhImpQ1",
+        "label": "Total VAR-hours Imported Q1"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Power Imported Quadrant 2",
+        "id": "TotVArhImpQ2",
+        "label": "Total VAr-hours Imported Q2"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Power Exported Quadrant 3",
+        "id": "TotVArhExpQ3",
+        "label": "Total VAr-hours Exported Q3"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Power Exported Quadrant 4",
+        "id": "TotVArhExpQ4",
+        "label": "Total VAr-hours Exported Q4"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Loss of power or phase",
+            "id": "Power_Failure",
+            "label": "Power Failure"
+          },
+          {
+            "notes": "",
+            "description": "Voltage below threshold (Phase Loss)",
+            "id": "Under_Voltage",
+            "label": "Under Voltage"
+          },
+          {
+            "notes": "",
+            "description": "Power Factor below threshold",
+            "id": "Low_PF",
+            "label": "Low PF"
+          },
+          {
+            "notes": "",
+            "description": "Current Input over threshold",
+            "id": "Over_Current",
+            "label": "Over Current"
+          },
+          {
+            "notes": "",
+            "description": "Voltage Input over threshold",
+            "id": "Over_Voltage",
+            "label": "Over Voltage"
+          },
+          {
+            "notes": "",
+            "description": "Sensor not connected",
+            "id": "Missing_Sensor",
+            "label": "Missing Sensor"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM01",
+            "label": "OEM01"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM02",
+            "label": "OEM02"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM03",
+            "label": "OEM01"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM04",
+            "label": "OEM04"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM05",
+            "label": "OEM05"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM06",
+            "label": "OEM06"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM07",
+            "label": "OEM07"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM08",
+            "label": "OEM08"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM09",
+            "label": "OEM09"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM10",
+            "label": "OEM10"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM11",
+            "label": "OEM11"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM12",
+            "label": "OEM12"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM13",
+            "label": "OEM13"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM14",
+            "label": "OEM14"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM15",
+            "label": "OEM15"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM16",
+            "label": "OEM16"
+          }
+        ],
+        "notes": "",
+        "description": "Meter Event Flags",
+        "id": "Evt",
+        "label": "Events"
+      },
+      {
+        "notes": "",
+        "description": "Timestamp value is the number of seconds since January 1, 2000",
+        "id": "Ts",
+        "label": "Timestamp"
+      },
+      {
+        "notes": "",
+        "description": "Millisecond counter 0-999",
+        "id": "Ms",
+        "label": "Milliseconds"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "For test purposes only",
+            "description": "No digital signature",
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "notes": "",
+            "description": "64 bit AES signature algorithm is used",
+            "id": "AES-GMAC-64",
+            "label": "AES-GMAC-64"
+          },
+          {
+            "notes": "",
+            "description": "256 bit ECC signature algorithm is used",
+            "id": "ECC-256",
+            "label": "ECC-256"
+          }
+        ],
+        "notes": "For future proof",
+        "description": "Algorithm used to compute the digital signature",
+        "id": "Alg",
+        "label": "Algorithm"
+      },
+      {
+        "notes": "The value of N must be at least 4 (64 bits)",
+        "description": "Number of registers comprising the digital signature.",
+        "id": "N",
+        "label": "N"
+      },
+      {
+        "notes": "Shall be advanced for each request",
+        "description": "Sequence number of request",
+        "id": "Seq",
+        "label": "Sequence"
+      },
+      {
+        "notes": "User's role id 0-5",
+        "description": "Digital Signature ID",
+        "id": "Role",
+        "label": "Role"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 43,
+    "name": "ac_meter",
+    "block": [
+      {
+        "len": 42,
+        "point": [
+          {
+            "sf": "A_SF",
+            "offset": 0,
+            "id": "A",
+            "units": "A",
+            "type": "int16",
+            "mandatory": true
+          },
+          {
+            "offset": 1,
+            "id": "A_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "sf": "V_SF",
+            "offset": 2,
+            "id": "PhV",
+            "units": "V",
+            "type": "int16",
+            "mandatory": false
+          },
+          {
+            "offset": 3,
+            "id": "V_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "sf": "Hz_SF",
+            "offset": 4,
+            "id": "Hz",
+            "units": "Hz",
+            "type": "int16",
+            "mandatory": true
+          },
+          {
+            "offset": 5,
+            "id": "Hz_SF",
+            "type": "sunssf"
+          },
+          {
+            "sf": "W_SF",
+            "offset": 6,
+            "id": "W",
+            "units": "W",
+            "type": "int16",
+            "mandatory": true
+          },
+          {
+            "offset": 7,
+            "id": "W_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "sf": "VA_SF",
+            "offset": 8,
+            "id": "VA",
+            "units": "VA",
+            "type": "int16"
+          },
+          {
+            "offset": 9,
+            "id": "VA_SF",
+            "type": "sunssf"
+          },
+          {
+            "sf": "VAR_SF",
+            "offset": 10,
+            "id": "VAR",
+            "units": "var",
+            "type": "int16"
+          },
+          {
+            "offset": 11,
+            "id": "VAR_SF",
+            "type": "sunssf"
+          },
+          {
+            "sf": "PF_SF",
+            "offset": 12,
+            "id": "PF",
+            "units": "Pct",
+            "type": "int16"
+          },
+          {
+            "offset": 13,
+            "id": "PF_SF",
+            "type": "sunssf"
+          },
+          {
+            "sf": "TotWh_SF",
+            "offset": 14,
+            "id": "TotWhExp",
+            "units": "Wh",
+            "type": "acc32",
+            "mandatory": true
+          },
+          {
+            "sf": "TotWh_SF",
+            "offset": 16,
+            "id": "TotWhImp",
+            "units": "Wh",
+            "type": "acc32",
+            "mandatory": true
+          },
+          {
+            "offset": 18,
+            "id": "TotWh_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "sf": "TotVAh_SF",
+            "offset": 19,
+            "id": "TotVAhExp",
+            "units": "VAh",
+            "type": "acc32"
+          },
+          {
+            "sf": "TotVAh_SF",
+            "offset": 21,
+            "id": "TotVAhImp",
+            "units": "VAh",
+            "type": "acc32"
+          },
+          {
+            "offset": 23,
+            "id": "TotVAh_SF",
+            "type": "sunssf"
+          },
+          {
+            "sf": "TotVArh_SF",
+            "offset": 24,
+            "id": "TotVArhImpQ1",
+            "units": "varh",
+            "type": "acc32"
+          },
+          {
+            "sf": "TotVArh_SF",
+            "offset": 26,
+            "id": "TotVArhImpQ2",
+            "units": "varh",
+            "type": "acc32"
+          },
+          {
+            "sf": "TotVArh_SF",
+            "offset": 28,
+            "id": "TotVArhExpQ3",
+            "units": "varh",
+            "type": "acc32"
+          },
+          {
+            "sf": "TotVArh_SF",
+            "offset": 30,
+            "id": "TotVArhExpQ4",
+            "units": "varh",
+            "type": "acc32"
+          },
+          {
+            "offset": 32,
+            "id": "TotVArh_SF",
+            "type": "sunssf"
+          },
+          {
+            "symbol": [
+              {
+                "id": "Power_Failure",
+                "content": 2
+              },
+              {
+                "id": "Under_Voltage",
+                "content": 3
+              },
+              {
+                "id": "Low_PF",
+                "content": 4
+              },
+              {
+                "id": "Over_Current",
+                "content": 5
+              },
+              {
+                "id": "Over_Voltage",
+                "content": 6
+              },
+              {
+                "id": "Missing_Sensor",
+                "content": 7
+              },
+              {
+                "id": "OEM01",
+                "content": 16
+              },
+              {
+                "id": "OEM02",
+                "content": 17
+              },
+              {
+                "id": "OEM03",
+                "content": 18
+              },
+              {
+                "id": "OEM04",
+                "content": 19
+              },
+              {
+                "id": "OEM05",
+                "content": 20
+              },
+              {
+                "id": "OEM06",
+                "content": 21
+              },
+              {
+                "id": "OEM07",
+                "content": 22
+              },
+              {
+                "id": "OEM08",
+                "content": 23
+              },
+              {
+                "id": "OEM09",
+                "content": 24
+              },
+              {
+                "id": "OEM10",
+                "content": 25
+              },
+              {
+                "id": "OEM11",
+                "content": 26
+              },
+              {
+                "id": "OEM12",
+                "content": 27
+              },
+              {
+                "id": "OEM13",
+                "content": 28
+              },
+              {
+                "id": "OEM14",
+                "content": 29
+              },
+              {
+                "id": "OEM15",
+                "content": 30
+              }
+            ],
+            "offset": 33,
+            "id": "Evt",
+            "type": "bitfield32",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 35,
+            "id": "Rsrvd",
+            "type": "pad",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 36,
+            "id": "Ts",
+            "type": "uint32",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 38,
+            "id": "Ms",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 39,
+            "id": "Seq",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "AES-GMAC-64",
+                "content": 1
+              },
+              {
+                "id": "ECC-256",
+                "content": 2
+              }
+            ],
+            "access": "r",
+            "offset": 40,
+            "id": "Alg",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 41,
+            "id": "N",
+            "type": "uint16",
+            "mandatory": true
+          }
+        ]
+      },
+      {
+        "len": 1,
+        "type": "repeating",
+        "point": {
+          "access": "r",
+          "offset": 0,
+          "id": "DS",
+          "type": "uint16",
+          "mandatory": true
+        }
+      }
+    ],
+    "id": 220
+  }
+}}

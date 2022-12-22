@@ -1,0 +1,1076 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Float",
+      "description": "",
+      "label": "wye-connect three phase (abcn) meter"
+    },
+    "id": 213,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Total AC Current",
+        "id": "A",
+        "label": "Amps"
+      },
+      {
+        "notes": "",
+        "description": "Phase A Current",
+        "id": "AphA",
+        "label": "Amps PhaseA"
+      },
+      {
+        "notes": "",
+        "description": "Phase B Current",
+        "id": "AphB",
+        "label": "Amps PhaseB"
+      },
+      {
+        "notes": "",
+        "description": "Phase C Current",
+        "id": "AphC",
+        "label": "Amps PhaseC"
+      },
+      {
+        "description": "Current scale factor",
+        "id": "A_SF"
+      },
+      {
+        "notes": "",
+        "description": "Line to Neutral AC Voltage (average of active phases)",
+        "id": "PhV",
+        "label": "Voltage LN"
+      },
+      {
+        "notes": "",
+        "description": "Phase Voltage AB",
+        "id": "PPVphAB",
+        "label": "Phase Voltage AB"
+      },
+      {
+        "notes": "",
+        "description": "Phase Voltage BC",
+        "id": "PPVphBC",
+        "label": "Phase Voltage BC"
+      },
+      {
+        "notes": "",
+        "description": "Phase Voltage CA",
+        "id": "PPVphCA",
+        "label": "Phase Voltage CA"
+      },
+      {
+        "notes": "",
+        "description": "Line to Line AC Voltage (average of active phases)",
+        "id": "PPV",
+        "label": "Voltage LL"
+      },
+      {
+        "notes": "",
+        "description": "Phase Voltage AN",
+        "id": "PhVphA",
+        "label": "Phase Voltage AN"
+      },
+      {
+        "notes": "",
+        "description": "Phase Voltage BN",
+        "id": "PhVphB",
+        "label": "Phase Voltage BN"
+      },
+      {
+        "notes": "",
+        "description": "Phase Voltage CN",
+        "id": "PhVphC",
+        "label": "Phase Voltage CN"
+      },
+      {
+        "description": "Voltage scale factor",
+        "id": "V_SF"
+      },
+      {
+        "notes": "",
+        "description": "Frequency",
+        "id": "Hz",
+        "label": "Hz"
+      },
+      {
+        "description": "Frequency scale factor",
+        "id": "Hz_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Real Power",
+        "id": "W",
+        "label": "Watts"
+      },
+      {
+        "description": "Real Power scale factor",
+        "id": "W_SF"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "WphA",
+        "label": "Watts phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "WphB",
+        "label": "Watts phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "WphC",
+        "label": "Watts phase C"
+      },
+      {
+        "notes": "",
+        "description": "AC Apparent Power",
+        "id": "VA",
+        "label": "VA"
+      },
+      {
+        "description": "Apparent Power scale factor",
+        "id": "VA_SF"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VAphA",
+        "label": "VA phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VAphB",
+        "label": "VA phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VAphC",
+        "label": "VA phase C"
+      },
+      {
+        "notes": "",
+        "description": "Reactive Power",
+        "id": "VAR",
+        "label": "VAR"
+      },
+      {
+        "description": "Reactive Power scale factor",
+        "id": "VAR_SF"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VARphA",
+        "label": "VAR phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VARphB",
+        "label": "VAR phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VARphC",
+        "label": "VAR phase C"
+      },
+      {
+        "notes": "",
+        "description": "Power Factor",
+        "id": "PF",
+        "label": "PF"
+      },
+      {
+        "description": "Power Factor scale factor",
+        "id": "PF_SF"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "PFphA",
+        "label": "PF phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "PFphB",
+        "label": "PF phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "PFphC",
+        "label": "PF phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Real Energy Exported",
+        "id": "TotWhExp",
+        "label": "Total Watt-hours Exported"
+      },
+      {
+        "description": "Real Energy scale factor",
+        "id": "TotWh_SF"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotWhExpPhA",
+        "label": "Total Watt-hours Exported phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotWhExpPhB",
+        "label": "Total Watt-hours Exported phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotWhExpPhC",
+        "label": "Total Watt-hours Exported phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Real Energy Imported",
+        "id": "TotWhImp",
+        "label": "Total Watt-hours Imported"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotWhImpPhA",
+        "label": "Total Watt-hours Imported phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotWhImpPhB",
+        "label": "Total Watt-hours Imported phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotWhImpPhC",
+        "label": "Total Watt-hours Imported phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Apparent Energy Exported",
+        "id": "TotVAhExp",
+        "label": "Total VA-hours Exported"
+      },
+      {
+        "description": "Apparent Energy scale factor",
+        "id": "TotVAh_SF"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVAhExpPhA",
+        "label": "Total VA-hours Exported phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVAhExpPhB",
+        "label": "Total VA-hours Exported phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVAhExpPhC",
+        "label": "Total VA-hours Exported phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Apparent Energy Imported",
+        "id": "TotVAhImp",
+        "label": "Total VA-hours Imported"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVAhImpPhA",
+        "label": "Total VA-hours Imported phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVAhImpPhB",
+        "label": "Total VA-hours Imported phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVAhImpPhC",
+        "label": "Total VA-hours Imported phase C"
+      },
+      {
+        "description": "Reactive Energy scale factor",
+        "id": "TotVArh_SF"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Energy Imported Quadrant 1",
+        "id": "TotVArhImpQ1",
+        "label": "Total VAR-hours Imported Q1"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhImpQ1PhA",
+        "label": "Total VAr-hours Imported Q1 phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhImpQ1PhB",
+        "label": "Total VAr-hours Imported Q1 phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhImpQ1PhC",
+        "label": "Total VAr-hours Imported Q1 phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Power Imported Quadrant 2",
+        "id": "TotVArhImpQ2",
+        "label": "Total VAr-hours Imported Q2"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhImpQ2PhA",
+        "label": "Total VAr-hours Imported Q2 phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhImpQ2PhB",
+        "label": "Total VAr-hours Imported Q2 phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhImpQ2PhC",
+        "label": "Total VAr-hours Imported Q2 phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Power Exported Quadrant 3",
+        "id": "TotVArhExpQ3",
+        "label": "Total VAr-hours Exported Q3"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhExpQ3PhA",
+        "label": "Total VAr-hours Exported Q3 phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhExpQ3PhB",
+        "label": "Total VAr-hours Exported Q3 phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhExpQ3PhC",
+        "label": "Total VAr-hours Exported Q3 phase C"
+      },
+      {
+        "notes": "",
+        "description": "Total Reactive Power Exported Quadrant 4",
+        "id": "TotVArhExpQ4",
+        "label": "Total VAr-hours Exported Q4"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhExpQ4PhA",
+        "label": "Total VAr-hours Exported Q4 Imported phase A"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhExpQ4Ph",
+        "label": "Total VAr-hours Exported Q4 Imported phase B"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TotVArhExpQ4PhC",
+        "label": "Total VAr-hours Exported Q4 Imported phase C"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Loss of power or phase",
+            "id": "Power_Failure",
+            "label": "Power Failure"
+          },
+          {
+            "notes": "",
+            "description": "Voltage below threshold (Phase Loss)",
+            "id": "Under_Voltage",
+            "label": "Under Voltage"
+          },
+          {
+            "notes": "",
+            "description": "Power Factor below threshold",
+            "id": "Low_PF",
+            "label": "Low PF"
+          },
+          {
+            "notes": "",
+            "description": "Current Input over threshold",
+            "id": "Over_Current",
+            "label": "Over Current"
+          },
+          {
+            "notes": "",
+            "description": "Voltage Input over threshold",
+            "id": "Over_Voltage",
+            "label": "Over Voltage"
+          },
+          {
+            "notes": "",
+            "description": "Sensor not connected",
+            "id": "Missing_Sensor",
+            "label": "Missing Sensor"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM01",
+            "label": "OEM01"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM02",
+            "label": "OEM02"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM03",
+            "label": "OEM01"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM04",
+            "label": "OEM04"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM05",
+            "label": "OEM05"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM06",
+            "label": "OEM06"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM07",
+            "label": "OEM07"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM08",
+            "label": "OEM08"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM09",
+            "label": "OEM09"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM10",
+            "label": "OEM10"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM11",
+            "label": "OEM11"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM12",
+            "label": "OEM12"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM13",
+            "label": "OEM13"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM14",
+            "label": "OEM14"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM15",
+            "label": "OEM15"
+          },
+          {
+            "notes": "",
+            "description": "Reserved for OEM use",
+            "id": "OEM16",
+            "label": "OEM16"
+          }
+        ],
+        "notes": "",
+        "description": "Meter Event Flags",
+        "id": "Evt",
+        "label": "Events"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 124,
+    "name": "ac_meter",
+    "block": {
+      "len": 124,
+      "point": [
+        {
+          "offset": 0,
+          "id": "A",
+          "units": "A",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 2,
+          "id": "AphA",
+          "units": "A",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 4,
+          "id": "AphB",
+          "units": "A",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 6,
+          "id": "AphC",
+          "units": "A",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 8,
+          "id": "PhV",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 10,
+          "id": "PhVphA",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 12,
+          "id": "PhVphB",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 14,
+          "id": "PhVphC",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 16,
+          "id": "PPV",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 18,
+          "id": "PPVphAB",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 20,
+          "id": "PPVphBC",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 22,
+          "id": "PPVphCA",
+          "units": "V",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 24,
+          "id": "Hz",
+          "units": "Hz",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 26,
+          "id": "W",
+          "units": "W",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 28,
+          "id": "WphA",
+          "units": "W",
+          "type": "float32"
+        },
+        {
+          "offset": 30,
+          "id": "WphB",
+          "units": "W",
+          "type": "float32"
+        },
+        {
+          "offset": 32,
+          "id": "WphC",
+          "units": "W",
+          "type": "float32"
+        },
+        {
+          "offset": 34,
+          "id": "VA",
+          "units": "VA",
+          "type": "float32"
+        },
+        {
+          "offset": 36,
+          "id": "VAphA",
+          "units": "VA",
+          "type": "float32"
+        },
+        {
+          "offset": 38,
+          "id": "VAphB",
+          "units": "VA",
+          "type": "float32"
+        },
+        {
+          "offset": 40,
+          "id": "VAphC",
+          "units": "VA",
+          "type": "float32"
+        },
+        {
+          "offset": 42,
+          "id": "VAR",
+          "units": "var",
+          "type": "float32"
+        },
+        {
+          "offset": 44,
+          "id": "VARphA",
+          "units": "var",
+          "type": "float32"
+        },
+        {
+          "offset": 46,
+          "id": "VARphB",
+          "units": "var",
+          "type": "float32"
+        },
+        {
+          "offset": 48,
+          "id": "VARphC",
+          "units": "var",
+          "type": "float32"
+        },
+        {
+          "offset": 50,
+          "id": "PF",
+          "units": "PF",
+          "type": "float32"
+        },
+        {
+          "offset": 52,
+          "id": "PFphA",
+          "units": "PF",
+          "type": "float32"
+        },
+        {
+          "offset": 54,
+          "id": "PFphB",
+          "units": "PF",
+          "type": "float32"
+        },
+        {
+          "offset": 56,
+          "id": "PFphC",
+          "units": "PF",
+          "type": "float32"
+        },
+        {
+          "offset": 58,
+          "id": "TotWhExp",
+          "units": "Wh",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 60,
+          "id": "TotWhExpPhA",
+          "units": "Wh",
+          "type": "float32"
+        },
+        {
+          "offset": 62,
+          "id": "TotWhExpPhB",
+          "units": "Wh",
+          "type": "float32"
+        },
+        {
+          "offset": 64,
+          "id": "TotWhExpPhC",
+          "units": "Wh",
+          "type": "float32"
+        },
+        {
+          "offset": 66,
+          "id": "TotWhImp",
+          "units": "Wh",
+          "type": "float32",
+          "mandatory": true
+        },
+        {
+          "offset": 68,
+          "id": "TotWhImpPhA",
+          "units": "Wh",
+          "type": "float32"
+        },
+        {
+          "offset": 70,
+          "id": "TotWhImpPhB",
+          "units": "Wh",
+          "type": "float32"
+        },
+        {
+          "offset": 72,
+          "id": "TotWhImpPhC",
+          "units": "Wh",
+          "type": "float32"
+        },
+        {
+          "offset": 74,
+          "id": "TotVAhExp",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 76,
+          "id": "TotVAhExpPhA",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 78,
+          "id": "TotVAhExpPhB",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 80,
+          "id": "TotVAhExpPhC",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 82,
+          "id": "TotVAhImp",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 84,
+          "id": "TotVAhImpPhA",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 86,
+          "id": "TotVAhImpPhB",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 88,
+          "id": "TotVAhImpPhC",
+          "units": "VAh",
+          "type": "float32"
+        },
+        {
+          "offset": 90,
+          "id": "TotVArhImpQ1",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 92,
+          "id": "TotVArhImpQ1phA",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 94,
+          "id": "TotVArhImpQ1phB",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 96,
+          "id": "TotVArhImpQ1phC",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 98,
+          "id": "TotVArhImpQ2",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 100,
+          "id": "TotVArhImpQ2phA",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 102,
+          "id": "TotVArhImpQ2phB",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 104,
+          "id": "TotVArhImpQ2phC",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 106,
+          "id": "TotVArhExpQ3",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 108,
+          "id": "TotVArhExpQ3phA",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 110,
+          "id": "TotVArhExpQ3phB",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 112,
+          "id": "TotVArhExpQ3phC",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 114,
+          "id": "TotVArhExpQ4",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 116,
+          "id": "TotVArhExpQ4phA",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 118,
+          "id": "TotVArhExpQ4phB",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "offset": 120,
+          "id": "TotVArhExpQ4phC",
+          "units": "varh",
+          "type": "float32"
+        },
+        {
+          "symbol": [
+            {
+              "id": "M_EVENT_Power_Failure",
+              "content": 2
+            },
+            {
+              "id": "M_EVENT_Under_Voltage",
+              "content": 3
+            },
+            {
+              "id": "M_EVENT_Low_PF",
+              "content": 4
+            },
+            {
+              "id": "M_EVENT_Over_Current",
+              "content": 5
+            },
+            {
+              "id": "M_EVENT_Over_Voltage",
+              "content": 6
+            },
+            {
+              "id": "M_EVENT_Missing_Sensor",
+              "content": 7
+            },
+            {
+              "id": "M_EVENT_Reserved1",
+              "content": 8
+            },
+            {
+              "id": "M_EVENT_Reserved2",
+              "content": 9
+            },
+            {
+              "id": "M_EVENT_Reserved3",
+              "content": 10
+            },
+            {
+              "id": "M_EVENT_Reserved4",
+              "content": 11
+            },
+            {
+              "id": "M_EVENT_Reserved5",
+              "content": 12
+            },
+            {
+              "id": "M_EVENT_Reserved6",
+              "content": 13
+            },
+            {
+              "id": "M_EVENT_Reserved7",
+              "content": 14
+            },
+            {
+              "id": "M_EVENT_Reserved8",
+              "content": 15
+            },
+            {
+              "id": "M_EVENT_OEM01",
+              "content": 16
+            },
+            {
+              "id": "M_EVENT_OEM02",
+              "content": 17
+            },
+            {
+              "id": "M_EVENT_OEM03",
+              "content": 18
+            },
+            {
+              "id": "M_EVENT_OEM04",
+              "content": 19
+            },
+            {
+              "id": "M_EVENT_OEM05",
+              "content": 20
+            },
+            {
+              "id": "M_EVENT_OEM06",
+              "content": 21
+            },
+            {
+              "id": "M_EVENT_OEM07",
+              "content": 22
+            },
+            {
+              "id": "M_EVENT_OEM08",
+              "content": 23
+            },
+            {
+              "id": "M_EVENT_OEM09",
+              "content": 24
+            },
+            {
+              "id": "M_EVENT_OEM10",
+              "content": 25
+            },
+            {
+              "id": "M_EVENT_OEM11",
+              "content": 26
+            },
+            {
+              "id": "M_EVENT_OEM12",
+              "content": 27
+            },
+            {
+              "id": "M_EVENT_OEM13",
+              "content": 28
+            },
+            {
+              "id": "M_EVENT_OEM14",
+              "content": 29
+            },
+            {
+              "id": "M_EVENT_OEM15",
+              "content": 30
+            }
+          ],
+          "offset": 122,
+          "id": "Evt",
+          "type": "bitfield32",
+          "mandatory": true
+        }
+      ]
+    },
+    "id": 213
+  }
+}}

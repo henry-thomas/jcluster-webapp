@@ -1,0 +1,263 @@
+/* Copyright (C) Solar MD (Pty) ltd - All Rights Reserved
+
+ Unauthorized copying of this file, via any medium is strictly prohibited
+ Proprietary and confidential
+ 
+ Written by SolarmdIT5, 2020
+ 
+ For more information http://www.solarmd.co.za/ 
+ email: info@solarmd.co.za
+ 7 Alternator Ave, Montague Gardens, Cape Town, 7441 South Africa
+ Phone: 021 555 2181
+ 
+*/ 
+/* 
+    Created on : 15 Oct 2020, 3:49:24 PM
+    Author     : SolarmdIT5
+*/
+
+/*BUTTON*/
+
+.sui-btn:focus{
+    outline: none;
+}
+
+.sui-btn-btn:disabled {
+    color: rgb(141, 141, 141);
+}
+
+.sui-btn-btn:disabled:hover {
+    cursor: default;
+}
+
+.sui-btn-warning--button {
+    background: rgb(255, 230, 0);
+    color: rgb(49, 49, 49);
+}
+
+.sui-btn-warning--button:hover {
+    cursor: pointer;
+    background-color: rgba(243, 178, 0, 0.411);
+    transition: all 80ms ease-in;
+}
+
+.sui-btn-danger--button {
+    background: rgb(255, 0, 0);
+    color: whitesmoke;
+}
+
+.sui-btn-secondary--button {
+    background: rgb(63, 63, 63);
+    color: whitesmoke;
+}
+
+.sui-btn-primary--button {
+    background: rgb(240, 240, 240);
+    color: rgb(49, 49, 49);
+}
+
+.sui-btn-default--button {
+    font-weight: normal;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none;
+    /*height: fit-content;*/
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #666666;
+    background-color: #f4f4f4;
+    -webkit-font-smoothing: antialiased;
+    margin: 2px;
+}
+
+.sui-btn-default--button:hover {
+    cursor: pointer;
+    background-color: rgba(127, 127, 127, 0.2);
+    transition: all 80ms ease-in;
+}
+
+
+/*TOOLTIP JS*/
+
+.smdui-tooltipCont {
+    position: relative;
+    height: 0px;
+    width: 0px;
+}
+.smdui-tooltipCont .smdui-tooltipItem{
+    position: absolute;
+    top: 0px;
+    background: #6a6a6a;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    white-space: nowrap;
+}
+@keyframes smdui-tooltipTransOpen {
+    0%   {opacity: 0;}
+    100% {opacity: 1; transform: translateY(-100%);}
+}
+.smdui-tooltipCont .smdui-tooltipItemShow {
+    z-index: 999999;
+    opacity: 1;
+    color: white !important;
+    animation: smdui-tooltipTransOpen 500ms;
+    -webkit-animation: smdui-tooltipTransOpen 500ms; /* Safari 4.0 - 8.0 */
+    animation-fill-mode: forwards;
+}
+
+/*TOOLTIP*/
+smdui-tooltip {
+    display: flex;
+    justify-content: center;
+    font-variant: contextual;
+}
+.sui-tt {
+    font-weight: 120;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    position: absolute;
+    z-index: -1;
+    padding: 0.15rem;
+    border-radius: 3px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.26);
+    opacity: 0;
+    top: 10%;
+    pointer-events: none;
+}
+
+@keyframes smdui-tooltipTransition {
+    0%   {opacity: 0; top: 10%;}
+    70%   {opacity: 0;transform: translateY(-60%);}
+    100% {opacity: 1; transform: translateY(-100%);}
+}
+
+.sui-tt-open {
+    z-index: 1000;
+    opacity: 1;
+    animation: smdui-tooltipTransition 500ms;
+    -webkit-animation: smdui-tooltipTransition 500ms; /* Safari 4.0 - 8.0 */
+    animation-fill-mode: forwards;
+}
+
+@media (max-width: 640px) {
+    .sui-tabs-tab-page {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+}
+@media (max-height: 640px) {
+    .sui-tabs-tab-page {
+        max-height: 80px;
+        overflow-y: auto;
+    }
+}
+
+.sui-tabs-tab {
+    width: max-content;
+    min-width: 35px;
+    padding: 0.5rem;
+    margin: 0.2rem;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.sui-tabs-tab:hover {
+    /* border-bottom: 2px solid lightgrey; */
+    transition: all ease-in 0.2s;
+    cursor: pointer;
+}
+
+.sui-tabs-selected {
+    border-bottom: 2px solid rgb(255, 0, 85);
+    /* transition: height ease-in 0.4s; */
+}
+
+.sui-tabs-tab-content {
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    color: lightslategrey;
+}
+
+.sui-tabs-selected span {
+    color: mediumblue;
+}
+
+.sui-tabs-pageHidden {
+    display: none;
+}
+
+.sui-tabs-pageVisible {
+    display: block;
+}
+
+/*Dialog*/
+
+.smdui-dialog-wrapper {
+    position: fixed;
+    max-height: 50%;
+    z-index: 501;
+    display: none;
+}
+
+.smdui-dialog-wrapper-active {
+    z-index: 502;
+}
+
+.smdui-dialog-header {
+    display: flex;
+}
+
+.smdui-dialog-wrapper.smdui-dialog-open {
+    display: block;
+    pointer-events: all;
+    opacity: 1;
+}
+
+/*.smdui-dialog-content {
+        display: flex;
+        flex-direction: column;
+        min-height: 20px;
+        overflow-y: auto;
+}*/
+
+.smdui-dialog-control-button {
+    margin-inline-start: auto;
+    padding: 5px;
+}
+
+.smdui-dialog-control-button:hover {
+    cursor: pointer;
+}
+
+.smdui-dialog-heading {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-variant: petite-caps;
+    font-weight: bold;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+/*@media (max-height: 640px) {
+    .smdui-dialog-wrapper {
+        max-height: 60%;
+    }
+}*/
+
+/*DROPDOWN*/
+
+
+

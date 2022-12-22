@@ -1,0 +1,170 @@
+/*  Copyright (C) Solar MD (Pty) ltd - All Rights Reserved
+ * 
+ *  Unauthorized copying of this file, via any medium is strictly prohibited
+ *  Proprietary and confidential
+ *  
+ *  Written by brais, 2019
+ *  
+ *  For more information http://www.solarmd.co.za/ 
+ *  email: info@solarmd.co.za
+ *  7 Alternator Ave, Montague Gardens, Cape Town, 7441 Sout Africa
+ *  Phone: 021 555 2181
+ *  
+ */
+
+.slideShowContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.slides_pic {
+    -webkit-box-shadow:  0 2px 5px 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow:  0 2px 5px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+    margin-top: 10px;
+    align-self: center;
+}
+
+/*.slides_pic_delete {
+    margin-top: -50px;
+}*/
+
+/* Hide the images by default */
+.slides, .slides_map {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+.controls, .controls_map {
+    /*display: flex;*/
+    display: none;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Next and previous buttons */
+.prev, .next,
+.prev_map, .next_map,
+.delete_icon, .delete_icon_map,
+.extra_icon, .extra_icon_map {
+    margin-top: -20px;
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Position the "next button" to the right */
+.next,
+.next_map {
+    right: 24px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover,
+.prev_map:hover, .next_map:hover,
+.delete_icon:hover, .delete_icon_map:hover,
+.extra_icon:hover, .extra_icon_map:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dots, .dots_map {
+    text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot, .dot_map {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-d {
+    max-width: 60vw !important;
+}
+
+.image_slide,
+.image_slide_map {
+    align-self: center;
+    max-width: 50vw; 
+    max-height: 50vh;
+    border-radius: 9px;
+    margin-bottom: -5px;
+    margin-top: -1px;
+    -webkit-box-shadow:  0 2px 5px 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow:  0 2px 5px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+}
+
+.image_slide_map {
+    max-width: 35vw !important; 
+    max-height: 35vh !important;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.header_pic {
+    margin-top: 30px;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@media only screen and (max-width: 360px) {
+    .gm-style .gm-style-iw-c,
+    .gm-style .gm-style-iw-d {
+        max-width: 225px !important;
+    }
+
+    .image_slide {
+        max-width: 80vw; 
+        max-height: 80vh;
+    }
+
+    .image_slide_map {
+        max-width: 45vw !important; 
+        max-height: 45vh !important;
+    }
+    
+    .delete_icon, .delete_icon_map,
+    .extra_icon, .extra_icon_map { 
+        margin-top: -35px;
+    }
+
+    .prev_map, .next_map, 
+    .delete_icon_map, .extra_icon_map {
+        padding: 8px;
+    }
+}

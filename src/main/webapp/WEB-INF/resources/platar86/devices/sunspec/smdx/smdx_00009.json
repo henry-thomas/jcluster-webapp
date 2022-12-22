@@ -1,0 +1,849 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "description": "Security model for PKI",
+      "label": "Set Operator Security Certificate"
+    },
+    "id": 9,
+    "locale": "en",
+    "point": [
+      {
+        "symbol": [
+          {
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "id": "X509_PEM",
+            "label": "PEM"
+          },
+          {
+            "id": "X509_DER",
+            "label": "DER"
+          }
+        ],
+        "description": "X.509 format of the certificate. DER or PEM.",
+        "id": "Fmt",
+        "label": "Format"
+      },
+      {
+        "description": "Number of registers to follow for the certificate",
+        "id": "N",
+        "label": "N"
+      },
+      {
+        "description": "User ID for the request signature",
+        "id": "UID",
+        "label": "UID"
+      },
+      {
+        "description": "User ID for this certificate",
+        "id": "CertUID",
+        "label": "Cert_UID"
+      },
+      {
+        "description": "Role for this certificate",
+        "id": "CertRole",
+        "label": "Cert_Role"
+      },
+      {
+        "description": "Format of this certificate",
+        "id": "Fmt",
+        "label": "Format"
+      },
+      {
+        "description": "Type of this certificate",
+        "id": "Typ",
+        "label": "Type"
+      },
+      {
+        "description": "First word of this fragment",
+        "id": "Frg1",
+        "label": "Frag1"
+      },
+      {
+        "description": "Last word of this fragment",
+        "id": "Frg80",
+        "label": "Frag80"
+      },
+      {
+        "notes": "In registers, zero padded.",
+        "description": "Total Length of the Certificate",
+        "id": "TotLn",
+        "label": "Total Length"
+      },
+      {
+        "notes": "Starts with 1",
+        "description": "Fragment sequence number",
+        "id": "FrgSeq",
+        "label": "Fragment Sequence"
+      },
+      {
+        "notes": "Maximum fragment length is 80 registers",
+        "description": "Length of this fragment",
+        "id": "FrgLn",
+        "label": "Fragment length"
+      },
+      {
+        "notes": "",
+        "description": "Timestamp value is the number of seconds since January 1, 2000",
+        "id": "Ts",
+        "label": "Timestamp"
+      },
+      {
+        "notes": "",
+        "description": "Millisecond counter 0-999",
+        "id": "Ms",
+        "label": "Milliseconds"
+      },
+      {
+        "notes": "Shall be advanced for each request",
+        "description": "Sequence number of request",
+        "id": "Seq",
+        "label": "Sequence"
+      },
+      {
+        "notes": "Each controller is assigned a key index that maps to their access control role",
+        "description": "Signing key used 0-5",
+        "id": "Role",
+        "label": "Role"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "For test purposes only",
+            "description": "No digital signature",
+            "id": "NONE",
+            "label": "NONE"
+          },
+          {
+            "notes": "",
+            "description": "64 bit AES signature algorithm is used",
+            "id": "AES-GMAC-64",
+            "label": "AES-GMAC-64"
+          },
+          {
+            "notes": "",
+            "description": "256 bit ECC signature algorithm is used",
+            "id": "ECC-256",
+            "label": "ECC-256"
+          }
+        ],
+        "notes": "For future proof",
+        "description": "Algorithm used to compute the digital signature",
+        "id": "Alg",
+        "label": "Algorithm"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 93,
+    "block": [
+      {
+        "len": 92,
+        "point": [
+          {
+            "access": "rw",
+            "offset": 0,
+            "id": "CertUID",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 1,
+            "id": "CertRole",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "X509_PEM",
+                "content": 1
+              },
+              {
+                "id": "X509_DER",
+                "content": 2
+              }
+            ],
+            "access": "rw",
+            "offset": 2,
+            "id": "Fmt",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "DEV_KEY_PAIR",
+                "content": 0
+              },
+              {
+                "id": "DEV_SHARED_KEY",
+                "content": 1
+              },
+              {
+                "id": "OPERATOR_PUB",
+                "content": 2
+              },
+              {
+                "id": "OPERATOR_SHARED",
+                "content": 3
+              },
+              {
+                "id": "CA_PUB",
+                "content": 4
+              }
+            ],
+            "access": "rw",
+            "offset": 3,
+            "id": "Typ",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 4,
+            "id": "TotLn",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 5,
+            "id": "FrgLn",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 6,
+            "id": "Frg1",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 7,
+            "id": "Frg2",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 8,
+            "id": "Frg3",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 9,
+            "id": "Frg4",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 10,
+            "id": "Frg5",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 11,
+            "id": "Frg6",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 12,
+            "id": "Frg7",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 13,
+            "id": "Frg8",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 14,
+            "id": "Frg9",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 15,
+            "id": "Frg10",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 16,
+            "id": "Frg11",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 17,
+            "id": "Frg12",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 18,
+            "id": "Frg13",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 19,
+            "id": "Frg14",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 20,
+            "id": "Frg15",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 21,
+            "id": "Frg16",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 22,
+            "id": "Frg17",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 23,
+            "id": "Frg18",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 24,
+            "id": "Frg19",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 25,
+            "id": "Frg20",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 26,
+            "id": "Frg21",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 27,
+            "id": "Frg22",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 28,
+            "id": "Frg23",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 29,
+            "id": "Frg24",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 30,
+            "id": "Frg25",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 31,
+            "id": "Frg26",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 32,
+            "id": "Frg27",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 33,
+            "id": "Frg28",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 34,
+            "id": "Frg29",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 35,
+            "id": "Frg30",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 36,
+            "id": "Frg31",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 37,
+            "id": "Frg32",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 38,
+            "id": "Frg33",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 39,
+            "id": "Frg34",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 40,
+            "id": "Frg35",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 41,
+            "id": "Frg36",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 42,
+            "id": "Frg37",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 43,
+            "id": "Frg38",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 44,
+            "id": "Frg39",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 45,
+            "id": "Frg40",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 46,
+            "id": "Frg41",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 47,
+            "id": "Frg42",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 48,
+            "id": "Frg43",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 49,
+            "id": "Frg44",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 50,
+            "id": "Frg45",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 51,
+            "id": "Frg46",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 52,
+            "id": "Frg47",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 53,
+            "id": "Frg48",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 54,
+            "id": "Frg49",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 55,
+            "id": "Frg50",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 56,
+            "id": "Frg51",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 57,
+            "id": "Frg52",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 58,
+            "id": "Frg53",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 59,
+            "id": "Frg54",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 60,
+            "id": "Frg55",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 61,
+            "id": "Frg56",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 62,
+            "id": "Frg57",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 63,
+            "id": "Frg58",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 64,
+            "id": "Frg59",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 65,
+            "id": "Frg60",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 66,
+            "id": "Frg61",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 67,
+            "id": "Frg62",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 68,
+            "id": "Frg63",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 69,
+            "id": "Frg64",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 70,
+            "id": "Frg65",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 71,
+            "id": "Frg66",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 72,
+            "id": "Frg67",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 73,
+            "id": "Frg68",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 74,
+            "id": "Frg69",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 75,
+            "id": "Frg70",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 76,
+            "id": "Frg71",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 77,
+            "id": "Frg72",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 78,
+            "id": "Frg73",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 79,
+            "id": "Frg74",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 80,
+            "id": "Frg75",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 81,
+            "id": "Frg78",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 82,
+            "id": "Frg79",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 83,
+            "id": "Frg80",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 84,
+            "id": "Ts",
+            "type": "uint32",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 86,
+            "id": "Ms",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 87,
+            "id": "Seq",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 88,
+            "id": "UID",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 89,
+            "id": "Role",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "NONE",
+                "content": 0
+              },
+              {
+                "id": "AES-GMAC-64",
+                "content": 1
+              },
+              {
+                "id": "ECC-256",
+                "content": 2
+              }
+            ],
+            "access": "rw",
+            "offset": 90,
+            "id": "Alg",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 91,
+            "id": "N",
+            "type": "uint16",
+            "mandatory": true
+          }
+        ]
+      },
+      {
+        "len": 1,
+        "type": "repeating",
+        "point": {
+          "access": "rw",
+          "offset": 0,
+          "id": "Cert",
+          "type": "uint16",
+          "mandatory": true
+        }
+      }
+    ],
+    "id": 9
+  }
+}}

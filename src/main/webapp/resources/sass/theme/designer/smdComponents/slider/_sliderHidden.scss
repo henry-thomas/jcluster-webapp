@@ -1,0 +1,12 @@
+body {
+    .smdui-sliderHidden-wraper{
+        & > span{
+            color: $primaryColor;
+            text-decoration: underline;
+            /*font-size: 1.15rem;*/ 
+        }
+        .smdui-sliderHidden-dialog{
+
+        }
+    }
+}

@@ -1,0 +1,374 @@
+body {
+
+    .sui-dgm{
+        display: grid;
+    }
+
+    .sui-dgm-contentPanel{
+        width: 100%;
+    }
+
+    .sui-dgm{
+        &.sui-dgm-horizontal{
+            row-gap: 5px;
+            justify-items: start;
+            grid-template-areas: "deviceTable" "deviceContentPanel";
+        }
+
+        &.sui-dgm-vertical{
+            grid-template-columns: min-content auto;
+            column-gap: 5px;
+            grid-template-areas: "deviceTable deviceContentPanel";
+        }
+    }
+
+    .sui-dgm-deviceTable{
+        display: grid;
+        padding: 4px;
+        align-self: start;
+        border: 0 none;
+        background: #ffffff;
+        color: rgba(0, 0, 0, 0.87);
+        padding: 0;
+        margin: 0;
+        position: static;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .sui-dgm-deviceTable{
+
+        &.sui-dgm-vertical {
+            position: sticky;
+            top: 65px;
+            grid-template-areas:
+                "header"
+                "searchBar"
+                "devicePanel"
+                "footer";
+        }
+
+        &.sui-dgm-horizontal{
+            grid-template-areas:
+                "header"
+                "searchBar"
+                "devicePanel"
+                "footer";
+        }
+    }
+
+    .sui-dgm-table{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        margin: 2px 0px;
+
+        &.sui-dgm-vertical{
+            flex-direction: column;
+        }
+
+        &.sui-dgm-horizontal{
+            flex-direction: row;
+        }
+
+        &.sui-dgm-horizontal > div.sui-dgm-devicePanel{
+            border: none;
+            border-right: 0.5px solid #bbbbbb;
+        }
+
+        &.sui-dgm-vertical > div.sui-dgm-devicePanel{
+            border: none;
+            border-bottom: 1px solid #bbbbbb;
+        }
+    }
+
+    .sui-dgm-header{
+        display: grid;
+        align-items: start;
+
+        &.sui-dgm-horizontal{
+            grid-template-columns: 24px 24px 24px min-content;
+            grid-template-areas:
+                "orientation filterButton warningIcon pageControls"
+                "filterSettings filterSettings filterSettings filterSettings";
+            border-bottom: $divider;
+            /*border-bottom: 2px solid rgba(0, 0, 0, 0.12);*/
+        }
+
+        &.sui-dgm-vertical{
+            grid-template-columns: 24px 24px 24px min-content;
+            grid-template-areas:
+                "orientation filterButton warningIcon pageControls"
+                "filterSettings filterSettings filterSettings filterSettings";
+            border-bottom: $divider;
+            /*border-bottom: 2px solid rgba(0, 0, 0, 0.12);*/
+        }
+    }
+
+    .sui-dgm-pageControls{
+        &.sui-dgm-horizontal{
+            column-gap: 2px;
+            grid-template-columns: 30px auto 30px;
+            grid-template-areas: "pageLeft pageIndicator pageRight";   
+        }
+
+        &.sui-dgm-vertical{
+            column-gap: 2px;
+            grid-template-columns: 30px auto 30px;
+            grid-template-areas: "pageLeft pageIndicator pageRight";
+        }
+    }
+
+    .sui-dgm-filterSettings{
+        &.sui-dgm-vertical{
+            display: grid;
+            grid-template-areas: "onlineIcon offlineIcon searchBar";
+            grid-template-columns: 1fr 1fr 115px;
+            grid-template-rows: none;
+        }
+
+        &.sui-dgm-horizontal{
+            grid-template-areas: "onlineIcon offlineIcon searchBar";
+            grid-template-columns: 1fr 1fr 115px;
+            grid-template-rows: none;
+        }
+    }
+
+    .sui-dgm-devicePanel{
+        display: grid;
+        grid-template: 45px 45px auto/50px 50px 60px;
+        grid-template-areas:
+            "img img statIcon"
+            "img img alertIcon"
+            "name name name";
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        align-items: center;
+        justify-items: center;
+
+        img {
+            height: 80px;
+            grid-area: 'img';
+            padding-left: 10px;
+        }
+    }
+
+    .sui-dgm-devicePanel:hover{
+        background: $menuitemHoverBg;
+    }
+
+    .sui-dgm-setting{
+        padding: 5px;
+    }
+
+    .sui-dgm-setting:hover{
+        cursor: pointer;
+        background-color: #e8e8e8;
+    }
+    .sui-dgm-searchBar{
+        margin: 3px;
+    }
+
+    .sui-dgm-pageIndicator:hover{
+        background-color: inherit;
+        cursor:default;
+    }
+
+    .sui-dgm-pageIndicator{
+        font-size: 12px;
+        justify-self: center;
+    }
+
+    .sui-dgm-pageControls{
+        display: grid;
+        align-items: center;
+    }
+
+    .sui-dgm-filter-inactive{
+        color: rgb(190, 190, 190);
+    }
+
+    .sui-dgm-filter-offline{
+        color: #ffac42;
+    }
+
+    .sui-dgm-filter-disabled{
+        width: min-content;
+    }
+
+    .sui-dgm-filter-online{
+        color: #17e400;
+    }
+
+
+    .sui-dgm-filter-search{
+        color: black;
+        background-color: #e8e8e8;
+    }
+
+    .sui-dgm-page-controls:hover{
+        cursor: default;
+    }
+
+    .sui-dgm-page-control:hover{
+        cursor: pointer;
+    }
+
+    .sui-dgm-selectedDevice{
+        background: $highlightBg;
+    }
+
+    .sui-dgm-selectedDevice:hover{
+        background: $highlightBg;
+        cursor: default;
+    }
+
+    .sui-dgm-statIcon{
+        font-size: 20px;
+    }
+
+    .devTopIconAlert:hover{
+        cursor: pointer;
+    }
+
+    .device-alert-content{
+        overflow-y: auto;
+    }
+
+    .alert-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .serialNumberSpan:hover{
+        cursor: pointer;
+    }
+
+    .sui-dgm-footer{
+        display: flex;
+        justify-content: center;
+        margin-top: 3px;
+    }
+
+    @media (max-width: 640px){
+        .sui-dgm{
+            &.sui-dgm-vertical{
+                grid-template: auto auto/auto;
+                row-gap: 5px;
+                justify-items: start;
+                grid-template-areas: "deviceTable" "deviceContentPanel";
+            }
+        }
+
+        .sui-dgm-devicePanel{
+            display: grid;
+            grid-template: 30px/6fr 1fr 1fr;
+            grid-template-areas: "name alertIcon statIcon";
+            cursor: pointer;
+            font-size: 20px;
+            img {
+                display: none;
+            }
+        } 
+
+        .sui-dgm-deviceTable{
+            width: -webkit-fill-available;
+
+            &.sui-dgm-horizontal{
+                position: unset;
+                grid-template-rows: none;
+                grid-template-areas:
+                    "header"
+                    "devicePanel"
+                    "footer";
+            }
+
+            &.sui-dgm-vertical{
+                position: unset;
+                grid-template-rows: none;
+                grid-template-areas:
+                    "header"
+                    "devicePanel"
+                    "footer";
+            }
+        }
+
+        .sui-dgm-header{
+            font-size: 16px;
+            padding: 5px;
+            &.sui-dgm-horizontal{
+                grid-template-rows: none;
+                row-gap: 0;
+                grid-template-columns:min-content 2fr 1fr;
+                grid-template-areas:
+                    "filterButton filterSettings warningIcon pageControls";
+
+                border-bottom: 1px solid #cccccc;
+                border-right: none;
+            }
+            &.sui-dgm-vertical{
+                grid-template-columns:min-content 2fr 1fr;
+                grid-template-areas:
+                    "filterButton filterSettings warningIcon pageControls";
+                border-bottom: 1px solid #cccccc;
+                border-right: none;
+
+            }
+        }
+
+        div.sui-dgm-table{
+            &.sui-dgm-horizontal{
+                flex-direction: column;
+                border-right: none;
+            }
+            &.sui-dgm-horizontal > div.sui-dgm-devicePanel{
+                border: none;
+                border-bottom: 1px solid #bbbbbb;
+            }
+        }
+
+        .sui-dgm-filterSettingsP{
+            &.sui-dgm-vertical{
+                display: grid;
+                grid-template-columns: none;
+                grid-template-areas: "onlineIcon offlineIcon searchBar";
+                width: 100%;
+                grid-template-rows: none;
+            }
+            &sui-dgm-horizontal{
+                display: grid;
+                grid-template-columns: none;
+                grid-template-areas: "onlineIcon offlineIcon searchBar";
+                grid-template-rows: none;
+                width: 100%;
+            }
+        }
+
+        .sui-dgm-orientationSetting{
+            display: none!important;   
+        }
+
+        .sui-dgm-pageIndicator{
+            font-size: 16px;
+        }
+
+        .sui-dgm-pageControls{
+            &.sui-dgm-horizontal{
+                column-gap: 2px;
+                grid-template: auto/30px auto 30px;
+                grid-template-areas: "pageLeft pageIndicator pageRight";
+                justify-self: self-end;
+            }
+            &.sui-dgm-vertical{
+                column-gap: 2px;
+                grid-template: auto/30px auto 30px;
+                grid-template-areas: "pageLeft pageIndicator pageRight";
+                justify-self: self-end;
+            }
+        }
+    }
+}

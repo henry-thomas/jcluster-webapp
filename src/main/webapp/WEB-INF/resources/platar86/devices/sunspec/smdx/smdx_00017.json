@@ -1,0 +1,282 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "Include this model for serial interface configuration support",
+      "label": "Serial Interface"
+    },
+    "id": 17,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Interface name (8 chars)",
+        "id": "Nam",
+        "label": "Name"
+      },
+      {
+        "notes": "",
+        "description": "Interface baud rate in bits per second",
+        "id": "Rte",
+        "label": "Rate"
+      },
+      {
+        "notes": "",
+        "description": "Number of data bits per character",
+        "id": "Bits",
+        "label": "Bits"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "No Parity",
+            "id": "NONE",
+            "label": "none"
+          },
+          {
+            "notes": "",
+            "description": "Odd Parity",
+            "id": "ODD",
+            "label": "odd"
+          },
+          {
+            "notes": "",
+            "description": "Even Parity",
+            "id": "EVEN",
+            "label": "even"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask value.  Parity setting",
+        "id": "Pty",
+        "label": "Parity"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Full Duplex",
+            "id": "FULL",
+            "label": "full"
+          },
+          {
+            "notes": "",
+            "description": "Half Duplex",
+            "id": "HALF",
+            "label": "half"
+          }
+        ],
+        "notes": "",
+        "description": "Enumerated value.  Duplex mode",
+        "id": "Dup",
+        "label": "Duplex"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "No flow control",
+            "id": "NONE",
+            "label": "none"
+          },
+          {
+            "notes": "",
+            "description": "Hardware flow control",
+            "id": "HW",
+            "label": "hardware"
+          },
+          {
+            "notes": "",
+            "description": "Soft (XON/XOFF) flow control",
+            "id": "XONXOFF",
+            "label": "software"
+          }
+        ],
+        "notes": "",
+        "description": "Flow Control Method",
+        "id": "Flw",
+        "label": "Flow Control"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Unknown interface type",
+            "id": "UNKNOWN",
+            "label": "unknown"
+          },
+          {
+            "notes": "",
+            "description": "RS232 interface type",
+            "id": "RS232",
+            "label": "RS232"
+          },
+          {
+            "notes": "",
+            "description": "RS485 interface type",
+            "id": "RS485",
+            "label": "RS485"
+          }
+        ],
+        "notes": "",
+        "description": "Enumerated value.  Interface type",
+        "id": "Typ",
+        "label": "Interface Type"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Unknown protocol",
+            "id": "UNKNOWN",
+            "label": "unknown"
+          },
+          {
+            "notes": "",
+            "description": "Modbus protocol",
+            "id": "MODBUS",
+            "label": "Modbus"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "VENDOR",
+            "label": "vendor specific"
+          }
+        ],
+        "notes": "",
+        "description": "Enumerated value. Serial protocol selection",
+        "id": "Pcol",
+        "label": "Protocol"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 12,
+    "block": {
+      "len": 12,
+      "point": [
+        {
+          "access": "rw",
+          "offset": 0,
+          "len": 4,
+          "id": "Nam",
+          "type": "string"
+        },
+        {
+          "access": "rw",
+          "offset": 4,
+          "id": "Rte",
+          "units": "bps",
+          "type": "uint32",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "offset": 6,
+          "id": "Bits",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "NONE",
+              "content": 0
+            },
+            {
+              "id": "ODD",
+              "content": 1
+            },
+            {
+              "id": "EVEN",
+              "content": 2
+            }
+          ],
+          "access": "rw",
+          "offset": 7,
+          "id": "Pty",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "FULL",
+              "content": 0
+            },
+            {
+              "id": "HALF",
+              "content": 1
+            }
+          ],
+          "access": "rw",
+          "offset": 8,
+          "id": "Dup",
+          "type": "enum16"
+        },
+        {
+          "symbol": [
+            {
+              "id": "NONE",
+              "content": 0
+            },
+            {
+              "id": "HW",
+              "content": 1
+            },
+            {
+              "id": "XONXOFF",
+              "content": 2
+            }
+          ],
+          "access": "rw",
+          "offset": 9,
+          "id": "Flw",
+          "type": "enum16"
+        },
+        {
+          "symbol": [
+            {
+              "id": "UNKNOWN",
+              "content": 0
+            },
+            {
+              "id": "RS232",
+              "content": 1
+            },
+            {
+              "id": "RS485",
+              "content": 2
+            }
+          ],
+          "offset": 10,
+          "id": "Typ",
+          "type": "enum16"
+        },
+        {
+          "symbol": [
+            {
+              "id": "UNKNOWN",
+              "content": 0
+            },
+            {
+              "id": "MODBUS",
+              "content": 1
+            },
+            {
+              "id": "VENDOR",
+              "content": 2
+            }
+          ],
+          "offset": 11,
+          "id": "Pcol",
+          "type": "enum16"
+        }
+      ]
+    },
+    "id": 17
+  }
+}}

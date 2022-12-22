@@ -1,0 +1,428 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 3: 8.7.4.2",
+      "description": "Basic Storage Controls",
+      "label": "Storage"
+    },
+    "id": 124,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Setpoint for maximum charge.",
+        "id": "WChaMax",
+        "label": "WChaMax"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for maximum charge.",
+        "id": "WChaMax_SF",
+        "label": "WChaMax_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for maximum charging VA.",
+        "id": "VAChaMax",
+        "label": "VAChaMax"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for maximum charging VA.",
+        "id": "VAChaMax_SF",
+        "label": "VAChaMax_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for maximum charging rate. Default is MaxChaRte.",
+        "id": "WChaGra",
+        "label": "WChaGra"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for maximum discharge rate. Default is MaxDisChaRte.",
+        "id": "WDisChaGra",
+        "label": "WDisChaGra"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for maximum charge and discharge rate.",
+        "id": "WChaDisChaGra_SF",
+        "label": "WChaDisChaGra_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for minimum reserve for storage as a percentage of the nominal maximum storage.",
+        "id": "MinRsvPct",
+        "label": "MinRsvPct"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for minimum reserve percentage.",
+        "id": "MinRsvPct_SF",
+        "label": "MinRsvPct_SF"
+      },
+      {
+        "notes": "",
+        "description": "Currently available energy as a percent of the capacity rating.",
+        "id": "ChaState",
+        "label": "ChaState"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for available energy percent.",
+        "id": "ChaState_SF",
+        "label": "ChaState_SF"
+      },
+      {
+        "notes": "",
+        "description": "State of charge (ChaState) minus storage reserve (MinRsvPct) times capacity rating (AhrRtg).",
+        "id": "StorAval",
+        "label": "StorAval"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for state of charge.",
+        "id": "StorAval_SF",
+        "label": "StorAval_SF"
+      },
+      {
+        "notes": "",
+        "description": "Internal battery voltage.",
+        "id": "InBatV",
+        "label": "InBatV"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for battery voltage.",
+        "id": "InBatV_SF",
+        "label": "InBatV_SF"
+      },
+      {
+        "notes": "",
+        "description": "Charge status of storage device. Enumerated value.",
+        "id": "ChaSt",
+        "label": "ChaSt"
+      },
+      {
+        "notes": "",
+        "description": "Activate hold/discharge/charge storage control mode. Bitfield value.",
+        "id": "StorCtl_Mod",
+        "label": "StorCtl_Mod"
+      },
+      {
+        "notes": "",
+        "description": "Percent of max discharge rate.",
+        "id": "OutWRte",
+        "label": "OutWRte"
+      },
+      {
+        "notes": "",
+        "description": "Percent of max charging rate.",
+        "id": "InWRte",
+        "label": "InWRte"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for percent charge/discharge rate.",
+        "id": "InOutWRte_SF",
+        "label": "InOutWRte_SF"
+      },
+      {
+        "notes": "",
+        "description": "Time window for charge/discharge rate change.",
+        "id": "InOutWRte_WinTms",
+        "label": "InOutWRte_WinTms"
+      },
+      {
+        "notes": "",
+        "description": "Timeout period for charge/discharge rate.",
+        "id": "InOutWRte_RvrtTms",
+        "label": "InOutWRte_RvrtTms"
+      },
+      {
+        "notes": "",
+        "description": "Ramp time for moving from current setpoint to new setpoint.",
+        "id": "InOutWRte_RmpTms",
+        "label": "InOutWRte_RmpTms"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 24,
+    "name": "storage",
+    "block": {
+      "len": 24,
+      "type": "fixed",
+      "point": [
+        {
+          "access": "rw",
+          "sf": "WChaMax_SF",
+          "offset": 0,
+          "len": 1,
+          "id": "WChaMax",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "WChaDisChaGra_SF",
+          "offset": 1,
+          "len": 1,
+          "id": "WChaGra",
+          "units": "% WChaMax/sec",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "WChaDisChaGra_SF",
+          "offset": 2,
+          "len": 1,
+          "id": "WDisChaGra",
+          "units": "% WChaMax/sec",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "CHARGE",
+              "content": 0
+            },
+            {
+              "id": "DiSCHARGE",
+              "content": 1
+            }
+          ],
+          "access": "rw",
+          "offset": 3,
+          "len": 1,
+          "id": "StorCtl_Mod",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "VAChaMax_SF",
+          "offset": 4,
+          "len": 1,
+          "id": "VAChaMax",
+          "units": "VA",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "MinRsvPct_SF",
+          "offset": 5,
+          "len": 1,
+          "id": "MinRsvPct",
+          "units": "% WChaMax",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "ChaState_SF",
+          "offset": 6,
+          "len": 1,
+          "id": "ChaState",
+          "units": "% AhrRtg",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "StorAval_SF",
+          "offset": 7,
+          "len": 1,
+          "id": "StorAval",
+          "units": "AH",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "InBatV_SF",
+          "offset": 8,
+          "len": 1,
+          "id": "InBatV",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "OFF",
+              "content": 1
+            },
+            {
+              "id": "EMPTY",
+              "content": 2
+            },
+            {
+              "id": "DISCHARGING",
+              "content": 3
+            },
+            {
+              "id": "CHARGING",
+              "content": 4
+            },
+            {
+              "id": "FULL",
+              "content": 5
+            },
+            {
+              "id": "HOLDING",
+              "content": 6
+            },
+            {
+              "id": "TESTING",
+              "content": 7
+            }
+          ],
+          "access": "r",
+          "offset": 9,
+          "len": 1,
+          "id": "ChaSt",
+          "type": "enum16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "InOutWRte_SF",
+          "offset": 10,
+          "len": 1,
+          "id": "OutWRte",
+          "units": "% WDisChaMax",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "InOutWRte_SF",
+          "offset": 11,
+          "len": 1,
+          "id": "InWRte",
+          "units": " % WChaMax",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 12,
+          "len": 1,
+          "id": "InOutWRte_WinTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 13,
+          "len": 1,
+          "id": "InOutWRte_RvrtTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "offset": 14,
+          "len": 1,
+          "id": "InOutWRte_RmpTms",
+          "units": "Secs",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "PV",
+              "content": 0
+            },
+            {
+              "id": "GRID",
+              "content": 1
+            }
+          ],
+          "access": "rw",
+          "offset": 15,
+          "len": 1,
+          "id": "ChaGriSet",
+          "type": "enum16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 16,
+          "len": 1,
+          "id": "WChaMax_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 17,
+          "len": 1,
+          "id": "WChaDisChaGra_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 18,
+          "len": 1,
+          "id": "VAChaMax_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 19,
+          "len": 1,
+          "id": "MinRsvPct_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 20,
+          "len": 1,
+          "id": "ChaState_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 21,
+          "len": 1,
+          "id": "StorAval_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 22,
+          "len": 1,
+          "id": "InBatV_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 23,
+          "len": 1,
+          "id": "InOutWRte_SF",
+          "type": "sunssf",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 124
+  }
+}}

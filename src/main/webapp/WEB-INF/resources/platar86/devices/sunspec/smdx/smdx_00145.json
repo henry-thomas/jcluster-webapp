@@ -1,0 +1,152 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "Inverter controls extended settings",
+      "label": "Extended Settings"
+    },
+    "id": 145,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Ramp up rate as a percentage of max current.",
+        "id": "NomRmpUpRte",
+        "label": "Ramp Up Rate"
+      },
+      {
+        "notes": "",
+        "description": "Ramp down rate as a percentage of max current.",
+        "id": "NomRmpDnRte",
+        "label": "NomRmpDnRte"
+      },
+      {
+        "notes": "",
+        "description": "Emergency ramp up rate as a percentage of max current.",
+        "id": "EmgRmpUpRte",
+        "label": "Emergency Ramp Up Rate"
+      },
+      {
+        "notes": "",
+        "description": "Emergency ramp down rate as a percentage of max current.",
+        "id": "EmgRmpDnRte",
+        "label": "Emergency Ramp Down Rate"
+      },
+      {
+        "notes": "",
+        "description": "Connect ramp up rate as a percentage of max current.",
+        "id": "ConnRmpUpRte",
+        "label": "Connect Ramp Up Rate"
+      },
+      {
+        "notes": "",
+        "description": "Connect ramp down rate as a percentage of max current.",
+        "id": "ConnRmpDnRte",
+        "label": "Connect Ramp Down Rate"
+      },
+      {
+        "notes": "",
+        "description": "Ramp rate specified in percent of max current.",
+        "id": "AGra",
+        "label": "Default Ramp Rate"
+      },
+      {
+        "notes": "",
+        "description": "Ramp Rate Scale Factor",
+        "id": "Rmp_SF",
+        "label": "Ramp Rate Scale Factor"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 8,
+    "name": "ext_settings",
+    "block": {
+      "len": 8,
+      "type": "fixed",
+      "point": [
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 0,
+          "len": 1,
+          "id": "NomRmpUpRte",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 1,
+          "len": 1,
+          "id": "NomRmpDnRte",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 2,
+          "len": 1,
+          "id": "EmgRmpUpRte",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 3,
+          "len": 1,
+          "id": "EmgRmpDnRte",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 4,
+          "len": 1,
+          "id": "ConnRmpUpRte",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 5,
+          "len": 1,
+          "id": "ConnRmpDnRte",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "Rmp_SF",
+          "offset": 6,
+          "len": 1,
+          "id": "AGra",
+          "units": "Pct",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 7,
+          "len": 1,
+          "id": "Rmp_SF",
+          "type": "sunssf",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 145,
+    "status": "test"
+  }
+}}

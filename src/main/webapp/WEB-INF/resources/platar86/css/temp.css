@@ -1,0 +1,322 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 19, 2018, 5:44:41 PM
+    Author     : platar86
+*/
+
+.expressionActualData{
+    width: 100%;
+    flex-direction: column;
+}
+.expressionActualData>ol>li{
+    padding-bottom: 10px;
+}
+
+.expressionActualData>ol>li>.smdui_ulTrueResult{
+    background: #e2ffdf;
+}
+.expressionActualData>ol>li>.smdui_ulFalseResult{
+    background: #ffeeee;
+}
+
+.expressionActualData>ol>li>ul{
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #dadada;
+}
+
+.smdui_expressionSettingPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.smdui_expressionSettingPanel .ecp_headerContent{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem:hover{
+    -webkit-box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3); */
+    -moz-transition: margin-left 0.3s;
+    -o-transition: margin-left 0.3s;
+    -webkit-transition: margin-left 0.3s;
+    /*background: #d7f0ff;*/
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem{
+    cursor: pointer;
+    border-radius: 3px;
+    background: green;
+    color: white;
+    padding: 15px;
+    margin: 4px;
+    position: relative;
+    width: 100px;
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItemSelected{
+    color: black;
+    background: cyan;
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem>i:hover{
+    background: cyan;
+    color: blue;
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem>i{
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    background: green;
+    border-radius: 4px;
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem>i:nth-child(2){
+    position: absolute;
+    top: 0px;
+    right: -30px;
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem>i:nth-child(3){
+    position: absolute;
+    bottom: 0px;
+    right: -30px;
+}
+.smdui_expressionSettingPanel .ecp_headerContent .ecp_headerContentItem>i:nth-child(4){
+    right: -65px;
+    position: absolute;
+    top: 8px;
+    font-size: 30px;
+}
+/*
+*
+* Expression Panel Style
+*
+*/ 
+
+.smdui_expressionWrapper {
+    -webkit-box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3); */
+    -moz-transition: margin-left 0.3s;
+    -o-transition: margin-left 0.3s;
+    -webkit-transition: margin-left 0.3s;
+    /*background: #d7f0ff;*/
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+}
+.smdui_expressionWrapper .expressionTitle {
+    font-size: large;
+    color: #ababab;   
+}
+.smdui_expressionWrapper .smdui_expressionPanel {
+    font-size: larger;   
+    margin-bottom: 15px; 
+    border-bottom: #adadad solid 1px;
+    flex-direction: column;
+}
+.smdui_expressionWrapper .smdui_expressionStatePanel>label {
+    margin: 0px 15px; 
+}
+.smdui_expressionWrapper>button {
+    color: white;
+    background: #2e7d32;
+    border-radius: 3px;
+    border: none;
+    padding: 7px;
+    margin: 5px;
+    cursor: pointer;   
+}
+.smdui_expressionWrapper>div{
+    padding: 5px;
+}
+
+/*
+*
+* Selection Tree Style
+*
+*/ 
+
+.smdui_treeSelWrapper {
+    /*background: #d7f0ff;*/
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    position: relative;
+}
+
+.smdui_treeSelWrapper .smdui_treeSel_footer{
+    background: #2E7D32;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 7px;
+    /*border: 0.5px solid grey;*/
+    border-radius: 0px 0px 5px 5px;
+    min-height: 15px;
+    min-width: 150px;
+
+    color: white;
+}
+.smdui_treeSelWrapper .smdui_treeSel_headerTop{
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    top: 4px;
+    left: 4px;
+    cursor: pointer;
+}
+
+.smdui_treeSelWrapper .smdui_treeSel_header{
+    background: #2E7D32;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 7px;
+    padding-left: 23px;
+    /*border: 0.5px solid grey;*/
+    border-radius: 5px 5px 0px 0px;
+    justify-content: center;
+    min-height: 15px;
+}
+.smdui_treeSel_header span{
+    /*padding: 0px 4px;*/
+    color: white;
+}
+.smdui_treeSel_header i{
+    /*padding: 0px 4px;*/
+    color: white;
+    font-size: 16px
+}
+.smdui_treeSel_header .smdui_treeSel_headerItem{
+    color: white;
+    text-decoration: underline;
+    padding: 0px 4px;
+}
+.smdui_treeSel_header .smdui_treeSel_headerItemSelection{
+    color: white;
+    text-decoration: underline;
+    padding: 0px 4px;
+}
+
+.smdui_treeSel_header .smdui_treeSel_headerItemSelection:hover{
+    color: yellow;
+    cursor: pointer;
+    transform: scale(1.05); /* Equal to scaleX(0.7) scaleY(0.7) */
+}
+.smdui_treeSelWrapper .smdui_treeSel_header .smdui_treeSel_headerItemSeparator{
+    color: white;
+    padding: 0px 4px;
+}
+
+.smdui_treeSelWrapper .smdui_treeSel_content .smdui_treeSel_inputNumber{
+    width: 150px;
+    align-self: center;
+}
+.smdui_treeSelWrapper .smdui_treeSel_content{
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    border: 0.5px solid grey;
+    /*border-radius: 0px 0px 5px 5px;*/
+}
+.smdui_treeSelWrapper .smdui_treeSel_inputInfo{
+    text-align: left;
+    /*font-size: larger;*/
+    color: #a9a9a9;
+}
+.smdui_treeSelWrapper .smdui_treeSel_inputItem{
+    text-align: center;
+    /*background: #e0e0e0;*/
+    margin: 2px;
+    padding: 3px;
+    color: #464646;
+    background: #e6e6e6;
+}
+.smdui_treeSelWrapper .smdui_treeSel_inputItem:hover{
+    background: #c3c3c3;
+    cursor: pointer;
+}
+/*
+*
+* Schedule Style
+*
+*/ 
+.smdui_scheduleWrapper {
+    background: #d7f0ff;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+}
+
+.smdui_scheduleWrapper .smdui_schedulePanel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.smdui_scheduleWrapper .smdui_scheduleButtonPanel{
+    width: 90%;
+}
+.smdui_scheduleWrapper .smdui_scheduleTimeInputPanel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 3px;
+    align-items: center;
+}
+.smdui_scheduleWrapper .smdui_scheduleTimeInputPanel .smdui_scheduleTimeText{
+    padding: 5px;
+    font-size: 30px;
+}
+
+.smdui_scheduleWrapper input[type="time"]{
+    font-size: 1.5em;
+    width: auto;
+}
+
+.smdui_scheduleWrapper  .smdui_scheduleTitle{
+    padding-left: 5px;
+    font-size: medium;
+    color: darkgrey;
+}
+
+.smdui_scheduleWeekPanel{
+    padding-top: 3px;
+    border-top: solid;
+    border-width: 0.1px;
+    border-color: grey;
+}
+
+.smdui_scheduleWeekPanel .smdui_scheduleWeekInputPanel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.smdui_scheduleWrapper  button{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /*font-size: 16px;*/
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.smdui_scheduleWrapper  button[name="disabled"]{
+    background-color: grey;
+}
+.smdui_scheduleWeekPanel .smdui_scheduleWeekInputPanel  button{
+    width: 66px;
+}

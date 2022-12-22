@@ -1,0 +1,356 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 19, 2018, 5:44:41 PM
+    Author     : platar86
+*/
+
+/*button*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.smdui-button{
+    background: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.smdui-button:hover{
+    color: black;
+    background: #e4e4e4;
+}
+
+
+/*DROPDOWN*/
+
+/*.smdui-dropdown-wraper{
+    position: relative;
+    display: inline-block;
+}
+.smdui-dropdown-label{
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #636363;
+}
+.smdui-dropdown-label:hover, .smdui-dropdown-label:focus {
+    border-bottom: 1px solid grey;
+}
+.smdui-dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001;
+}
+.smdui-dropdown-content span{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+.smdui-dropdown-content span:hover{
+    background-color: #ddd;
+}
+.smdui-dropdown-screenFilter{
+    width: 100%;
+    display: none;
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+}*/
+
+
+/*Color Picker*/
+.smdui-colorPicker-container{
+
+}
+.smdui-colorPicker-preview{
+    width: 20px;
+}
+.smdui-colorPicker-input{
+    -webkit-transition: .2s;
+    transition: width .2s;
+
+    width: 33px;
+    border: 1px solid grey;
+    border-bottom: 2px solid grey;
+    /* color: transparent!important; */
+    font-size: 0px;
+    height: 12px;
+    border-radius: 5px;
+    display: block;
+    cursor: pointer;
+}
+.smdui-colorPicker-input.jscolor-active{
+    width: 72px;
+    font-size: 12px;
+    text-align: right;
+    cursor: initial;
+}
+
+
+/*TAB CONTAINER*/
+/*.smdui-tabPanel-container{
+        padding: 4px;
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #bdbdbd;
+    background: white;
+}
+.smdui-tabPanel-container .smdui-tabPanel-menu{
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 8px;
+    position: relative;
+    background: white;
+    margin-right: 36px;
+}
+.smdui-tabPanel-container .smdui-tabPanel-menuElFloating{
+    text-align: center;
+    padding: 3px 7px;
+    color: #636363;
+    background: #f4f4f4;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 1px;
+    right: 0px;
+}
+
+.smdui-tabPanel-container .smdui-tabPanel-menuEl{
+    margin: 0px 2px;
+    text-align: center;
+    padding: 3px 7px;
+    font-size: 14px;
+    padding: 8px;
+    color: #757575;
+    font-size: 12px;
+        color: #636363; use MIXIN
+    background: #f4f4f4; 
+    border-radius: 3px;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+.smdui-tabPanel-container .smdui-tabPanel-menuEl:hover{
+    background: #d9d9d9;
+    color: #434343;
+}
+.smdui-tabPanel-container .smdui-tabPanel-menuElSelected{
+    margin-bottom: 0px;
+    background: #d9d9d9;
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: 2px solid #8bc34a;
+    color: #815f53;
+}
+
+.smdui-tabPanel-container .smdui-tabPanel-contentFlexRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}*/
+
+/*HIDDEN INPUTTEXT*/
+
+.smdui-inputTextHidden-wraper {
+    cursor: pointer;
+    margin: auto;
+    position: relative;
+}
+
+.smdui-inputTextHidden-dialog {
+    display: none;
+
+}
+
+.smdui-inputTextHidden-input {
+    border: none;
+    border-bottom: 1px solid #b6b6b6;
+    color: grey;
+    background: none;
+    -webkit-appearance: none;
+    outline: none;
+    /*opacity: 0.7;*/
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    min-width: 50px;
+    min-height: 14px;
+}
+
+/*HIDDEN SLIDER*/
+.smdui-sliderHidden-wraper {
+    cursor: pointer;
+    margin: auto;
+    position: relative;
+}
+
+.smdui-sliderHidden-dialog {
+    display: none;
+    /*position: absolute;*/
+    z-index:1001;
+    /*right: 0px;*/
+    /*right: 0px;*/
+
+    /*position: absolute;*/
+
+    height: 25px;
+    border-radius: 3px;
+    background: #f4f4f4;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.smdui-sliderHidden-input {
+    -webkit-appearance: none;
+    width: 75px;
+    height: 3px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.smdui-sliderHidden-input:hover {
+    opacity: 1;
+}
+.smdui-sliderHidden-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    background: grey;
+    cursor: pointer;
+}
+.smdui-sliderHidden-input::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/*INPUT SWITCH*/
+.smdui-switchLabel{
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 20px;
+}
+.smdui-switchLabel input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.smdui-switchSlider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.smdui-switchSlider:before{
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.smdui-switchLabel input:checked + .smdui-switchSlider{
+    background-color: #2196F3;
+}
+.smdui-switchLabel input:focus + .smdui-switchSlider{
+    box-shadow: 0 0 1px #2196F3;
+}
+.smdui-switchLabel input:checked + .smdui-switchSlider:before{
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+.smdui-switchSlider.smdui-switchSliderRound{
+    border-radius: 34px;
+}
+.smdui-switchSlider.smdui-switchSliderRound:before{
+    border-radius: 50%;
+}
+
+
+/*TOOLTIP*/
+.smdui-tooltip{
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+}
+.smdui-tooltip .smdui-tooltip-text{
+    visibility: hidden;
+    /*width: 120px;*/
+    background-color: #747474;
+    color: #f4f4f4;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 5px;
+    position: absolute;
+    z-index: 1001;
+    top: 150%;
+    left: 50%;
+    margin-left: -50%;
+    font-size: 14px;
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+@keyframes smdui-tooltipTransition {
+    0%   {opacity: 0}
+    60%   {opacity: 0}
+    100% {opacity: 1}
+}
+
+.smdui-tooltip .smdui-tooltip-text::after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #747474 transparent;
+}
+.smdui-tooltip:hover .smdui-tooltip-text{
+    visibility: visible;
+    /*    opacity: 1;*/
+    animation: smdui-tooltipTransition 2s;
+    -webkit-animation: smdui-tooltipTransition  2s; /* Safari 4.0 - 8.0 */
+    animation-fill-mode: forwards;
+}
+
+/*Slider Hidden*/
+/*.smdui-sliderHidden-dialog*/

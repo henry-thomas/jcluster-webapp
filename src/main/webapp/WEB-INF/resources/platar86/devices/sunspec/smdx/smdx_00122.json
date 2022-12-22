@@ -1,0 +1,480 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 3: 8.14.3.2, Ref 4: 17",
+      "description": "Inverter Controls Extended Measurements and Status",
+      "label": "Measurements_Status"
+    },
+    "id": 122,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "PV inverter present/available status. Enumerated value.",
+        "id": "PVConn",
+        "label": "PVConn"
+      },
+      {
+        "notes": "",
+        "description": "Storage inverter present/available status. Enumerated value.",
+        "id": "StorConn",
+        "label": "StorConn"
+      },
+      {
+        "notes": "",
+        "description": "ECP connection status: disconnected=0  connected=1.",
+        "id": "ECPConn",
+        "label": "ECPConn"
+      },
+      {
+        "notes": "",
+        "description": "AC lifetime active (real) energy output.",
+        "id": "ActWh",
+        "label": "ActWh"
+      },
+      {
+        "notes": "",
+        "description": "AC lifetime apparent energy output.",
+        "id": "ActVAh",
+        "label": "ActVAh"
+      },
+      {
+        "notes": "",
+        "description": "AC lifetime reactive energy output in quadrant 1.",
+        "id": "ActVArhQ1",
+        "label": "ActVArhQ1"
+      },
+      {
+        "notes": "",
+        "description": "AC lifetime reactive energy output in quadrant 2.",
+        "id": "ActVArhQ2",
+        "label": "ActVArhQ2"
+      },
+      {
+        "notes": "",
+        "description": "AC lifetime negative energy output  in quadrant 3.",
+        "id": "ActVArhQ3",
+        "label": "ActVArhQ3"
+      },
+      {
+        "notes": "",
+        "description": "AC lifetime reactive energy output  in quadrant 4.",
+        "id": "ActVArhQ4",
+        "label": "ActVArhQ4"
+      },
+      {
+        "notes": "",
+        "description": "Amount of VARs available without impacting watts output.",
+        "id": "VArAval",
+        "label": "VArAval"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for available VARs.",
+        "id": "VArAval_SF",
+        "label": "VArAval_SF"
+      },
+      {
+        "notes": "",
+        "description": "Amount of Watts available.",
+        "id": "WAval",
+        "label": "WAval"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for available Watts.",
+        "id": "WAval_SF",
+        "label": "WAval_SF"
+      },
+      {
+        "notes": "Bits shall be automatically cleared on read.",
+        "description": "Bit Mask indicating setpoint limit(s) reached.",
+        "id": "StSetLimMsk",
+        "label": "StSetLimMsk"
+      },
+      {
+        "notes": "",
+        "description": "Bit Mask indicating which inverter controls are currently active.",
+        "id": "StActCtl",
+        "label": "StActCtl"
+      },
+      {
+        "notes": "",
+        "description": "Source of time synchronization.",
+        "id": "TmSrc",
+        "label": "TmSrc"
+      },
+      {
+        "notes": "",
+        "description": "Seconds since 01-01-2000 00:00 UTC",
+        "id": "Tms",
+        "label": "Tms"
+      },
+      {
+        "notes": "",
+        "description": "Bit Mask indicating active ride-through status.",
+        "id": "RtSt",
+        "label": "RtSt"
+      },
+      {
+        "notes": "",
+        "description": "Isolation resistance.",
+        "id": "Ris",
+        "label": "Ris"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for isolation resistance.",
+        "id": "Ris_SF",
+        "label": "Ris_SF"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 44,
+    "name": "status",
+    "block": {
+      "len": 44,
+      "type": "fixed",
+      "point": [
+        {
+          "symbol": [
+            {
+              "id": "CONNECTED",
+              "content": 0
+            },
+            {
+              "id": "AVAILABLE",
+              "content": 1
+            },
+            {
+              "id": "OPERATING",
+              "content": 2
+            },
+            {
+              "id": "TEST",
+              "content": 3
+            }
+          ],
+          "access": "r",
+          "offset": 0,
+          "len": 1,
+          "id": "PVConn",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "CONNECTED",
+              "content": 0
+            },
+            {
+              "id": "AVAILABLE",
+              "content": 1
+            },
+            {
+              "id": "OPERATING",
+              "content": 2
+            },
+            {
+              "id": "TEST",
+              "content": 3
+            }
+          ],
+          "access": "r",
+          "offset": 1,
+          "len": 1,
+          "id": "StorConn",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "symbol": {
+            "id": "CONNECTED",
+            "content": 0
+          },
+          "access": "r",
+          "offset": 2,
+          "len": 1,
+          "id": "ECPConn",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 3,
+          "len": 4,
+          "id": "ActWh",
+          "units": "Wh",
+          "type": "acc64",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 7,
+          "len": 4,
+          "id": "ActVAh",
+          "units": "VAh",
+          "type": "acc64",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 11,
+          "len": 4,
+          "id": "ActVArhQ1",
+          "units": "varh",
+          "type": "acc64",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 15,
+          "len": 4,
+          "id": "ActVArhQ2",
+          "units": "varh",
+          "type": "acc64",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 19,
+          "len": 4,
+          "id": "ActVArhQ3",
+          "units": "varh",
+          "type": "acc64",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 23,
+          "len": 4,
+          "id": "ActVArhQ4",
+          "units": "varh",
+          "type": "acc64",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "VArAval_SF",
+          "offset": 27,
+          "len": 1,
+          "id": "VArAval",
+          "units": "var",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 28,
+          "len": 1,
+          "id": "VArAval_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "WAval_SF",
+          "offset": 29,
+          "len": 1,
+          "id": "WAval",
+          "units": "var",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 30,
+          "len": 1,
+          "id": "WAval_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "WMax",
+              "content": 0
+            },
+            {
+              "id": "VAMax",
+              "content": 1
+            },
+            {
+              "id": "VArAval",
+              "content": 2
+            },
+            {
+              "id": "VArMaxQ1",
+              "content": 3
+            },
+            {
+              "id": "VArMaxQ2",
+              "content": 4
+            },
+            {
+              "id": "VArMaxQ3",
+              "content": 5
+            },
+            {
+              "id": "VArMaxQ4",
+              "content": 6
+            },
+            {
+              "id": "PFMinQ1",
+              "content": 7
+            },
+            {
+              "id": "PFMinQ2",
+              "content": 8
+            },
+            {
+              "id": "PFMinQ3",
+              "content": 9
+            },
+            {
+              "id": "PFMinQ4",
+              "content": 10
+            }
+          ],
+          "access": "r",
+          "offset": 31,
+          "len": 2,
+          "id": "StSetLimMsk",
+          "type": "bitfield32",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "FixedW",
+              "content": 0
+            },
+            {
+              "id": "FixedVAR",
+              "content": 1
+            },
+            {
+              "id": "FixedPF",
+              "content": 2
+            },
+            {
+              "id": "Volt-VAr",
+              "content": 3
+            },
+            {
+              "id": "Freq-Watt-Param",
+              "content": 4
+            },
+            {
+              "id": "Freq-Watt-Curve",
+              "content": 5
+            },
+            {
+              "id": "Dyn-Reactive-Current",
+              "content": 6
+            },
+            {
+              "id": "LVRT",
+              "content": 7
+            },
+            {
+              "id": "HVRT",
+              "content": 8
+            },
+            {
+              "id": "Watt-PF",
+              "content": 9
+            },
+            {
+              "id": "Volt-Watt",
+              "content": 10
+            },
+            {
+              "id": "Scheduled",
+              "content": 12
+            },
+            {
+              "id": "LFRT",
+              "content": 13
+            },
+            {
+              "id": "HFRT",
+              "content": 14
+            }
+          ],
+          "access": "r",
+          "offset": 33,
+          "len": 2,
+          "id": "StActCtl",
+          "type": "bitfield32",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 35,
+          "len": 4,
+          "id": "TmSrc",
+          "type": "string",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 39,
+          "len": 2,
+          "id": "Tms",
+          "units": "Secs",
+          "type": "uint32",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "LVRT_ACTIVE",
+              "content": 0
+            },
+            {
+              "id": "HVRT_ACTIVE",
+              "content": 1
+            },
+            {
+              "id": "LFRT_ACTIVE",
+              "content": 2
+            },
+            {
+              "id": "HFRT_ACTIVE",
+              "content": 3
+            }
+          ],
+          "access": "r",
+          "offset": 41,
+          "len": 1,
+          "id": "RtSt",
+          "type": "bitfield16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "Ris_SF",
+          "offset": 42,
+          "len": 1,
+          "id": "Ris",
+          "units": "ohms",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 43,
+          "len": 1,
+          "id": "Ris_SF",
+          "type": "sunssf",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 122
+  }
+}}

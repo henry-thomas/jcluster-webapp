@@ -1,0 +1,15 @@
+body {
+    .ui-accordion{
+        .ui-accordion-header {
+            &.smdui-accordion-tab.ui-state-active { 
+                border-bottom: $tabsNavBorder;  
+                border-color: $tabsHeaderActiveBorderColor;
+                color: $tabsHeaderTextActiveColor; 
+                background: $tabsHeaderHoverBg;
+            }
+            &.smdui-accordion-tab:hover{ 
+                background: $tabsHeaderHoverBg; 
+            }
+        }
+    }
+}

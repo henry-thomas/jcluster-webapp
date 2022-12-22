@@ -1,0 +1,199 @@
+/*
+Copyright (C) 2019 platar86
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+/* 
+    Created on : Mar 2, 2019, 10:01:07 AM
+    Author     : platar86
+*/
+/*
+
++--------------------------------+-------------+-------------+
+|     ss_appleApple Products     |             |             |
++--------------------------------+-------------+-------------+
+| Pixel Size                     | Viewport    |             |
+| iPhone                         |             |             |
+| iPhone XR                      | 828 x 1792  | 414 x 896   |
+| iPhone XS                      | 1125 x 2436 | 375 x 812   |
+| iPhone XS Max                  | 1242 x 2688 | 414 x 896   |
+| iPhone X                       | 1125 x 2436 | 375 x 812   |
+| iPhone 8 Plus                  | 1080 x 1920 | 414 x 736   |
+| iPhone 8                       | 750 x 1334  | 375 x 667   |
+| iPhone 7 Plus                  | 1080 x 1920 | 414 x 736   |
+| iPhone 7                       | 750 x 1334  | 375 x 667   |
+| iPhone 6 Plus/6S Plus          | 1080 x 1920 | 414 x 736   |
+| iPhone 6/6S                    | 750 x 1334  | 375 x 667   |
+| iPhone 5                       | 640 x 1136  | 320 x 568   |
+| iPod                           |             |             |
+| iPod Touch                     | 640 x 1136  | 320 x 568   |
+| iPad                           |             |             |
+| iPad Pro                       | 2048 x 2732 | 1024 x 1366 |
+| iPad Third & Fourth Generation | 1536 x 2048 | 768 x 1024  |
+| iPad Air 1 & 2                 | 1536 x 2048 | 768 x 1024  |
+| iPad Mini 2 & 3                | 1536 x 2048 | 768 x 1024  |
+| iPad Mini                      | 768 x 1024  | 768 x 1024  |
+|                                |             |             |
+| ss_androidAndroid Devices      |             |             |
+| Pixel Size                     | Viewport    |             |
+| Phones                         |             |             |
+| Nexus 6P                       | 1440 x 2560 | 412 x 732   |
+| Nexus 5X                       | 1080 x 1920 | 412 x 732   |
+| Google Pixel 3 XL              | 1440 x 2960 | 412 x 847   |
+| Google Pixel 3                 | 1080 x 2160 | 412 x 824   |
+| Google Pixel 2 XL              | 1440 x 2560 | 412 x 732   |
+| Google Pixel XL                | 1440 x 2560 | 412 x 732   |
+| Google Pixel                   | 1080 x 1920 | 412 x 732   |
+| Samsung Galaxy Note 9          | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy Note 5          | 1440 x 2560 | 480 x 853   |
+| LG G5                          | 1440 x 2560 | 480 x 853   |
+| One Plus 3                     | 1080 x 1920 | 480 x 853   |
+| Samsung Galaxy S9+             | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S9              | 1440 x 2960 | 412 x 740   |
+| Samsung Galaxy S8+             | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S8              | 1440 x 2960 | 360 x 740   |
+| Samsung Galaxy S7 Edge         | 1440 x 2560 | 360 x 640   |
+| Samsung Galaxy S7              | 1440 x 2560 | 360 x 640   |
+| Tablets                        |             |             |
+| Nexus 9                        | 1536 x 2048 | 768 x 1024  |
+| Nexus 7 (2013)                 | 1200 x 1920 | 600 x 960   |
+| Samsung Galaxy Tab 10          | 800 x 1280  | 800 x 1280  |
+| Chromebook Pixel               | 2560 x 1700 | 1280 x 850  |
++--------------------------------+-------------+-------------+*/
+/*.dashboardCard .dashboardWraperAnim {
+    height: 41vh; }
+*/.dashboardCard .dashboardWraperChart {
+    height: auto; }
+.dashboardCard .dashboardWraper {
+    position: relative;
+    overflow: hidden; }
+.dashboardCard .dashboardWraper .mainDashboardChart {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    display: none;
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+}
+
+.dashboardCard .dashboardWraper .mainDashboardChart #chartdiv {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    margin-bottom: 16px; }
+.dashboardCard .dashboardWraper .mainDashboardChart #chartdiv .chartExtControl {
+    /*position: absolute;*/
+    bottom: 3px; }
+.dashboardCard .dashboardWraper .mainDashboardChart img {
+    max-width: 15%;
+    max-height: 8%;
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    z-index: 100; }
+.dashboardCard .dashboardWraper .mainDashboardAnim {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: white; 
+}
+.dashboardCard .dashboardWraper .mainDashboardAnim img {
+    max-width: 15%;
+    max-height: 8%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: -19px;
+    bottom: 0;
+    margin-top: auto;
+    margin: auto; }
+.dashboardCard .dashboardWraper .mainDashboardAnim svg {
+    max-height: 480px;
+    height: 100%;
+    width: 100%; }
+
+.dialogUserSettings .ui-dialog-content {
+    margin-top: 20px; }
+.dialogUserSettings .ui-dialog-content .userSettingsView {
+    display: grid;
+    grid-template-columns: auto 70px;
+    grid-row-gap: 10px;
+    align-items: end;
+    grid-column-gap: 20px; }
+
+@media (max-height: 480px) and (orientation: landscape) {
+
+    .dashboardCard {
+        padding: 16px  !important; }
+    .dashboardCard .dashboardWraperAnim {
+        height: 300px; }
+    .dashboardCard .dashboardWraperChart {
+        height: 300px; } }
+@media (max-width: 480px) {
+    .dashboardCard {
+        padding: 5px  !important; }
+    .dashboardCard .dashboardWraperAnim {
+        height: 230px; }
+    .dashboardCard .dashboardWraperChart {
+        height: 420px; }
+    .dashboardCard .dashboardWraper {
+        /*height: 230px;*/ }
+    .dashboardCard .dashboardWraper .mainDashboardAnim img {
+        top: 0px; }
+    .dashboardCard .dashboardWraper .mainDashboardChart img {
+        left: 7%;
+        top: 14%; } }
+@media (max-width: 375px) {
+    .dashboardCard .dashboardWraper {
+        /*height: 190px;*/ } }
+@media (max-width: 320px) {
+    .card .dashboardWraper {
+        /*height: 190px;*/ } }
+
+.dashboardControls{
+    display: grid;
+    grid-template: auto/auto auto;
+    grid-template-areas: "leftControls rightControls";
+    height: min-content;
+}
+
+.dashboardControlsRight{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 7px;
+}
+#loadChart{
+  /*display: none;*/
+ /*z-index: 999;*/
+    /*right: -64%;*/
+    /*bottom: -53%;*/
+    position: absolute;
+    width: 300px;
+    height: 100px;
+   /*background: red;*/ 
+  
+}
+#newDashboard{
+        /*margin-top: -75px;*/    
+}

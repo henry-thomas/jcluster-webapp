@@ -1,0 +1,355 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "",
+      "label": "Basic Charge Controller"
+    },
+    "id": 64111,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "",
+        "id": "Port",
+        "label": "Port Number"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "BattV",
+        "label": "Battery Voltage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "ArrayV",
+        "label": "Array Voltage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "OutputA",
+        "label": "Output Current"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "InputA",
+        "label": "Array Current"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "",
+            "id": "Off",
+            "label": "Off"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "Float",
+            "label": "Float Charging"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "Bulk",
+            "label": "Bulk Charging"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "Absorb",
+            "label": "Absorb Charging"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "EQ",
+            "label": "Equalize Charging"
+          }
+        ],
+        "notes": "",
+        "description": "",
+        "id": "ChargerSt",
+        "label": "Operating State"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "OutputW",
+        "label": "Output Wattage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TodayMinBatV",
+        "label": "Today's Minimum Battery Voltage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TodayMaxBatV",
+        "label": "Today's Maximum Battery Voltage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "VOCV",
+        "label": "VOC"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TodayMaxVOC",
+        "label": "Today's Maximum VOC"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TodaykWhOutput",
+        "label": "Today's kWh"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TodayAHOutput",
+        "label": "Today's AH"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "LifeTimeKWHOut",
+        "label": "Lifetime kWh"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "LifeTimeAHOut",
+        "label": "Lifetime kAH"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "LifeTimeMaxOut",
+        "label": "Lifetime Maximum Output Wattage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "LifeTimeMaxBatt",
+        "label": "Lifetime Maximum Battery Voltage"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "LifeTimeMaxVOC",
+        "label": "Lifetime Maximum VOC Voltage"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 23,
+    "block": {
+      "len": 23,
+      "point": [
+        {
+          "offset": 0,
+          "id": "Port",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 1,
+          "id": "V_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "offset": 2,
+          "id": "A_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "offset": 3,
+          "id": "P_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "offset": 4,
+          "id": "AH_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "offset": 5,
+          "id": "KWH_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 6,
+          "id": "BattV",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 7,
+          "id": "ArrayV",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "A_SF",
+          "offset": 8,
+          "id": "OutputA",
+          "units": "A",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "P_SF",
+          "offset": 9,
+          "id": "InputA",
+          "units": "A",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "Off",
+              "content": 0
+            },
+            {
+              "id": "Float",
+              "content": 1
+            },
+            {
+              "id": "Bulk",
+              "content": 2
+            },
+            {
+              "id": "Absorb",
+              "content": 3
+            },
+            {
+              "id": "EQ",
+              "content": 4
+            }
+          ],
+          "offset": 10,
+          "id": "ChargerSt",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "sf": "P_SF",
+          "offset": 11,
+          "id": "OutputW",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 12,
+          "id": "TodayMinBatV",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 13,
+          "id": "TodayMaxBatV",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 14,
+          "id": "VOCV",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 15,
+          "id": "TodayMaxVOC",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "KWH_SF",
+          "offset": 16,
+          "id": "TodaykWhOutput",
+          "units": "kWh",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "AH_SF",
+          "offset": 17,
+          "id": "TodayAHOutput",
+          "units": "AH",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "P_SF",
+          "offset": 18,
+          "id": "LifeTimeKWHOut",
+          "units": "kWh",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "KWH_SF",
+          "offset": 19,
+          "id": "LifeTimeAHOut",
+          "units": "kAH",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "P_SF",
+          "offset": 20,
+          "id": "LifeTimeMaxOut",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 21,
+          "id": "LifeTimeMaxBatt",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "V_SF",
+          "offset": 22,
+          "id": "LifeTimeMaxVOC",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        }
+      ]
+    },
+    "id": 64111
+  }
+}}

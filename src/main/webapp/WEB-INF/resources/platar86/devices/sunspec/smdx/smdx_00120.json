@@ -1,0 +1,429 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 3: 8.14.3.2, Ref 4: 17",
+      "description": "Inverter Controls Nameplate Ratings",
+      "label": "Nameplate"
+    },
+    "id": 120,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Type of DER device. Default value is 4 to indicate PV device.",
+        "id": "DERTyp",
+        "label": "DERTyp"
+      },
+      {
+        "notes": "",
+        "description": "Continuous power output capability of the inverter.",
+        "id": "WRtg",
+        "label": "WRtg"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "WRtg_SF",
+        "label": "WRtg_SF"
+      },
+      {
+        "notes": "",
+        "description": "Continuous Volt-Ampere capability of the inverter.",
+        "id": "VARtg",
+        "label": "VARtg"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "VARtg_SF",
+        "label": "VARtg_SF"
+      },
+      {
+        "notes": "",
+        "description": "Continuous VAR capability of the inverter in quadrant 1.",
+        "id": "VArRtgQ1",
+        "label": "VArRtgQ1"
+      },
+      {
+        "notes": "",
+        "description": "Continuous VAR capability of the inverter in quadrant 2.",
+        "id": "VArRtgQ2",
+        "label": "VArRtgQ2"
+      },
+      {
+        "notes": "",
+        "description": "Continuous VAR capability of the inverter in quadrant 3.",
+        "id": "VArRtgQ3",
+        "label": "VArRtgQ3"
+      },
+      {
+        "notes": "",
+        "description": "Continuous VAR capability of the inverter in quadrant 4.",
+        "id": "VArRtgQ4",
+        "label": "VArRtgQ4"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "VArRtg_SF",
+        "label": "VArRtg_SF"
+      },
+      {
+        "notes": "Sum of all connected phases.  Current rating under nominal voltage under nominal power factor.",
+        "description": "Maximum RMS AC current level capability of the inverter.",
+        "id": "ARtg",
+        "label": "ARtg"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "ARtg_SF",
+        "label": "ARtg_SF"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Minimum power factor capability of the inverter in quadrant 1.",
+        "id": "PFRtgQ1",
+        "label": "PFRtgQ1"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Minimum power factor capability of the inverter in quadrant 2.",
+        "id": "PFRtgQ2",
+        "label": "PFRtgQ2"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Minimum power factor capability of the inverter in quadrant 3.",
+        "id": "PFRtgQ3",
+        "label": "PFRtgQ3"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Minimum power factor capability of the inverter in quadrant 4.",
+        "id": "PFRtgQ4",
+        "label": "PFRtgQ4"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "PFRtg_SF",
+        "label": "PFRtg_SF"
+      },
+      {
+        "notes": "",
+        "description": "Nominal energy rating of storage device.",
+        "id": "WHRtg",
+        "label": "WHRtg"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "WHRtg_SF",
+        "label": "WHRtg_SF"
+      },
+      {
+        "notes": "",
+        "description": "The usable capacity of the battery.  Maximum charge minus minimum charge from a technology capability perspective (Amp-hour capacity rating).",
+        "id": "AhrRtg",
+        "label": "AhrRtg"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for amp-hour rating.",
+        "id": "AhrRtg_SF",
+        "label": "AhrRtg_SF"
+      },
+      {
+        "notes": "",
+        "description": "Maximum rate of energy transfer into the storage device.",
+        "id": "MaxChaRte",
+        "label": "MaxChaRte"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "MaxChaRte_SF",
+        "label": "MaxChaRte_SF"
+      },
+      {
+        "notes": "",
+        "description": "Maximum rate of energy transfer out of the storage device.",
+        "id": "MaxDisChaRte",
+        "label": "MaxDisChaRte"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor",
+        "id": "MaxDisChaRte_SF",
+        "label": "MaxDisChaRte_SF"
+      },
+      {
+        "notes": "",
+        "description": "Pad register.",
+        "id": "Pad",
+        "label": "Pad"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 26,
+    "name": "nameplate",
+    "block": {
+      "len": 26,
+      "type": "fixed",
+      "point": [
+        {
+          "symbol": [
+            {
+              "id": "PV",
+              "content": 4
+            },
+            {
+              "id": "PV_STOR",
+              "content": 82
+            }
+          ],
+          "access": "r",
+          "offset": 0,
+          "len": 1,
+          "id": "DERTyp",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "WRtg_SF",
+          "offset": 1,
+          "len": 1,
+          "id": "WRtg",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 2,
+          "len": 1,
+          "id": "WRtg_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "VARtg_SF",
+          "offset": 3,
+          "len": 1,
+          "id": "VARtg",
+          "units": "VA",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 4,
+          "len": 1,
+          "id": "VARtg_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "VArRtg_SF",
+          "offset": 5,
+          "len": 1,
+          "id": "VArRtgQ1",
+          "units": "var",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "VArRtg_SF",
+          "offset": 6,
+          "len": 1,
+          "id": "VArRtgQ2",
+          "units": "var",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "VArRtg_SF",
+          "offset": 7,
+          "len": 1,
+          "id": "VArRtgQ3",
+          "units": "var",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "VArRtg_SF",
+          "offset": 8,
+          "len": 1,
+          "id": "VArRtgQ4",
+          "units": "var",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 9,
+          "len": 1,
+          "id": "VArRtg_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "ARtg_SF",
+          "offset": 10,
+          "len": 1,
+          "id": "ARtg",
+          "units": "A",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 11,
+          "len": 1,
+          "id": "ARtg_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "PFRtg_SF",
+          "offset": 12,
+          "len": 1,
+          "id": "PFRtgQ1",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "PFRtg_SF",
+          "offset": 13,
+          "len": 1,
+          "id": "PFRtgQ2",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "PFRtg_SF",
+          "offset": 14,
+          "len": 1,
+          "id": "PFRtgQ3",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "PFRtg_SF",
+          "offset": 15,
+          "len": 1,
+          "id": "PFRtgQ4",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 16,
+          "len": 1,
+          "id": "PFRtg_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "sf": "WHRtg_SF",
+          "offset": 17,
+          "len": 1,
+          "id": "WHRtg",
+          "units": "Wh",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 18,
+          "len": 1,
+          "id": "WHRtg_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "AhrRtg_SF",
+          "offset": 19,
+          "len": 1,
+          "id": "AhrRtg",
+          "units": "AH",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 20,
+          "len": 1,
+          "id": "AhrRtg_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "MaxChaRte_SF",
+          "offset": 21,
+          "len": 1,
+          "id": "MaxChaRte",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 22,
+          "len": 1,
+          "id": "MaxChaRte_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "sf": "MaxDisChaRte_SF",
+          "offset": 23,
+          "len": 1,
+          "id": "MaxDisChaRte",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 24,
+          "len": 1,
+          "id": "MaxDisChaRte_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 25,
+          "len": 1,
+          "id": "Pad",
+          "type": "pad",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 120
+  }
+}}

@@ -1,0 +1,466 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "This model supersedes model 401",
+      "description": "A basic string combiner model",
+      "label": "String Combiner (Current)"
+    },
+    "id": 403,
+    "locale": "en",
+    "point": [
+      {
+        "description": "Current scale factor",
+        "id": "DCA_SF"
+      },
+      {
+        "description": "Current scale factor for inputs",
+        "id": "InDCA_SF"
+      },
+      {
+        "description": "Amp-hour scale factor",
+        "id": "DCAhr_SF"
+      },
+      {
+        "description": "Amp-hour scale factor for inputs",
+        "id": "InDCAhr_SF"
+      },
+      {
+        "description": "Voltage scale factor",
+        "id": "DCV_SF"
+      },
+      {
+        "description": "Voltage scale factor for inputs",
+        "id": "InDCV_SF"
+      },
+      {
+        "description": "Power scale factor",
+        "id": "DCW_SF"
+      },
+      {
+        "description": "Power scale factor for inputs",
+        "id": "InDCW_SF"
+      },
+      {
+        "description": "Energy scale factor",
+        "id": "DCWh_SF"
+      },
+      {
+        "description": "Energy scale factor for inputs",
+        "id": "InDCWh_SF"
+      },
+      {
+        "notes": "",
+        "description": "Maximum DC Current Rating",
+        "id": "DCAMax",
+        "label": "Rating"
+      },
+      {
+        "notes": "",
+        "description": "Number of Inputs",
+        "id": "N",
+        "label": "N"
+      },
+      {
+        "notes": "",
+        "description": "Bitmask value.  Events",
+        "id": "Evt",
+        "label": "Event"
+      },
+      {
+        "notes": "",
+        "description": "Bitmask value.  Vendor defined events",
+        "id": "EvtVnd",
+        "label": "Vendor Event"
+      },
+      {
+        "notes": "",
+        "description": "Total measured current",
+        "id": "DCA",
+        "label": "Amps"
+      },
+      {
+        "notes": "",
+        "description": "Total metered Amp-hours",
+        "id": "DCAhr",
+        "label": "Amp-hours"
+      },
+      {
+        "notes": "",
+        "description": "Output Voltage",
+        "id": "DCV",
+        "label": "Voltage"
+      },
+      {
+        "notes": "",
+        "description": "Internal operating temperature",
+        "id": "Tmp",
+        "label": "Temp"
+      },
+      {
+        "notes": "",
+        "description": "Output power",
+        "id": "DCW",
+        "label": "Watts"
+      },
+      {
+        "notes": "",
+        "description": "Output energy",
+        "id": "DCWh",
+        "label": "Watt-hours"
+      },
+      {
+        "notes": "",
+        "description": "DC Performance ratio value",
+        "id": "DCPR",
+        "label": "PR"
+      },
+      {
+        "notes": "",
+        "description": "Uniquely identifies this input set",
+        "id": "InID",
+        "label": "ID"
+      },
+      {
+        "notes": "",
+        "description": "String Input Event Flags",
+        "id": "InEvt",
+        "label": "Event"
+      },
+      {
+        "notes": "",
+        "description": "String Input Vendor Event Flags",
+        "id": "InEvtVnd",
+        "label": "Vendor Event"
+      },
+      {
+        "notes": "",
+        "description": "String Input Current",
+        "id": "InDCA",
+        "label": "Amps"
+      },
+      {
+        "notes": "",
+        "description": "String Input Amp-Hours",
+        "id": "InDCAhr",
+        "label": "Amp-hours"
+      },
+      {
+        "notes": "",
+        "description": "String Input Voltage",
+        "id": "InDCV",
+        "label": "Voltage"
+      },
+      {
+        "notes": "",
+        "description": "String Input Power",
+        "id": "InDCW",
+        "label": "Watts"
+      },
+      {
+        "notes": "",
+        "description": "String Input Energy",
+        "id": "InDCWh",
+        "label": "Watt-hours"
+      },
+      {
+        "notes": "",
+        "description": "String Performance Ratio",
+        "id": "InDCPR",
+        "label": "PR"
+      },
+      {
+        "notes": "Configured value",
+        "description": "Number of modules in this input string",
+        "id": "InN",
+        "label": "N"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 24,
+    "name": "string_combiner",
+    "block": [
+      {
+        "len": 16,
+        "point": [
+          {
+            "offset": 0,
+            "id": "DCA_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "offset": 1,
+            "id": "DCAhr_SF",
+            "type": "sunssf"
+          },
+          {
+            "offset": 2,
+            "id": "DCV_SF",
+            "type": "sunssf"
+          },
+          {
+            "sf": "DCA_SF",
+            "offset": 3,
+            "id": "DCAMax",
+            "units": "A",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "offset": 4,
+            "id": "N",
+            "type": "count",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "LOW_VOLTAGE",
+                "content": 0
+              },
+              {
+                "id": "LOW_POWER",
+                "content": 1
+              },
+              {
+                "id": "LOW_EFFICIENCY",
+                "content": 2
+              },
+              {
+                "id": "CURRENT",
+                "content": 3
+              },
+              {
+                "id": "VOLTAGE",
+                "content": 4
+              },
+              {
+                "id": "POWER",
+                "content": 5
+              },
+              {
+                "id": "PR",
+                "content": 6
+              },
+              {
+                "id": "DISCONNECTED",
+                "content": 7
+              },
+              {
+                "id": "FUSE_FAULT",
+                "content": 8
+              },
+              {
+                "id": "COMBINER_FUSE_FAULT",
+                "content": 9
+              },
+              {
+                "id": "COMBINER_CABINET_OPEN",
+                "content": 10
+              },
+              {
+                "id": "TEMP",
+                "content": 11
+              },
+              {
+                "id": "GROUNDFAULT",
+                "content": 12
+              },
+              {
+                "id": "REVERSED_POLARITY",
+                "content": 13
+              },
+              {
+                "id": "INCOMPATIBLE",
+                "content": 14
+              },
+              {
+                "id": "COMM_ERROR",
+                "content": 15
+              },
+              {
+                "id": "INTERNAL_ERROR",
+                "content": 16
+              },
+              {
+                "id": "THEFT",
+                "content": 17
+              },
+              {
+                "id": "ARC_DETECTED",
+                "content": 18
+              }
+            ],
+            "offset": 5,
+            "id": "Evt",
+            "type": "bitfield32",
+            "mandatory": true
+          },
+          {
+            "offset": 7,
+            "id": "EvtVnd",
+            "type": "bitfield32"
+          },
+          {
+            "sf": "DCA_SF",
+            "offset": 9,
+            "id": "DCA",
+            "units": "A",
+            "type": "int16",
+            "mandatory": true
+          },
+          {
+            "sf": "DCAhr_SF",
+            "offset": 10,
+            "id": "DCAhr",
+            "units": "Ah",
+            "type": "acc32"
+          },
+          {
+            "sf": "DCV_SF",
+            "offset": 12,
+            "id": "DCV",
+            "units": "V",
+            "type": "int16"
+          },
+          {
+            "offset": 13,
+            "id": "Tmp",
+            "units": "C",
+            "type": "int16"
+          },
+          {
+            "offset": 14,
+            "id": "InDCA_SF",
+            "type": "sunssf"
+          },
+          {
+            "offset": 15,
+            "id": "InDCAhr_SF",
+            "type": "sunssf"
+          }
+        ]
+      },
+      {
+        "len": 8,
+        "name": "string",
+        "type": "repeating",
+        "point": [
+          {
+            "offset": 0,
+            "id": "InID",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "LOW_VOLTAGE",
+                "content": 0
+              },
+              {
+                "id": "LOW_POWER",
+                "content": 1
+              },
+              {
+                "id": "LOW_EFFICIENCY",
+                "content": 2
+              },
+              {
+                "id": "CURRENT",
+                "content": 3
+              },
+              {
+                "id": "VOLTAGE",
+                "content": 4
+              },
+              {
+                "id": "POWER",
+                "content": 5
+              },
+              {
+                "id": "PR",
+                "content": 6
+              },
+              {
+                "id": "DISCONNECTED",
+                "content": 7
+              },
+              {
+                "id": "FUSE_FAULT",
+                "content": 8
+              },
+              {
+                "id": "COMBINER_FUSE_FAULT",
+                "content": 9
+              },
+              {
+                "id": "COMBINER_CABINET_OPEN",
+                "content": 10
+              },
+              {
+                "id": "TEMP",
+                "content": 11
+              },
+              {
+                "id": "GROUNDFAULT",
+                "content": 12
+              },
+              {
+                "id": "REVERSED_POLARITY",
+                "content": 13
+              },
+              {
+                "id": "INCOMPATIBLE",
+                "content": 14
+              },
+              {
+                "id": "COMM_ERROR",
+                "content": 15
+              },
+              {
+                "id": "INTERNAL_ERROR",
+                "content": 16
+              },
+              {
+                "id": "THEFT",
+                "content": 17
+              },
+              {
+                "id": "ARC_DETECTED",
+                "content": 18
+              }
+            ],
+            "offset": 1,
+            "id": "InEvt",
+            "type": "bitfield32",
+            "mandatory": true
+          },
+          {
+            "offset": 3,
+            "id": "InEvtVnd",
+            "type": "bitfield32"
+          },
+          {
+            "sf": "InDCA_SF",
+            "offset": 5,
+            "id": "InDCA",
+            "units": "A",
+            "type": "int16",
+            "mandatory": true
+          },
+          {
+            "sf": "InDCAhr_SF",
+            "offset": 6,
+            "id": "InDCAhr",
+            "units": "Ah",
+            "type": "acc32"
+          }
+        ]
+      }
+    ],
+    "id": 403
+  }
+}}

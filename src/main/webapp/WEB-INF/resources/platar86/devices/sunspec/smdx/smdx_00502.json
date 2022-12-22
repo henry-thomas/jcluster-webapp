@@ -1,0 +1,596 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Integer",
+      "description": "A solar module model supporting DC-DC converter",
+      "label": "Solar Module"
+    },
+    "id": 502,
+    "locale": "en",
+    "point": [
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Module is in the OFF state",
+            "id": "OFF",
+            "label": "Off"
+          },
+          {
+            "notes": "",
+            "description": "Sleeping (auto-shutdown) or panel is at low/safe output power/voltage",
+            "id": "SLEEPING",
+            "label": "SLEEPING"
+          },
+          {
+            "notes": "",
+            "description": "Starting up or ON but not producing power; panel might have high voltage but is not producing power",
+            "id": "STARTING",
+            "label": "STARTING"
+          },
+          {
+            "notes": "",
+            "description": "Tracking MPPT power point",
+            "id": "MPPT",
+            "label": "MPPT"
+          },
+          {
+            "notes": "",
+            "description": "Forced power reduction / power de-rating",
+            "id": "THROTTLED",
+            "label": "THROTTLED"
+          },
+          {
+            "notes": "",
+            "description": "Shutting down",
+            "id": "SHUTTING_DOWN",
+            "label": "SHUTTING_DOWN"
+          },
+          {
+            "notes": "",
+            "description": "One or more faults exist",
+            "id": "FAULT",
+            "label": "FAULT"
+          },
+          {
+            "notes": "",
+            "description": "Standby (service or unit) - unlike SLEEPING in this mode the module might be at a high (unsafe) output voltage or power",
+            "id": "STANDBY",
+            "label": "STANDBY"
+          },
+          {
+            "notes": "",
+            "description": "Test mode",
+            "id": "TEST",
+            "label": "TEST"
+          },
+          {
+            "notes": "",
+            "description": "As defined in vendor specific status",
+            "id": "OTHER",
+            "label": "OTHER"
+          }
+        ],
+        "notes": "",
+        "description": "Enumerated value.  Module Status Code",
+        "id": "Stat",
+        "label": "Status"
+      },
+      {
+        "notes": "",
+        "description": "Module Vendor Status Code",
+        "id": "StatVend",
+        "label": "Vendor Status"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "Ground Fault",
+            "id": "GROUND_FAULT",
+            "label": "Ground Fault"
+          },
+          {
+            "notes": "",
+            "description": "DC input over-voltage",
+            "id": "INPUT_OVER_VOLTAGE",
+            "label": "Over Voltage"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "",
+            "description": "DC disconnect open",
+            "id": "DC_DISCONNECT",
+            "label": "Disconnect"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "",
+            "description": "Manual shutdown",
+            "id": "MANUAL_SHUTDOWN",
+            "label": "Manual shutdown"
+          },
+          {
+            "notes": "",
+            "description": "Over Temperature",
+            "id": "OVER_TEMPERATURE",
+            "label": "Over Temperature"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "Reserved for u-inverter compatibility",
+            "description": "Reserved",
+            "id": "RESERVED",
+            "label": "Reserved"
+          },
+          {
+            "notes": "",
+            "description": "Input fuse is blown",
+            "id": "BLOWN_FUSE",
+            "label": "Blown Fuse"
+          },
+          {
+            "notes": "",
+            "description": "Under Temperature",
+            "id": "UNDER_TEMPERATURE",
+            "label": "Under Temperature"
+          },
+          {
+            "notes": "",
+            "description": "Generic Memory or Communication Error",
+            "id": "MEMORY_LOSS",
+            "label": "Memory Loss"
+          },
+          {
+            "notes": "",
+            "description": "Arc Detection",
+            "id": "ARC_DETECTION",
+            "label": "Arc Detection"
+          },
+          {
+            "notes": "",
+            "description": "Theft Detection",
+            "id": "THEFT_DETECTION",
+            "label": "Theft Detection"
+          },
+          {
+            "notes": "",
+            "description": "Output Over Current",
+            "id": "OUTPUT_OVER_CURRENT",
+            "label": "Over Current"
+          },
+          {
+            "notes": "",
+            "description": "DC Output Over Voltage",
+            "id": "OUTPUT_OVER_VOLTAGE",
+            "label": "Output Over Voltage"
+          },
+          {
+            "notes": "",
+            "description": "DC Output Under Voltage",
+            "id": "OUTPUT_UNDER_VOLTAGE",
+            "label": "Output Under Voltage"
+          },
+          {
+            "notes": "",
+            "description": "Last Self Test failed; see vendor event for details",
+            "id": "TEST_FAILED",
+            "label": "Test Failed"
+          }
+        ],
+        "notes": "",
+        "description": "Bitmask value.  Module Event Flags",
+        "id": "Evt",
+        "label": "Events"
+      },
+      {
+        "notes": "",
+        "description": "Vendor specific flags",
+        "id": "EvtVend",
+        "label": "Vendor Module Event Flags"
+      },
+      {
+        "notes": "",
+        "description": "Current scale factor",
+        "id": "A_SF",
+        "label": ""
+      },
+      {
+        "notes": "",
+        "description": "Voltage scale factor",
+        "id": "V_SF",
+        "label": ""
+      },
+      {
+        "notes": "",
+        "description": "Power scale factor",
+        "id": "W_SF",
+        "label": ""
+      },
+      {
+        "notes": "",
+        "description": "Energy scale factor",
+        "id": "Wh_SF",
+        "label": ""
+      },
+      {
+        "notes": "",
+        "description": "Module Control",
+        "id": "Ctl",
+        "label": "Control"
+      },
+      {
+        "notes": "",
+        "description": "Vendor Module Control",
+        "id": "CtlVend",
+        "label": "Vendor Control"
+      },
+      {
+        "notes": "",
+        "description": "Module Control Value",
+        "id": "CtlVal",
+        "label": "Control Value"
+      },
+      {
+        "notes": "",
+        "description": "Time in seconds since 2000 epoch",
+        "id": "Tms",
+        "label": "Timestamp"
+      },
+      {
+        "notes": "",
+        "description": "Output Current",
+        "id": "OutA",
+        "label": "Output Current"
+      },
+      {
+        "notes": "",
+        "description": "Output Voltage",
+        "id": "OutV",
+        "label": "Output Voltage"
+      },
+      {
+        "notes": "",
+        "description": "Output Energy",
+        "id": "OutWh",
+        "label": "Output Energy"
+      },
+      {
+        "notes": "",
+        "description": "Output Power",
+        "id": "OutW",
+        "label": "Output Power"
+      },
+      {
+        "notes": "",
+        "description": "Module Temperature",
+        "id": "Tmp",
+        "label": "Temp"
+      },
+      {
+        "notes": "",
+        "description": "Input Current",
+        "id": "InA",
+        "label": "Input Current"
+      },
+      {
+        "notes": "",
+        "description": "Input Voltage",
+        "id": "InV",
+        "label": "Input Voltage"
+      },
+      {
+        "notes": "",
+        "description": "Input Energy",
+        "id": "InWh",
+        "label": "Input Energy"
+      },
+      {
+        "notes": "",
+        "description": "Input Power",
+        "id": "InW",
+        "label": "Input Power"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 28,
+    "name": "solar_module",
+    "block": {
+      "len": 28,
+      "point": [
+        {
+          "offset": 0,
+          "id": "A_SF",
+          "type": "sunssf"
+        },
+        {
+          "offset": 1,
+          "id": "V_SF",
+          "type": "sunssf"
+        },
+        {
+          "offset": 2,
+          "id": "W_SF",
+          "type": "sunssf"
+        },
+        {
+          "offset": 3,
+          "id": "Wh_SF",
+          "type": "sunssf"
+        },
+        {
+          "symbol": [
+            {
+              "id": "OFF",
+              "content": 1
+            },
+            {
+              "id": "SLEEPING",
+              "content": 2
+            },
+            {
+              "id": "STARTING",
+              "content": 3
+            },
+            {
+              "id": "MPPT",
+              "content": 4
+            },
+            {
+              "id": "THROTTLED",
+              "content": 5
+            },
+            {
+              "id": "SHUTTING_DOWN",
+              "content": 6
+            },
+            {
+              "id": "FAULT",
+              "content": 7
+            },
+            {
+              "id": "STANDBY",
+              "content": 8
+            },
+            {
+              "id": "TEST",
+              "content": 9
+            },
+            {
+              "id": "OTHER",
+              "content": 10
+            }
+          ],
+          "offset": 4,
+          "id": "Stat",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "offset": 5,
+          "id": "StatVend",
+          "type": "enum16"
+        },
+        {
+          "symbol": [
+            {
+              "id": "GROUND_FAULT",
+              "content": 0
+            },
+            {
+              "id": "INPUT_OVER_VOLTAGE",
+              "content": 1
+            },
+            {
+              "id": "RESERVED",
+              "content": 2
+            },
+            {
+              "id": "DC_DISCONNECT",
+              "content": 3
+            },
+            {
+              "id": "RESERVED",
+              "content": 4
+            },
+            {
+              "id": "RESERVED",
+              "content": 5
+            },
+            {
+              "id": "MANUAL_SHUTDOWN",
+              "content": 6
+            },
+            {
+              "id": "OVER_TEMPERATURE",
+              "content": 7
+            },
+            {
+              "id": "RESERVED",
+              "content": 8
+            },
+            {
+              "id": "RESERVED",
+              "content": 9
+            },
+            {
+              "id": "RESERVED",
+              "content": 10
+            },
+            {
+              "id": "RESERVED",
+              "content": 11
+            },
+            {
+              "id": "BLOWN_FUSE",
+              "content": 12
+            },
+            {
+              "id": "UNDER_TEMPERATURE",
+              "content": 13
+            },
+            {
+              "id": "MEMORY_LOSS",
+              "content": 14
+            },
+            {
+              "id": "ARC_DETECTION",
+              "content": 15
+            },
+            {
+              "id": "THEFT_DETECTION",
+              "content": 16
+            },
+            {
+              "id": "OUTPUT_OVER_CURRENT",
+              "content": 17
+            },
+            {
+              "id": "OUTPUT_OVER_VOLTAGE",
+              "content": 18
+            },
+            {
+              "id": "OUTPUT_UNDER_VOLTAGE",
+              "content": 19
+            },
+            {
+              "id": "TEST_FAILED",
+              "content": 20
+            }
+          ],
+          "offset": 6,
+          "id": "Evt",
+          "type": "bitfield32",
+          "mandatory": true
+        },
+        {
+          "offset": 8,
+          "id": "EvtVend",
+          "type": "bitfield32"
+        },
+        {
+          "access": "rw",
+          "offset": 10,
+          "id": "Ctl",
+          "type": "enum16"
+        },
+        {
+          "access": "rw",
+          "offset": 11,
+          "id": "CtlVend",
+          "type": "enum32"
+        },
+        {
+          "access": "rw",
+          "offset": 13,
+          "id": "CtlVal",
+          "type": "int32"
+        },
+        {
+          "offset": 15,
+          "id": "Tms",
+          "units": "Secs",
+          "type": "uint32"
+        },
+        {
+          "sf": "A_SF",
+          "offset": 17,
+          "id": "OutA",
+          "units": "A",
+          "type": "int16"
+        },
+        {
+          "sf": "V_SF",
+          "offset": 18,
+          "id": "OutV",
+          "units": "V",
+          "type": "int16"
+        },
+        {
+          "sf": "Wh_SF",
+          "offset": 19,
+          "id": "OutWh",
+          "units": "Wh",
+          "type": "acc32"
+        },
+        {
+          "sf": "W_SF",
+          "offset": 21,
+          "id": "OutPw",
+          "units": "W",
+          "type": "int16"
+        },
+        {
+          "offset": 22,
+          "id": "Tmp",
+          "units": "C",
+          "type": "int16"
+        },
+        {
+          "sf": "A_SF",
+          "offset": 23,
+          "id": "InA",
+          "units": "A",
+          "type": "int16"
+        },
+        {
+          "sf": "V_SF",
+          "offset": 24,
+          "id": "InV",
+          "units": "V",
+          "type": "int16"
+        },
+        {
+          "sf": "Wh_SF",
+          "offset": 25,
+          "id": "InWh",
+          "units": "Wh",
+          "type": "acc32"
+        },
+        {
+          "sf": "W_SF",
+          "offset": 27,
+          "id": "InW",
+          "units": "W",
+          "type": "int16"
+        }
+      ]
+    },
+    "id": 502
+  }
+}}

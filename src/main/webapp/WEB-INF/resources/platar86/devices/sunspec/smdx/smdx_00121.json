@@ -1,0 +1,513 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 3: 8.4.2.1, Ref 4: 17",
+      "description": "Inverter Controls Basic Settings",
+      "label": "Basic Settings"
+    },
+    "id": 121,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Setting for maximum power output. Default to WRtg.",
+        "id": "WMax",
+        "label": "WMax"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for real power.",
+        "id": "WMax_SF",
+        "label": "WMax_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for maximum voltage.",
+        "id": "VMax",
+        "label": "VMax"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for minimum voltage.",
+        "id": "VMin",
+        "label": "VMin"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for min/max voltages.",
+        "id": "VMinMax_SF",
+        "label": "VMinMax_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for maximum apparent power. Default to VARtg.",
+        "id": "VAMax",
+        "label": "VAMax"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for apparent power.",
+        "id": "VAMax_SF",
+        "label": "VAMax_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setting for maximum reactive power in quadrant 1. Default to VArRtgQ1.",
+        "id": "VArMaxQ1",
+        "label": "VArMaxQ1"
+      },
+      {
+        "notes": "",
+        "description": "Setting for maximum reactive power in quadrant 2. Default to VArRtgQ2.",
+        "id": "VArMaxQ2",
+        "label": "VArMaxQ2"
+      },
+      {
+        "notes": "",
+        "description": "Setting for maximum reactive power in quadrant 3. Default to VArRtgQ3.",
+        "id": "VArMaxQ3",
+        "label": "VArMaxQ3"
+      },
+      {
+        "notes": "",
+        "description": "Setting for maximum reactive power in quadrant 4. Default to VArRtgQ4.",
+        "id": "VArMaxQ4",
+        "label": "VArMaxQ4"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for reactive power.",
+        "id": "VArMax_SF",
+        "label": "VArMax_SF"
+      },
+      {
+        "notes": "",
+        "description": "Voltage at the PCC.",
+        "id": "VRef",
+        "label": "VRef"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for voltage at the PCC.",
+        "id": "VRef_SF",
+        "label": "VRef_SF"
+      },
+      {
+        "notes": "",
+        "description": "Offset  from PCC to inverter.",
+        "id": "VRefOfs",
+        "label": "VRefOfs"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for offset voltage.",
+        "id": "VRefOfs_SF",
+        "label": "VRefOfs_SF"
+      },
+      {
+        "notes": "",
+        "description": "Default ramp rate of change of active power due to command or internal action.",
+        "id": "WGra",
+        "label": "WGra"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for default ramp rate.",
+        "id": "WGra_SF",
+        "label": "WGra_SF"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Setpoint for minimum power factor value in quadrant 1. Default to PFRtgQ1.",
+        "id": "PFMinQ1",
+        "label": "PFMinQ1"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Setpoint for minimum power factor value in quadrant 2. Default to PFRtgQ2.",
+        "id": "PFMinQ2",
+        "label": "PFMinQ2"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Setpoint for minimum power factor value in quadrant 3. Default to PFRtgQ3.",
+        "id": "PFMinQ3",
+        "label": "PFMinQ3"
+      },
+      {
+        "notes": "EEI sign convention.",
+        "description": "Setpoint for minimum power factor value in quadrant 4. Default to PFRtgQ4.",
+        "id": "PFMinQ4",
+        "label": "PFMinQ4"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for minimum power factor.",
+        "id": "PFMin_SF",
+        "label": "PFMin_SF"
+      },
+      {
+        "notes": "",
+        "description": "VAR action on change between charging and discharging: 1=switch 2=maintain VAR characterization.",
+        "id": "VArAct",
+        "label": "VArAct"
+      },
+      {
+        "notes": "",
+        "description": "Calculation method for total apparent power. 1=vector 2=arithmetic.",
+        "id": "ClcTotVA",
+        "label": "ClcTotVA"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for maximum ramp rate as percentage of nominal maximum ramp rate. This setting will limit the rate that watts delivery to the grid can increase or decrease in response to intermittent PV generation.",
+        "id": "MaxRmpRte",
+        "label": "MaxRmpRte"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for maximum ramp percentage.",
+        "id": "MaxRmpRte_SF",
+        "label": "MaxRmpRte_SF"
+      },
+      {
+        "notes": "",
+        "description": "Setpoint for nominal frequency at the ECP.",
+        "id": "ECPNomHz",
+        "label": "ECPNomHz"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for nominal frequency.",
+        "id": "ECPNomHz_SF",
+        "label": "ECPNomHz_SF"
+      },
+      {
+        "notes": "",
+        "description": "Identity of connected phase for single phase inverters. A=1 B=2 C=3.",
+        "id": "ConnPh",
+        "label": "ConnPh"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 30,
+    "name": "settings",
+    "block": {
+      "len": 30,
+      "type": "fixed",
+      "point": [
+        {
+          "access": "rw",
+          "sf": "WMax_SF",
+          "offset": 0,
+          "len": 1,
+          "id": "WMax",
+          "units": "W",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "VRef_SF",
+          "offset": 1,
+          "len": 1,
+          "id": "VRef",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "VRefOfs_SF",
+          "offset": 2,
+          "len": 1,
+          "id": "VRefOfs",
+          "units": "V",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "access": "rw",
+          "sf": "VMinMax_SF",
+          "offset": 3,
+          "len": 1,
+          "id": "VMax",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VMinMax_SF",
+          "offset": 4,
+          "len": 1,
+          "id": "VMin",
+          "units": "V",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VAMax_SF",
+          "offset": 5,
+          "len": 1,
+          "id": "VAMax",
+          "units": "VA",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VArMax_SF",
+          "offset": 6,
+          "len": 1,
+          "id": "VArMaxQ1",
+          "units": "var",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VArMax_SF",
+          "offset": 7,
+          "len": 1,
+          "id": "VArMaxQ2",
+          "units": "var",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VArMax_SF",
+          "offset": 8,
+          "len": 1,
+          "id": "VArMaxQ3",
+          "units": "var",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "VArMax_SF",
+          "offset": 9,
+          "len": 1,
+          "id": "VArMaxQ4",
+          "units": "var",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "WGra_SF",
+          "offset": 10,
+          "len": 1,
+          "id": "WGra",
+          "units": "% WMax/sec",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "PFMin_SF",
+          "offset": 11,
+          "len": 1,
+          "id": "PFMinQ1",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "PFMin_SF",
+          "offset": 12,
+          "len": 1,
+          "id": "PFMinQ2",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "PFMin_SF",
+          "offset": 13,
+          "len": 1,
+          "id": "PFMinQ3",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "PFMin_SF",
+          "offset": 14,
+          "len": 1,
+          "id": "PFMinQ4",
+          "units": "cos()",
+          "type": "int16",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "SWITCH",
+              "content": 1
+            },
+            {
+              "id": "MAINTAIN",
+              "content": 2
+            }
+          ],
+          "access": "rw",
+          "offset": 15,
+          "len": 1,
+          "id": "VArAct",
+          "type": "enum16",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "VECTOR",
+              "content": 1
+            },
+            {
+              "id": "ARITHMETIC",
+              "content": 2
+            }
+          ],
+          "access": "rw",
+          "offset": 16,
+          "len": 1,
+          "id": "ClcTotVA",
+          "type": "enum16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "MaxRmpRte_SF",
+          "offset": 17,
+          "len": 1,
+          "id": "MaxRmpRte",
+          "units": "% WGra",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "access": "rw",
+          "sf": "ECPNomHz_SF",
+          "offset": 18,
+          "len": 1,
+          "id": "ECPNomHz",
+          "units": "Hz",
+          "type": "uint16",
+          "mandatory": false
+        },
+        {
+          "symbol": [
+            {
+              "id": "A",
+              "content": 1
+            },
+            {
+              "id": "B",
+              "content": 2
+            },
+            {
+              "id": "C",
+              "content": 3
+            }
+          ],
+          "access": "rw",
+          "offset": 19,
+          "len": 1,
+          "id": "ConnPh",
+          "type": "enum16",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 20,
+          "len": 1,
+          "id": "WMax_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 21,
+          "len": 1,
+          "id": "VRef_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 22,
+          "len": 1,
+          "id": "VRefOfs_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "access": "r",
+          "offset": 23,
+          "len": 1,
+          "id": "VMinMax_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 24,
+          "len": 1,
+          "id": "VAMax_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 25,
+          "len": 1,
+          "id": "VArMax_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 26,
+          "len": 1,
+          "id": "WGra_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 27,
+          "len": 1,
+          "id": "PFMin_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 28,
+          "len": 1,
+          "id": "MaxRmpRte_SF",
+          "type": "sunssf",
+          "mandatory": false
+        },
+        {
+          "access": "r",
+          "offset": 29,
+          "len": 1,
+          "id": "ECPNomHz_SF",
+          "type": "sunssf",
+          "mandatory": false
+        }
+      ]
+    },
+    "id": 121
+  }
+}}

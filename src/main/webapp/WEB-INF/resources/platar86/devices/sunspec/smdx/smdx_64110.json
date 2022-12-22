@@ -1,0 +1,709 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "",
+      "description": "",
+      "label": "OutBack AXS device"
+    },
+    "id": 64110,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "",
+        "id": "MajorFWRev",
+        "label": "AXS Major Firmware Number"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "MidFWRev",
+        "label": "AXS Mid Firmware Number"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "MinorFWRev",
+        "label": "AXS Minor Firmware Number"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "EncrypKey",
+        "label": "Encryption Key"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "MAC_Address",
+        "label": "MAC Address"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "WritePassword",
+        "label": "Write Password"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "EnableDHCP",
+        "label": "Enable DHCP"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TCPIP_address",
+        "label": "TCPIP Address"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Gateway_address",
+        "label": "TCPIP Gateway"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TCPIP_Netmask",
+        "label": "TCPIP Netmask"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "DNS1_address",
+        "label": "TCPIP DNS1"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "DNS2_address",
+        "label": "TCPIP DNS2"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Modbus_port",
+        "label": "ModBus Port"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "SMTP_server_nm",
+        "label": "SMTP Server Name"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "SMTP_account_nm",
+        "label": "SMTP Account Name"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "",
+            "id": "ASX_DISABLED",
+            "label": "Disabled"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "ASX_ENABLED",
+            "label": "Enabled"
+          }
+        ],
+        "notes": "",
+        "description": "",
+        "id": "SMTP_enable_SSL",
+        "label": "Enable SMTP SSL"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "SMTP_password",
+        "label": "SMTP Password"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "SMTP_user_nm",
+        "label": "SMTP User Name"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Stat_email_int",
+        "label": "Status Email Interval"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Stat_start_HR",
+        "label": "Status Email Start Hour"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Stat_email_sub",
+        "label": "Status Email Subject"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Stat_email_addr1",
+        "label": "Status Email to Address 1"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Stat_email_addr2",
+        "label": "Status Email to Address 2"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "",
+            "id": "ASX_DISABLED",
+            "label": "Disabled"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "ASX_ENABLED",
+            "label": "Enabled"
+          }
+        ],
+        "notes": "",
+        "description": "",
+        "id": "Alarm_email_en",
+        "label": "Enable Alarm Email"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Alarm_email_sub",
+        "label": "Alarm Email Subject"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Alarm_email_addr1",
+        "label": "Alarm Email to Address 1"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Alarm_email_addr2",
+        "label": "Alarm Email to Address 2"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "FTP_password",
+        "label": "FTP Password"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TELNET_password",
+        "label": "Telnet Password"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Log_write_int",
+        "label": "SD-Card Datalog Write Interval"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Log_retain",
+        "label": "SD-Card Datalog Retain"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "",
+            "id": "LOG_DISABLED",
+            "label": "Disabled"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "LOG_EXCEL",
+            "label": "Excel"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "LOG_COMPACT",
+            "label": "Compact"
+          }
+        ],
+        "notes": "",
+        "description": "",
+        "id": "Log_mode",
+        "label": "SD-Card Datalog Mode"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "NTP_server_nm",
+        "label": "NTP Timer Server Name"
+      },
+      {
+        "symbol": [
+          {
+            "notes": "",
+            "description": "",
+            "id": "ASX_DISABLED",
+            "label": "Disabled"
+          },
+          {
+            "notes": "",
+            "description": "",
+            "id": "ASX_ENABLED",
+            "label": "Enabled"
+          }
+        ],
+        "notes": "",
+        "description": "",
+        "id": "NTP_enable",
+        "label": "Enable Network Time"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "TimeZone",
+        "label": "Time Zone"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Date_year",
+        "label": "Year"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Date_month",
+        "label": "Month"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Date_Day",
+        "label": "Day"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Time_hour",
+        "label": "Hour"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Time_minute",
+        "label": "Minute"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Time_second",
+        "label": "Second"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Battery_temp",
+        "label": "Battery Temperature"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "Ambient_temp",
+        "label": "Ambient Temperature"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "AXS_Error",
+        "label": "AXS Error"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "AXS_Status",
+        "label": "AXS Status"
+      },
+      {
+        "notes": "",
+        "description": "",
+        "id": "AXS_Spare",
+        "label": "Spare"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 282,
+    "block": {
+      "len": 282,
+      "point": [
+        {
+          "offset": 0,
+          "id": "MajorFWRev",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 1,
+          "id": "MidFWRev",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 2,
+          "id": "MinorFWRev",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 3,
+          "id": "EncrypKey",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 4,
+          "len": 7,
+          "id": "MAC_Address",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 11,
+          "len": 8,
+          "id": "WritePassword",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 19,
+          "id": "EnableDHCP",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "offset": 20,
+          "id": "TCPIP_address",
+          "type": "ipaddr",
+          "mandatory": true
+        },
+        {
+          "offset": 22,
+          "id": "Gateway_address",
+          "type": "ipaddr",
+          "mandatory": true
+        },
+        {
+          "offset": 24,
+          "id": "TCPIP_Netmask",
+          "type": "ipaddr",
+          "mandatory": true
+        },
+        {
+          "offset": 26,
+          "id": "DNS1_address",
+          "type": "ipaddr",
+          "mandatory": true
+        },
+        {
+          "offset": 28,
+          "id": "DNS2_address",
+          "type": "ipaddr",
+          "mandatory": true
+        },
+        {
+          "offset": 30,
+          "id": "Modbus_port",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 31,
+          "len": 20,
+          "id": "SMTP_server_nm",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 51,
+          "len": 16,
+          "id": "SMTP_account_nm",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "ASX_DISABLED",
+              "content": 0
+            },
+            {
+              "id": "ASX_ENABLED",
+              "content": 1
+            }
+          ],
+          "offset": 67,
+          "id": "SMTP_enable_SSL",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "offset": 68,
+          "len": 8,
+          "id": "SMTP_password",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 76,
+          "len": 20,
+          "id": "SMTP_user_nm",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 96,
+          "id": "Stat_email_int",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 97,
+          "id": "Stat_start_HR",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 98,
+          "len": 25,
+          "id": "Stat_email_sub",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 123,
+          "len": 20,
+          "id": "Stat_email_addr1",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 143,
+          "len": 20,
+          "id": "Stat_email_addr2",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "ASX_DISABLED",
+              "content": 0
+            },
+            {
+              "id": "ASX_ENABLED",
+              "content": 1
+            }
+          ],
+          "offset": 163,
+          "id": "Alarm_email_en",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "offset": 164,
+          "len": 25,
+          "id": "Alarm_email_sub",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 189,
+          "len": 20,
+          "id": "Alarm_email_addr1",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 209,
+          "len": 20,
+          "id": "Alarm_email_addr2",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 229,
+          "len": 8,
+          "id": "FTP_password",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 237,
+          "len": 8,
+          "id": "TELNET_password",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "offset": 245,
+          "id": "Log_write_int",
+          "units": "Tms",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 246,
+          "id": "Log_retain",
+          "units": "Tmd",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "LOG_DISABLED",
+              "content": 0
+            },
+            {
+              "id": "LOG_EXCEL",
+              "content": 1
+            },
+            {
+              "id": "LOG_COMPACT",
+              "content": 2
+            }
+          ],
+          "offset": 247,
+          "id": "Log_mode",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "offset": 248,
+          "len": 20,
+          "id": "NTP_server_nm",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "symbol": [
+            {
+              "id": "ASX_DISABLED",
+              "content": 0
+            },
+            {
+              "id": "ASX_ENABLED",
+              "content": 1
+            }
+          ],
+          "offset": 268,
+          "id": "NTP_enable",
+          "type": "enum16",
+          "mandatory": true
+        },
+        {
+          "offset": 269,
+          "id": "TimeZone",
+          "units": "Tmh",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "offset": 270,
+          "id": "Date_year",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 271,
+          "id": "Date_month",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 272,
+          "id": "Date_Day",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 273,
+          "id": "Time_hour",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 274,
+          "id": "Time_minute",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "offset": 275,
+          "id": "Time_second",
+          "type": "uint16",
+          "mandatory": true
+        },
+        {
+          "sf": "Temp_SF",
+          "offset": 276,
+          "id": "Battery_temp",
+          "units": "C",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "sf": "Temp_SF",
+          "offset": 277,
+          "id": "Ambient_temp",
+          "units": "C",
+          "type": "int16",
+          "mandatory": true
+        },
+        {
+          "offset": 278,
+          "id": "Temp_SF",
+          "type": "sunssf",
+          "mandatory": true
+        },
+        {
+          "offset": 279,
+          "id": "AXS_Error",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "offset": 280,
+          "id": "AXS_Status",
+          "type": "bitfield16",
+          "mandatory": true
+        },
+        {
+          "offset": 281,
+          "id": "AXS_Spare",
+          "type": "uint16",
+          "mandatory": true
+        }
+      ]
+    },
+    "id": 64110
+  }
+}}

@@ -1,0 +1,818 @@
+{"sunSpecModels": {
+  "strings": {
+    "model": {
+      "notes": "Ref 2: 2.2.8",
+      "description": "Basic Scheduling",
+      "label": "Basic Scheduling"
+    },
+    "id": 133,
+    "locale": "en",
+    "point": [
+      {
+        "notes": "",
+        "description": "Number of schedules supported (recommend min. 4, max 32)",
+        "id": "NSchd",
+        "label": "NSchd"
+      },
+      {
+        "notes": "",
+        "description": "Number of schedule entries supported (maximum of 10).",
+        "id": "NPts",
+        "label": "NPts"
+      },
+      {
+        "notes": "",
+        "description": "Is basic scheduling active.",
+        "id": "ModEna",
+        "label": "ModEna"
+      },
+      {
+        "notes": "",
+        "description": "Bitfield of active schedules",
+        "id": "ActSchd",
+        "label": "ActSchd"
+      },
+      {
+        "notes": "",
+        "description": "Optional description for schedule.",
+        "id": "Nam",
+        "label": "Nam"
+      },
+      {
+        "notes": "",
+        "description": "Number of active entries in schedule.",
+        "id": "ActPts",
+        "label": "ActPts"
+      },
+      {
+        "notes": "",
+        "description": "Index of active entry in the active schedule.",
+        "id": "ActIndx",
+        "label": "ActIndx"
+      },
+      {
+        "notes": "",
+        "description": "Schedule start in seconds since 2000 JAN 01 00:00:00 UTC.",
+        "id": "StrTms",
+        "label": "StrTms"
+      },
+      {
+        "notes": "",
+        "description": "The repetition count for time-based schedules (0=repeat forever)",
+        "id": "RepPer",
+        "label": "RepPer"
+      },
+      {
+        "notes": "",
+        "description": "The repetition frequency for time-based schedules: no repeat=0",
+        "id": "IntvTyp",
+        "label": "SchdTyp"
+      },
+      {
+        "notes": "",
+        "description": "The meaning of the X-values in the array.",
+        "id": "XTyp",
+        "label": "XTyp"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for schedule range values.",
+        "id": "X_SF",
+        "label": "X_SF"
+      },
+      {
+        "notes": "",
+        "description": "The meaning of the Y-values in the array.",
+        "id": "YTyp",
+        "label": "YTyp"
+      },
+      {
+        "notes": "",
+        "description": "Scale factor for schedule target values.",
+        "id": "Y_SF",
+        "label": "Y_SF"
+      },
+      {
+        "notes": "",
+        "description": "Time window for schedule entry change.",
+        "id": "WinTms",
+        "label": "WinTms"
+      },
+      {
+        "notes": "",
+        "description": "Ramp time for moving from current target to new target.",
+        "id": "RmpTms",
+        "label": "RmpTms"
+      },
+      {
+        "notes": "",
+        "description": "Pad register.",
+        "id": "Pad",
+        "label": "Pad"
+      },
+      {
+        "notes": "",
+        "description": "Entry 1 range.",
+        "id": "X1",
+        "label": "X1"
+      },
+      {
+        "notes": "",
+        "description": "Entry 1 target.",
+        "id": "Y1",
+        "label": "Y1"
+      },
+      {
+        "notes": "",
+        "description": "Entry 2 range.",
+        "id": "X2",
+        "label": "X2"
+      },
+      {
+        "notes": "",
+        "description": "Entry 2 target.",
+        "id": "Y2",
+        "label": "Y2"
+      },
+      {
+        "notes": "",
+        "description": "Entry 3 range.",
+        "id": "X3",
+        "label": "X3"
+      },
+      {
+        "notes": "",
+        "description": "Entry 3 target.",
+        "id": "Y3",
+        "label": "Y3"
+      },
+      {
+        "notes": "",
+        "description": "Entry 4 range.",
+        "id": "X4",
+        "label": "X4"
+      },
+      {
+        "notes": "",
+        "description": "Entry 4 target.",
+        "id": "Y4",
+        "label": "Y4"
+      },
+      {
+        "notes": "",
+        "description": "Entry 15range.",
+        "id": "X5",
+        "label": "X5"
+      },
+      {
+        "notes": "",
+        "description": "Entry 5 target.",
+        "id": "Y5",
+        "label": "Y5"
+      },
+      {
+        "notes": "",
+        "description": "Entry 6 range.",
+        "id": "X6",
+        "label": "X6"
+      },
+      {
+        "notes": "",
+        "description": "Entry 6 target.",
+        "id": "Y6",
+        "label": "Y6"
+      },
+      {
+        "notes": "",
+        "description": "Entry 7 range.",
+        "id": "X7",
+        "label": "X7"
+      },
+      {
+        "notes": "",
+        "description": "Entry 7 target.",
+        "id": "Y7",
+        "label": "Y7"
+      },
+      {
+        "notes": "",
+        "description": "Entry 8 range.",
+        "id": "X8",
+        "label": "X8"
+      },
+      {
+        "notes": "",
+        "description": "Entry 8 target.",
+        "id": "Y8",
+        "label": "Y8"
+      },
+      {
+        "notes": "",
+        "description": "Entry 9 range.",
+        "id": "X9",
+        "label": "X9"
+      },
+      {
+        "notes": "",
+        "description": "Entry 9 target.",
+        "id": "Y9",
+        "label": "Y9"
+      },
+      {
+        "notes": "",
+        "description": "Entry 10 range.",
+        "id": "X10",
+        "label": "X10"
+      },
+      {
+        "notes": "",
+        "description": "Entry 10 target.",
+        "id": "Y10",
+        "label": "Y10"
+      }
+    ]
+  },
+  "v": 1,
+  "model": {
+    "len": 66,
+    "name": "schedule",
+    "block": [
+      {
+        "len": 6,
+        "type": "fixed",
+        "point": [
+          {
+            "symbol": [
+              {
+                "id": "SCHED1",
+                "content": 0
+              },
+              {
+                "id": "SCHED2",
+                "content": 1
+              },
+              {
+                "id": "SCHED3",
+                "content": 2
+              },
+              {
+                "id": "SCHED4",
+                "content": 3
+              },
+              {
+                "id": "SCHED5",
+                "content": 4
+              },
+              {
+                "id": "SCHED6",
+                "content": 5
+              },
+              {
+                "id": "SCHED7",
+                "content": 6
+              },
+              {
+                "id": "SCHED8",
+                "content": 7
+              },
+              {
+                "id": "SCHED9",
+                "content": 8
+              },
+              {
+                "id": "SCHED10",
+                "content": 9
+              },
+              {
+                "id": "SCHED12",
+                "content": 10
+              },
+              {
+                "id": "SCHED13",
+                "content": 11
+              },
+              {
+                "id": "SCHED14",
+                "content": 12
+              },
+              {
+                "id": "SCHED15",
+                "content": 13
+              },
+              {
+                "id": "SCHED16",
+                "content": 14
+              },
+              {
+                "id": "SCHED17",
+                "content": 15
+              },
+              {
+                "id": "SCHED18",
+                "content": 16
+              },
+              {
+                "id": "SCHED19",
+                "content": 17
+              },
+              {
+                "id": "SCHED20",
+                "content": 18
+              },
+              {
+                "id": "SCHED21",
+                "content": 19
+              },
+              {
+                "id": "SCHED22",
+                "content": 21
+              },
+              {
+                "id": "SCHED23",
+                "content": 22
+              },
+              {
+                "id": "SCHED24",
+                "content": 23
+              },
+              {
+                "id": "SCHED25",
+                "content": 24
+              },
+              {
+                "id": "SCHED26",
+                "content": 25
+              },
+              {
+                "id": "SCHED27",
+                "content": 26
+              },
+              {
+                "id": "SCHED28",
+                "content": 27
+              },
+              {
+                "id": "SCHED29",
+                "content": 28
+              },
+              {
+                "id": "SCHED30",
+                "content": 29
+              },
+              {
+                "id": "SCHED31",
+                "content": 30
+              },
+              {
+                "id": "SCHED32",
+                "content": 31
+              }
+            ],
+            "access": "rw",
+            "offset": 0,
+            "len": 2,
+            "id": "ActSchd",
+            "type": "bitfield32",
+            "mandatory": true
+          },
+          {
+            "symbol": {
+              "id": "ENABLED",
+              "content": 0
+            },
+            "access": "rw",
+            "offset": 2,
+            "len": 1,
+            "id": "ModEna",
+            "type": "bitfield16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 3,
+            "len": 1,
+            "id": "NSchd",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 4,
+            "len": 1,
+            "id": "NPts",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "r",
+            "offset": 5,
+            "len": 1,
+            "id": "Pad",
+            "type": "pad",
+            "mandatory": false
+          }
+        ]
+      },
+      {
+        "len": 60,
+        "type": "repeating",
+        "point": [
+          {
+            "access": "rw",
+            "offset": 0,
+            "len": 1,
+            "id": "ActPts",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 1,
+            "len": 2,
+            "id": "StrTms",
+            "units": "Secs",
+            "type": "uint32",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 3,
+            "len": 1,
+            "id": "RepPer",
+            "type": "uint16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "ONETIME",
+                "content": 0
+              },
+              {
+                "id": "DAILY",
+                "content": 1
+              },
+              {
+                "id": "WEEKLY",
+                "content": 2
+              },
+              {
+                "id": "MONTHLY",
+                "content": 3
+              },
+              {
+                "id": "WEEKDAY",
+                "content": 4
+              },
+              {
+                "id": "HOLIDAY",
+                "content": 5
+              },
+              {
+                "id": "WEEKEND",
+                "content": 6
+              },
+              {
+                "id": "YEARLY",
+                "content": 7
+              }
+            ],
+            "access": "rw",
+            "offset": 4,
+            "len": 1,
+            "id": "IntvTyp",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "UNSET",
+                "content": 0
+              },
+              {
+                "id": "TIME",
+                "content": 1
+              },
+              {
+                "id": "TEMP",
+                "content": 2
+              },
+              {
+                "id": "PRICE",
+                "content": 3
+              },
+              {
+                "id": "OTHER",
+                "content": 99
+              }
+            ],
+            "access": "rw",
+            "offset": 5,
+            "len": 1,
+            "id": "XTyp",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 6,
+            "len": 1,
+            "id": "X_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "symbol": [
+              {
+                "id": "UNSET",
+                "content": 0
+              },
+              {
+                "id": "WMax",
+                "content": 1
+              },
+              {
+                "id": "RSRVD2",
+                "content": 2
+              },
+              {
+                "id": "PF",
+                "content": 3
+              },
+              {
+                "id": "RSRVD4",
+                "content": 4
+              },
+              {
+                "id": "WATT_PRICE",
+                "content": 5
+              },
+              {
+                "id": "VAR_PRICE",
+                "content": 6
+              },
+              {
+                "id": "RSRVD7",
+                "content": 7
+              },
+              {
+                "id": "VOLT_VAR_ARRAY",
+                "content": 8
+              },
+              {
+                "id": "WChaGra",
+                "content": 9
+              },
+              {
+                "id": "WDisChaGra",
+                "content": 10
+              },
+              {
+                "id": "VArAval",
+                "content": 11
+              },
+              {
+                "id": "Schedule",
+                "content": 12
+              },
+              {
+                "id": "OTHER",
+                "content": 99
+              }
+            ],
+            "access": "rw",
+            "offset": 7,
+            "len": 1,
+            "id": "YTyp",
+            "type": "enum16",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "offset": 8,
+            "len": 1,
+            "id": "Y_SF",
+            "type": "sunssf",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 9,
+            "len": 2,
+            "id": "X1",
+            "type": "int32",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 11,
+            "len": 2,
+            "id": "Y1",
+            "type": "int32",
+            "mandatory": true
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 13,
+            "len": 2,
+            "id": "X2",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 15,
+            "len": 2,
+            "id": "Y2",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 17,
+            "len": 2,
+            "id": "X3",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 19,
+            "len": 2,
+            "id": "Y3",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 21,
+            "len": 2,
+            "id": "X4",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 23,
+            "len": 2,
+            "id": "Y4",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 25,
+            "len": 2,
+            "id": "X5",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 27,
+            "len": 2,
+            "id": "Y5",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 29,
+            "len": 2,
+            "id": "X6",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 31,
+            "len": 2,
+            "id": "Y6",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 33,
+            "len": 2,
+            "id": "X7",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 35,
+            "len": 2,
+            "id": "Y7",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 37,
+            "len": 2,
+            "id": "X8",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 39,
+            "len": 2,
+            "id": "Y8",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 41,
+            "len": 2,
+            "id": "X9",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 43,
+            "len": 2,
+            "id": "Y9",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "X_SF",
+            "offset": 45,
+            "len": 2,
+            "id": "X10",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "sf": "Y_SF",
+            "offset": 47,
+            "len": 2,
+            "id": "Y10",
+            "type": "int32",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "offset": 49,
+            "len": 8,
+            "id": "Nam",
+            "type": "string",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "offset": 57,
+            "len": 1,
+            "id": "WinTms",
+            "units": "Secs",
+            "type": "uint16",
+            "mandatory": false
+          },
+          {
+            "access": "rw",
+            "offset": 58,
+            "len": 1,
+            "id": "RmpTms",
+            "units": "Secs",
+            "type": "uint16",
+            "mandatory": false
+          },
+          {
+            "access": "r",
+            "offset": 59,
+            "len": 1,
+            "id": "ActIndx",
+            "type": "uint16",
+            "mandatory": true
+          }
+        ]
+      }
+    ],
+    "id": 133
+  }
+}}
