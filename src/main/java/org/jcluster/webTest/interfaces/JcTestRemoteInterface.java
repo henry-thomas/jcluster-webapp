@@ -31,6 +31,8 @@ public interface JcTestRemoteInterface extends Serializable {
 
     public void jcTestNoReturn();
 
+    public Object jcTestReturnSame(Object obToReturn);
+
     public void jcTestThrowException(Exception e) throws Exception;
 
     @JcTimeout(timeout = 2000)

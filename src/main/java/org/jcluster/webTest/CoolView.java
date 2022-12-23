@@ -38,6 +38,8 @@ public class CoolView implements Serializable {
     private JcAppInstanceData appData;
     private JcAppDescriptor appDescriptor;
     private int delay_ms = 1000;
+    private int dataSizeInKb = 1000;
+    private String filter = "Pieter";
 
     private Object largeDataResult;
 
@@ -75,8 +77,10 @@ public class CoolView implements Serializable {
 
     public void testFilterAndReturn() {
         try {
-
-            result = iFace.jcTestFilterAndReturn("Pieter").getSurname();
+            long start = System.currentTimeMillis();
+            String surname = iFace.jcTestFilterAndReturn(filter).getSurname();
+            long end = System.currentTimeMillis();
+            result = "Return:" + surname + " in: " + +(end - start) + "ms";
         } catch (Exception e) {
             result = "Exception: " + e.getMessage();
         }
@@ -86,8 +90,10 @@ public class CoolView implements Serializable {
     public void testThrowException() {
         try {
 
+            long start = System.currentTimeMillis();
             iFace.jcTestThrowException(new Exception("Test Random Exception"));
-            result = "TestException FAIL!";
+            long end = System.currentTimeMillis();
+            result = "TestException FAIL! in " + (end - start) + "ms";
         } catch (Exception e) {
             result = "Exception: " + e.getMessage();
         }
@@ -114,6 +120,45 @@ public class CoolView implements Serializable {
         } catch (Exception e) {
             result = "testNoReturn Exception: " + e.getMessage();
         }
+    }
+
+    public void testLargeDataReturn() {
+        try {
+            long start = System.currentTimeMillis();
+            iFace.jcTestReturnLargeData();
+            long end = System.currentTimeMillis();
+            result = "test delay return in: " + (end - start) + "ms";
+        } catch (Exception e) {
+            result = "testNoReturn Exception: " + e.getMessage();
+        }
+    }
+
+    public void testLargeDataSendAndReturn() {
+        try {
+            byte b[] = new byte[dataSizeInKb * 1024];
+            long start = System.currentTimeMillis();
+            Object jcTestReturnSame = iFace.jcTestReturnSame(b);
+            long end = System.currentTimeMillis();
+            result = "Test Both Ways Data return:" + jcTestReturnSame + " in: " + (end - start) + "ms";
+        } catch (Exception e) {
+            result = "testNoReturn Exception: " + e.getMessage();
+        }
+    }
+
+    public int getDataSizeInKb() {
+        return dataSizeInKb;
+    }
+
+    public void setDataSizeInKb(int dataSizeInKb) {
+        this.dataSizeInKb = dataSizeInKb;
+    }
+
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
     }
 
     public String getResult() {

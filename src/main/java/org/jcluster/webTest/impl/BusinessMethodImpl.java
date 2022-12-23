@@ -6,7 +6,6 @@ package org.jcluster.webTest.impl;
 
 import org.jcluster.webTest.controller.DataInitializer;
 import org.jcluster.webTest.controller.entity.Dummy;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
@@ -62,6 +61,11 @@ public class BusinessMethodImpl implements JcTestRemoteInterface {
         } catch (InterruptedException ex) {
         }
         return "Business method slept for: " + delay_ms;
+    }
+
+    @Override
+    public Object jcTestReturnSame(Object obToReturn) {
+        return obToReturn;
     }
 
 }

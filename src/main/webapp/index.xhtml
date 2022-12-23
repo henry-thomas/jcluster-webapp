@@ -32,7 +32,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="ultima-layout"/>
     </h:head>
     <h:body>
-        <h1>J-Cluster Test View Current Instance ID: #{coolView.appDescriptor.instanceId}</h1>
+        <h3>J-Cluster Test View Current Instance ID: #{coolView.appDescriptor.instanceId}</h3>
         <h:form>
             <p:poll autoStart="true" interval="1" update=" outboundTable inboundTable"/>
 
@@ -66,6 +66,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </p:column>
                 <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
                     <span>#{metric.timeoutCount}</span>
+                </p:column>
+                <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
+                    <span>#{metric.reqRespMapSize}</span>
                 </p:column>
             </p:dataTable>
 
@@ -101,18 +104,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
                     <span>#{metric.timeoutCount}</span>
                 </p:column>
+                <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
+                    <span>#{metric.reqRespMapSize}</span>
+                </p:column>
             </p:dataTable>
 
             <p:outputLabel style="font-size: x-large" id="outputMsg" value="Result: #{coolView.result}"></p:outputLabel>
 
             <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:commandButton value="TestFilter and return" update="outputMsg outboundTable inboundTable" actionListener="#{coolView.testFilterAndReturn()}"/>
+                <p:inputText id="filter" value="#{coolView.filter}"/>
+                <p:commandButton value="TestFilter and return" update="filter outputMsg outboundTable inboundTable" actionListener="#{coolView.testFilterAndReturn()}"/>
+            </div>
+
+            <div style="margin-top: 10px; font-size: large; text-align: center">
                 <p:commandButton value="Test No Return" update="outputMsg outboundTable inboundTable" actionListener="#{coolView.testNoReturn()}"/>
             </div>
 
             <div style="margin-top: 10px; font-size: large; text-align: center">
                 <p:inputNumber id="delay_ms" value="#{coolView.delay_ms}"/>
                 <p:commandButton value="Test Delay Return" update="delay_ms outputMsg outboundTable inboundTable" actionListener="#{coolView.testDelayReturn()}"/>
+            </div>
+
+            <div style="margin-top: 10px; font-size: large; text-align: center">
+                <p:inputNumber id="dataSize" value="#{coolView.dataSizeInKb}"/>
+                <p:commandButton value="Test 2Way Data By Size in KB" update="dataSize outputMsg outboundTable inboundTable" actionListener="#{coolView.testLargeDataSendAndReturn()}"/>
+            </div>
+
+            <div style="margin-top: 10px; font-size: large; text-align: center">
+                <p:commandButton value="Test Exception Throw" update="outputMsg outboundTable inboundTable" actionListener="#{coolView.testThrowException()}"/>
             </div>
 
 
