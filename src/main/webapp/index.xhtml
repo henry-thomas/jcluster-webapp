@@ -134,6 +134,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <p:commandButton value="Test Exception Throw" update="outputMsg outboundTable inboundTable" actionListener="#{coolView.testThrowException()}"/>
             </div>
 
+            <div style="margin-top: 10px; font-size: large; text-align: center">
+                <p:inputText id="instanceId" value="#{coolView.instanceId}"/>
+                <p:commandButton value="Close In/Out connetion by InstanceId" update="instanceId outputMsg outboundTable inboundTable" actionListener="#{coolView.testKillInstanceIdConnections()}"/>
+            </div>
 
             <div style="margin-top: 10px; font-size: large; text-align: center">
                 <p:outputLabel value="Conn Reset Count:  #{coolView.appData.totalReconnects}"></p:outputLabel><br/>

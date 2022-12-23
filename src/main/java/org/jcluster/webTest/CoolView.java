@@ -40,6 +40,7 @@ public class CoolView implements Serializable {
     private int delay_ms = 1000;
     private int dataSizeInKb = 1000;
     private String filter = "Pieter";
+    private String instanceId = "";
 
     private Object largeDataResult;
 
@@ -69,10 +70,6 @@ public class CoolView implements Serializable {
 
     public JcAppDescriptor getAppDescriptor() {
         return appDescriptor;
-    }
-
-    public void stopSocket() {
-        JcFactory.getManager().socketStopTest();
     }
 
     public void testFilterAndReturn() {
@@ -145,6 +142,21 @@ public class CoolView implements Serializable {
         }
     }
 
+    public void testKillInstanceIdConnections() {
+        try {
+            long start = System.currentTimeMillis();
+            int cic = JcFactory.getManager().closeInboundConnections(instanceId);
+            int coc = JcFactory.getManager().closeOutboundConnections(instanceId);
+            long end = System.currentTimeMillis();
+            result = "Test Close Connection For InstanceId:" + instanceId
+                    + " Outbound: " + coc
+                    + " Inbound: " + cic
+                    + " Complete in: " + (end - start) + "ms";
+        } catch (Exception e) {
+            result = "testKillInstanceIdConnections Exception: " + e.getMessage();
+        }
+    }
+
     public int getDataSizeInKb() {
         return dataSizeInKb;
     }
@@ -187,6 +199,14 @@ public class CoolView implements Serializable {
 
     public void setDelay_ms(int delay_ms) {
         this.delay_ms = delay_ms;
+    }
+
+    public String getInstanceId() {
+        return instanceId;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
 }
