@@ -8,8 +8,8 @@ import org.jcluster.webTest.controller.DataInitializer;
 import org.jcluster.webTest.controller.entity.Dummy;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
-import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
 import javax.inject.Inject;
+import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
 
 /**
  *
@@ -46,7 +46,7 @@ public class BusinessMethodImpl implements JcTestRemoteInterface {
 
     @Override
     public void jcTestNoReturn() {
-        System.out.println("Call no return Method");
+//        System.out.println("Call no return Method");
     }
 
     @Override

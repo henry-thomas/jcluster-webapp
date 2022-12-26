@@ -6,14 +6,15 @@ package org.jcluster.webTest;
 
 import java.io.Serializable;
 import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
 import org.jcluster.core.bean.JcAppDescriptor;
-import org.jcluster.core.bean.JcAppInstanceData;
 import org.jcluster.core.bean.JcConnectionMetrics;
 import org.jcluster.core.cluster.JcFactory;
 import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
@@ -35,9 +36,12 @@ public class CoolView implements Serializable {
 //    private List<JcConnectionMetrics> allMetrics;
     private List<JcConnectionMetrics> inboundMetrics;
     private List<JcConnectionMetrics> outboundMetrics;
-    private JcAppInstanceData appData;
+    HashMap<String, List<JcConnectionMetrics>> allMetrics;
     private JcAppDescriptor appDescriptor;
     private int delay_ms = 1000;
+    private int multipleCalls = 1000;
+    private int multipleThreads = 5;
+
     private int dataSizeInKb = 1000;
     private String filter = "Pieter";
     private String instanceId = "";
@@ -52,11 +56,8 @@ public class CoolView implements Serializable {
 
     @PostConstruct
     public void init() {
-        appData = JcAppInstanceData.getInstance();
-        inboundMetrics = appData.getInboundMetrics();
-        outboundMetrics = appData.getOutboundMetrics();
-        appDescriptor = JcFactory.getManager().getAppDescriptor();
-//        test();
+        appDescriptor = JcFactory.getManager().getInstanceAppDesc();
+        allMetrics = JcFactory.getManager().getAllMetrics();
     }
 
     public long getTimeTaken() {
@@ -86,7 +87,6 @@ public class CoolView implements Serializable {
 
     public void testThrowException() {
         try {
-
             long start = System.currentTimeMillis();
             iFace.jcTestThrowException(new Exception("Test Random Exception"));
             long end = System.currentTimeMillis();
@@ -95,6 +95,64 @@ public class CoolView implements Serializable {
             result = "Exception: " + e.getMessage();
         }
 
+    }
+
+    private int sucecssCalls = 0;
+    private int thCompleted = 0;
+    private final Object thLock = new Object();
+
+    public void testNoReturnMultiple() {
+        if (multipleThreads <= 0) {
+            multipleThreads = 1;
+        } else if (multipleThreads > 100) {
+            multipleThreads = 100;
+        }
+        if (multipleCalls < multipleThreads) {
+            multipleCalls = multipleThreads;
+        }
+        byte b[] = new byte[dataSizeInKb * 1024];
+        int itterationPerThread = multipleCalls / multipleThreads;
+
+        List<Thread> thList = new ArrayList<>();
+        for (int i = 0; i < multipleThreads; i++) {
+            thList.add(new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    int localSuccess = 0;
+                    for (int j = 0; j < itterationPerThread; j++) {
+                        try {
+                            iFace.jcTestReturnSame(b);
+                            localSuccess++;
+                        } catch (Exception e) {
+                        }
+                    }
+                    synchronized (thLock) {
+                        thCompleted++;
+                        sucecssCalls += localSuccess;
+                        thLock.notifyAll();
+                    }
+                }
+            }));
+        }
+        thCompleted = 0;
+        sucecssCalls = 0;
+        long start = System.currentTimeMillis();
+        for (Thread t : thList) {
+            t.start();
+        }
+        while (thCompleted < multipleThreads && (System.currentTimeMillis() - start < 10_000)) {
+            synchronized (thLock) {
+                try {
+                    thLock.wait(1000);
+                } catch (InterruptedException ex) {
+                }
+            }
+        }
+        long end = System.currentTimeMillis();
+        result = "test multiThread Total success cals: " + sucecssCalls + "/" + multipleCalls + " TotalNetworkTrafic: "
+                + ((dataSizeInKb * sucecssCalls) / 1024d) + "Mb"
+                + " return in: " + (end - start) + "ms";
     }
 
     public void testNoReturn() {
@@ -143,18 +201,18 @@ public class CoolView implements Serializable {
     }
 
     public void testKillInstanceIdConnections() {
-        try {
-            long start = System.currentTimeMillis();
-            int cic = JcFactory.getManager().closeInboundConnections(instanceId);
-            int coc = JcFactory.getManager().closeOutboundConnections(instanceId);
-            long end = System.currentTimeMillis();
-            result = "Test Close Connection For InstanceId:" + instanceId
-                    + " Outbound: " + coc
-                    + " Inbound: " + cic
-                    + " Complete in: " + (end - start) + "ms";
-        } catch (Exception e) {
-            result = "testKillInstanceIdConnections Exception: " + e.getMessage();
-        }
+//        try {
+//            long start = System.currentTimeMillis();
+//            int cic = JcFactory.getManager().closeInboundConnections(instanceId);
+//            int coc = JcFactory.getManager().closeOutboundConnections(instanceId);
+//            long end = System.currentTimeMillis();
+//            result = "Test Close Connection For InstanceId:" + instanceId
+//                    + " Outbound: " + coc
+//                    + " Inbound: " + cic
+//                    + " Complete in: " + (end - start) + "ms";
+//        } catch (Exception e) {
+//            result = "testKillInstanceIdConnections Exception: " + e.getMessage();
+//        }
     }
 
     public int getDataSizeInKb() {
@@ -181,16 +239,12 @@ public class CoolView implements Serializable {
         this.result = result;
     }
 
-    public List<JcConnectionMetrics> getInboundMetrics() {
-        return inboundMetrics;
-    }
-
-    public List<JcConnectionMetrics> getOutboundMetrics() {
-        return outboundMetrics;
-    }
-
-    public JcAppInstanceData getAppData() {
-        return appData;
+    public List<JcConnectionMetrics> getAllMetrics() {
+        List<JcConnectionMetrics> list = new ArrayList<>();
+        for (Map.Entry<String, List<JcConnectionMetrics>> entry : allMetrics.entrySet()) {
+            list.addAll(entry.getValue());
+        }
+        return list;
     }
 
     public int getDelay_ms() {
@@ -207,6 +261,22 @@ public class CoolView implements Serializable {
 
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
+    }
+
+    public int getMultipleCalls() {
+        return multipleCalls;
+    }
+
+    public void setMultipleCalls(int multipleCalls) {
+        this.multipleCalls = multipleCalls;
+    }
+
+    public int getMultipleThreads() {
+        return multipleThreads;
+    }
+
+    public void setMultipleThreads(int multipleThreads) {
+        this.multipleThreads = multipleThreads;
     }
 
 }

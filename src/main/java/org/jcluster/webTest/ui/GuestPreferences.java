@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 @Named
-@javax.enterprise.context.SessionScoped
+@SessionScoped
 public class GuestPreferences implements Serializable {
 
     private static final long serialVersionUID = 3548634277745415466L;
