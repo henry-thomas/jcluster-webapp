@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import org.jcluster.core.cluster.JcFactory;
+import org.jcluster.core.JcFactory;
 import org.jcluster.core.config.JcAppConfig;
 
 /**

@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import org.jcluster.core.bean.JcAppDescriptor;
 import org.jcluster.core.bean.JcConnectionMetrics;
-import org.jcluster.core.cluster.JcFactory;
+import org.jcluster.core.JcFactory;
 import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
 
 /**

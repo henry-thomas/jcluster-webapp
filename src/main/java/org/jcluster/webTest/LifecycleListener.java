@@ -7,7 +7,7 @@ package org.jcluster.webTest;
 import java.util.logging.Logger;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import org.jcluster.core.cluster.JcFactory;
+import org.jcluster.core.JcFactory;
 
 /**
  *

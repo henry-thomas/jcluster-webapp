@@ -41,11 +41,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <p:dataTable id="metricsTable" 
                          value="#{coolView.allMetrics}"
                          var="metric"
-                         rowKey="#{metric.instanceId}"
                          emptyMessage="No inbound connections found." 
                          widgetVar="metricsTableWg"
                          reflow="true"
-                         multiViewState="true"
                          >
 
                 <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="App Name:">
@@ -57,7 +55,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
                     <span>#{metric.ipAddress}</span>
                 </p:column>
-                <p:column filterBy="#{metric.connType}" filterMatchMode="contains" headerText="Tpe">
+                <p:column sortBy="#{metric.connType}" filterMatchMode="contains" headerText="Type">
                     <span>#{metric.connType}</span>
                 </p:column>
                 <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">

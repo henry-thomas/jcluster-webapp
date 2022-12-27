@@ -8,7 +8,7 @@ import org.jcluster.webTest.controller.entity.Dummy;
 import java.io.Serializable;
 import javax.ejb.Remote;
 import org.jcluster.lib.annotation.JcBroadcast;
-import org.jcluster.lib.annotation.JcInstanceFilter;
+import org.jcluster.lib.annotation.JcFilter;
 import org.jcluster.lib.annotation.JcRemote;
 import org.jcluster.lib.annotation.JcTimeout;
 
@@ -23,9 +23,9 @@ public interface JcTestRemoteInterface extends Serializable {
     @JcBroadcast
     public String jcTestBroadcast();
 
-    public String jcTestFilterSingleArg(Object message, @JcInstanceFilter(filterName = "loggerSerial") String serialNumber);
+    public String jcTestFilterSingleArg(Object message, @JcFilter(filterName = "loggerSerial") String serialNumber);
 
-    public Dummy jcTestFilterAndReturn(@JcInstanceFilter(filterName = "name") String name);
+    public Dummy jcTestFilterAndReturn(@JcFilter(filterName = "name") String name);
 
     public Object jcTestReturnLargeData();
 
