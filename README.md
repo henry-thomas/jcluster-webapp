@@ -16,14 +16,26 @@ Create your remote interfaces if you haven't done so already, and annotate them 
 public interface IBusinessMethod extends Serializable {
 
     public String getJndiName();
+    
+    public String execBusinessMethod(Object message, @JcFilter(filterName = "loggerSerial") String serialNumber);
 
-    public String execBusinessMethod(Object message, @JcInstanceFilter(filterName = "loggerSerial") String serialNumber);
+    //without anotation value, filter defaults to parameter name. example: JcFilter(filterName = "testStringFilter") String testStringFilter equals to:
+    public String execBusinessMethod(Object message, @JcFilter String testStringFilter);
+    
+    @JcTimeout(timeout = 250)
+    public String updateState();
 }
 ```
 
 @JcRemote annotation is required to match the remote appName when you bootstrapped that application.
 
-@JcInstanceFilter is used to find a specific instance of an app that holds the value of that parameter, and will send the request to that specific instance.
+@JcFilter is used to find a specific instance of an app that holds the value of that parameter, and will send the request to that specific instance.
+
+@JcTimeout set timeout for specific call. Timeout exception is thrown if no response is received after timeout milliseconds since request has been sent.
+
+@JcBroadcst sends message to all available instances
+
+@JcBroadcast combined with @JcFilter sends message to all instance containing specific filter match
 
 In JcBootstrap class, register all remote interfaces:
 ```
