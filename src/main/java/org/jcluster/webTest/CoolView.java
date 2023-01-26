@@ -8,16 +8,23 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.jcluster.core.bean.JcAppDescriptor;
 import org.jcluster.core.bean.JcConnectionMetrics;
 import org.jcluster.core.JcFactory;
+import org.jcluster.core.bean.JcMetrics;
+import org.jcluster.core.monitor.AppMetricMonitorInterface;
 import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
+import org.jcluster.webTest.util.PfUtil;
+import org.primefaces.shaded.json.JSONObject;
 
 /**
  *
@@ -36,7 +43,7 @@ public class CoolView implements Serializable {
 //    private List<JcConnectionMetrics> allMetrics;
     private List<JcConnectionMetrics> inboundMetrics;
     private List<JcConnectionMetrics> outboundMetrics;
-    HashMap<String, List<JcConnectionMetrics>> allMetrics;
+    private List<JcConnectionMetrics> allMetrics = new ArrayList<>();
     private JcAppDescriptor appDescriptor;
     private int delay_ms = 1000;
     private int multipleCalls = 1000;
@@ -54,10 +61,13 @@ public class CoolView implements Serializable {
     @Inject
     JcTestRemoteInterface iFace;
 
+    @Inject
+    AppMetricMonitorInterface jcMonitor;
+
     @PostConstruct
     public void init() {
         appDescriptor = JcFactory.getManager().getInstanceAppDesc();
-        allMetrics = JcFactory.getManager().getAllMetrics();
+//        allMetrics = JcFactory.getManager().getAllMetrics();
     }
 
     public long getTimeTaken() {
@@ -71,6 +81,40 @@ public class CoolView implements Serializable {
 
     public JcAppDescriptor getAppDescriptor() {
         return appDescriptor;
+    }
+
+    public void updateMetrics() {
+        Map requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+        HashSet<String> remoteAppNameList = JcFactory.getManager().getRemoteAppNameList();
+        allMetrics.clear();
+        List<JcConnectionMetrics> list = new ArrayList<>();
+
+        Map<String, List<JcConnectionMetrics>> allMetricsMap = new HashMap<>();
+        for (String appName : remoteAppNameList) {
+            allMetricsMap.put(appName, new ArrayList<>());
+            try {
+
+                JcMetrics metrics = jcMonitor.getMetricsMap(appName);
+                Map<String, List<JcConnectionMetrics>> metricsMap = metrics.getConnMetricsMap();
+                for (Map.Entry<String, List<JcConnectionMetrics>> entry : metricsMap.entrySet()) {
+                    String key = entry.getKey();
+                    List<JcConnectionMetrics> val = entry.getValue();
+
+                    allMetricsMap.get(appName).addAll(val);
+                    list.addAll(val);
+                }
+//                for (Map.Entry<String, List<JcConnectionMetrics>> entry : metricsMap.entrySet()) {
+//                    allMetricsMap.get(appName).addAll(entry.getValue());
+//                }
+            } catch (Exception e) {
+//                LOG.log(Level.WARNING, null, e);
+            }
+        }
+        allMetrics.addAll(list);
+
+        JSONObject response = new JSONObject(allMetricsMap);
+        PfUtil.executeJs("updateMetrics", response.toString());
     }
 
     public void testFilterAndReturn() {
@@ -240,11 +284,8 @@ public class CoolView implements Serializable {
     }
 
     public List<JcConnectionMetrics> getAllMetrics() {
-        List<JcConnectionMetrics> list = new ArrayList<>();
-        for (Map.Entry<String, List<JcConnectionMetrics>> entry : allMetrics.entrySet()) {
-            list.addAll(entry.getValue());
-        }
-        return list;
+
+        return allMetrics;
     }
 
     public int getDelay_ms() {

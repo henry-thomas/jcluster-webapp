@@ -72,6 +72,11 @@
             <artifactId>primefaces</artifactId>
             <version>10.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>commonlib</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
     
      <build>
@@ -123,4 +128,121 @@
             </plugin>
         </plugins>
     </build>
+    
+    <profiles>
+        <profile>
+            <id>UploadToRemote</id>
+            <properties>
+                <!--<payaraDomainName>${project.build.finalName}</payaraDomainName>-->
+                <payaraDomainName>myPower24-LoggerVApi</payaraDomainName>
+                <asadminPath>/usr/payara/payara5.202/bin/asadmin</asadminPath>
+                <warDirToStore>/home/myPower24/webapps</warDirToStore>
+            </properties>
+            <activation>
+                <!--<activeByDefault>true</activeByDefault>-->
+            </activation>
+            
+            <build>
+              
+                <plugins>
+                    <plugin>
+                        <extensions>true</extensions>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>wagon-maven-plugin</artifactId>
+                        <version>2.0.2</version>
+                        <executions>
+                        
+                            <execution>
+                                <id>upload-deploy</id>
+                                <!--                    <! - Run upload-single and sshexec while packing-->
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>upload-single</goal>
+                                    <goal>sshexec</goal>
+                                </goals>
+                                
+                                <configuration>
+                                    <serverId>server1</serverId>
+                                    
+                                    <fromFile>target/${project.build.finalName}.war</fromFile>
+                                    <toFile>target/${project.build.finalName}_${project.version}.war</toFile>
+                                    <url>scp://192.168.100.10${warDirToStore}</url>
+                                    <commands>
+                                        <!--<command>echo stoping</command>-->
+                                        <!--<command>${asadminPath} stop-domain ${payaraDomainName}</command>-->
+                                        <command>${asadminPath} start-domain ${payaraDomainName}</command>
+                                        <command>${asadminPath} deploy ${warDirToStore}/${project.build.finalName}_${project.version}.war</command>
+                                        <!--<command>sh /home/tomcat/apache-tomcat-7.0.55/bin/shutdown.sh</command>-->
+                                        <!--<command>rm -rf /home/tomcat/apache-tomcat-7.0.55/webapps/javawebdeploy</command>-->
+                                        <!--<command>sh /home/tomcat/apache-tomcat-7.0.55/bin/startup.sh</command>-->
+                                    </commands>
+                                    <displayCommandOutputs>true</displayCommandOutputs>
+                                </configuration>
+                            </execution>
+                            
+                        </executions>
+                    </plugin>
+                </plugins>
+                <!--</pluginManagement>-->
+            </build>
+        </profile>
+         <profile>
+            <id>Upload_login.mypower24</id>
+            <properties>
+                <!--<payaraDomainName>${project.build.finalName}</payaraDomainName>-->
+                <payaraDomainName>hazelcast-1</payaraDomainName>
+                <asadminPath>/usr/payara/payara5/bin/asadmin</asadminPath>
+                <warDirToStore>/home/myPower24/webapps</warDirToStore>
+                <warFileName>${project.build.finalName}_${project.version}.war</warFileName>
+                <passFile>${warDirToStore}/${project.build.finalName}_passGenerated.conf</passFile>
+            </properties>
+            <activation>
+                <!--<activeByDefault>true</activeByDefault>-->
+            </activation>
+            
+            <build>
+                <plugins>
+                    <plugin>
+                        <extensions>true</extensions>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>wagon-maven-plugin</artifactId>
+                        <version>2.0.2</version>
+                        <executions>
+                        
+                            <execution>
+                                <id>upload-deploy</id>
+                                <!--                    <! - Run upload-single and sshexec while packing-->
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>upload-single</goal>
+                                    <goal>sshexec</goal>
+                                </goals>
+                                
+                                <configuration>
+                                    <serverId>serverEjb</serverId>
+                                    <fromFile>target/${project.build.finalName}.war</fromFile>
+                                    <toFile>${warFileName}</toFile>
+                                    <url>scp://root@102.130.127.2${warDirToStore}</url>
+                                    <commands>
+                                        <cmmmand>printf "AS_ADMIN_PASSWORD=qiklam\nAS_ADMIN_ADMINPASSWORD=qiklam\nAS_ADMIN_USERPASSWORD=qiklam\nAS_ADMIN_MASTERPASSWORD=qiklam\n" > ${passFile}</cmmmand>
+                                        <command>printf "${asadminPath} -p 4815 -u admin -W ${passFile} deploy --contextroot ${project.build.finalName} --name ${project.build.finalName}  --force=true ${warDirToStore}/${warFileName}"</command>
+                                        <command>${asadminPath} -p 4815 -u admin -W ${passFile} deploy --contextroot jcluster-webapp --name ${project.build.finalName}  --force=true ${warDirToStore}/${warFileName}</command>
+                                        <command>printf "removing file"</command>
+                                        
+                                        <command>printf "Restarting Domain ${payaraDomainName}" </command>
+                                        <command> ${asadminPath} stop-domain ${payaraDomainName}</command>
+                                        <command> ${asadminPath} start-domain ${payaraDomainName}</command>
+                                       
+                                        <command>rm ${passFile}</command>
+                                    </commands>
+                                    <displayCommandOutputs>true</displayCommandOutputs>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+                <!--</pluginManagement>-->
+            </build>
+        </profile>
+    </profiles>
 </project>

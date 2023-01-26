@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <h:outputScript name="js/layout.js" library="ultima-layout"/>
         <h:outputScript name="js/prism.js" library="ultima-layout"/>
         <h:outputScript name="js/ripple.js" library="ultima-layout"/>
-
+        <h:outputScript library="platar86" name="MetricsController_1.0.1.js"/>
 
         <h:outputStylesheet name="css/tempDev.css" library="platar86" />
 
@@ -34,8 +34,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         <h3>J-Cluster Test View Current Instance ID: #{coolView.appDescriptor.instanceId}</h3>
         <h:form>
-            <p:poll autoStart="true" interval="1" update="metricsTable"/>
-
+            <p:remoteCommand name="loggerStatUpdate" actionListener="#{coolView.updateMetrics}"/>
+            <!--<p:poll autoStart="true" interval="1" update="metricsTable" listener="#{coolView.updateMetrics()}"/>-->
 
             <h3>All connections</h3>
             <p:dataTable id="metricsTable" 
@@ -46,33 +46,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                          reflow="true"
                          >
 
-                <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="App Name:">
-                    <span>#{metric.appName}</span>
+                <p:headerRow field="homeServerName"
+                             expandable="true"
+                             expanded="false"
+                             >
+
+                    <p:column colspan="9" styleClass="ui-message-info">
+                        <div class="inline-flex align-items-center" style="vertical-align: middle">
+                            <p:graphicImage name="images"  width="32" style="vertical-align: middle"/>
+                            <h:outputText styleClass="ml-2" value="#{metric.homeServerName}"/>
+                        </div>
+                    </p:column>
+                </p:headerRow>
+
+<!--                <p:column filterBy="#{metric.homeServerName}" filterMatchMode="contains" headerText="Server Name:">
+                    <span>#{metric.homeServerName}</span>
+                </p:column>-->
+                <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="Server Name:" >
+                    <span class = "#{metric.homeServerName}_remoteServerName_#{metric.connId}">#{metric.remoteServerName}</span>
                 </p:column>
                 <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
-                    <span>#{metric.instanceId}</span>
+                    <span class="#{metric.homeServerName}_instanceId_#{metric.connId}">#{metric.instanceId}</span>
                 </p:column>
                 <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
-                    <span>#{metric.ipAddress}</span>
+                    <span class="#{metric.homeServerName}_ipAddress_#{metric.connId}">#{metric.ipAddress}</span>
                 </p:column>
                 <p:column sortBy="#{metric.connType}" filterMatchMode="contains" headerText="Type">
-                    <span>#{metric.connType}</span>
+                    <span class="#{metric.homeServerName}_connType_#{metric.connId}">#{metric.connType}</span>
                 </p:column>
                 <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
-                    <span>#{metric.rxCount}</span>
+                    <span class="#{metric.homeServerName}_rxCount_#{metric.connId}">#{metric.rxCount}</span>
                 </p:column>
                 <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
-                    <span>#{metric.txCount}</span>
+                    <span class="#{metric.homeServerName}_txCount_#{metric.connId}">#{metric.txCount}</span>
                 </p:column>
                 <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
-                    <span>#{metric.errCount}</span>
+                    <span class="#{metric.homeServerName}_errCount_#{metric.connId}">#{metric.errCount}</span>
                 </p:column>
                 <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
-                    <span>#{metric.timeoutCount}</span>
+                    <span class="#{metric.homeServerName}_timeoutCount_#{metric.connId}">#{metric.timeoutCount}</span>
                 </p:column>
                 <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
-                    <span>#{metric.reqRespMapSize}</span>
+                    <span class="#{metric.homeServerName}_reqRespMapSize_#{metric.connId}">#{metric.reqRespMapSize}</span>
                 </p:column>
+
             </p:dataTable>
 
 
