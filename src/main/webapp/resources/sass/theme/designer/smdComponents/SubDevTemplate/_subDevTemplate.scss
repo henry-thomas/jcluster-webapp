@@ -233,9 +233,9 @@
     min-width: 230px;
 }
 .actDataPanelCard {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+/*    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
-    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);*/
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -253,7 +253,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-variant: petite-caps;
+    /*font-variant: petite-caps;*/
     margin: 10px 0px;
 }
 .actDataPanelCard .header-block img{
@@ -263,7 +263,7 @@
 }
 .actDataPanelCard .header-content{
     color: grey;
-    font-variant: petite-caps;
+    /*font-variant: petite-caps;*/
     font-weight: lighter;
     align-self: center;
     font-size: large;
@@ -271,16 +271,16 @@
 .actDataPanel {
     display: grid;
     grid-template-columns: auto auto 40px;
-    border-bottom: solid;
+/*    border-bottom: none;
     border-width: 0.02px;
-    border-color: #e7e7e7;
+    border-color: #e7e7e7;*/
     margin: 7px 0px;
 
 }
 .actDataPanel span:nth-child(1) {
     /*width: 40%;*/
     color: grey;
-    font-variant: petite-caps;
+    /*font-variant: petite-caps;*/
     font-weight: lighter;
     order: 1;
 }
@@ -298,7 +298,7 @@
 .actDataPanel span:nth-child(3) {
     flex-basis: 40px;
     color: grey;
-    font-variant: petite-caps;
+    /*font-variant: petite-caps;*/
     font-weight: lighter;
     order: 3; 
 }
@@ -336,7 +336,7 @@
 .actDataPanelCard .actDataTablePanel .actDataTableHeader{
     font-weight: bold;
     color: grey;
-    font-variant: all-petite-caps;
+    /*font-variant: all-petite-caps;*/
     font-size: large;
 }
 

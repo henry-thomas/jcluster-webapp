@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       xmlns:p="http://primefaces.org/ui"
       lang="en">
     <h:head>
-        <title>J-Cluster Test</title>
+        <title>J-Cluster Monitoring</title>
         <f:facet name="first">
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,10 +19,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <h:outputScript name="js/layout.js" library="ultima-layout"/>
         <h:outputScript name="js/prism.js" library="ultima-layout"/>
         <h:outputScript name="js/ripple.js" library="ultima-layout"/>
+
+        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/flow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="//cdn.amcharts.com/lib/5/themes/Kelly.js"></script>
+
         <h:outputScript library="platar86" name="MetricsController_1.0.1.js"/>
+
+        <h:outputScript library="platar86" name="mainUtils.1.1.2.js"/>
+        <h:outputScript library="platar86" name="customJsComp/accordianPanel_1.0.1.js"/>
+        <h:outputScript library="platar86" name="customJsComp/tabPanel.1.0.3.js"/>
+        <h:outputScript library="platar86" name="htmlHelper1.0.1.js"/>
+        <h:outputScript library="platar86" name="customJsComp/dataField_1.0.1.js"/>
 
         <h:outputStylesheet name="css/tempDev.css" library="platar86" />
 
@@ -30,109 +43,99 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <h:outputStylesheet name="css/primeflex.min.css" library="ultima-layout"/>
         <h:outputStylesheet name="css/ripple.css" library="ultima-layout" rendered="#{guestPreferences.ripple}"/>
         <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="ultima-layout"/>
+
+
     </h:head>
+
+
     <h:body>
-        <h3>J-Cluster Test View Current Instance ID: #{coolView.appDescriptor.instanceId}</h3>
+        <div style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 10px">
+            <h3>J-Cluster Monitor</h3>
+        </div>
         <h:form>
-            <p:remoteCommand name="loggerStatUpdate" actionListener="#{coolView.updateMetrics}"/>
-            <!--<p:poll autoStart="true" interval="1" update="metricsTable" listener="#{coolView.updateMetrics()}"/>-->
+            <p:remoteCommand name="loggerStatUpdate" actionListener="#{jClusterStatView.updateMetrics}" async="true"/>
+            <!--<p:poll autoStart="true" interval="1" update="metricsTable" listener="#{jClusterStatView.updateMetrics()}"/>-->
+            <!--<div class="jcStatView">-->
 
-            <h3>All connections</h3>
-            <p:dataTable id="metricsTable" 
-                         value="#{coolView.allMetrics}"
-                         var="metric"
-                         emptyMessage="No inbound connections found." 
-                         widgetVar="metricsTableWg"
-                         reflow="true"
-                         >
+            <p:tabView dynamic="true" activeIndex="0" id="dataTabsView" >
+                <p:tab  title="JCluster Connections" titleStyle="display:inline-block" >
+                    <h3>All connections</h3>
+<!--                    <p:dataTable id="metricsTable" 
+                                 value="#{jClusterStatView.allMetrics}"
+                                 var="metric"
+                                 emptyMessage="No inbound connections found." 
+                                 widgetVar="metricsTableWg"
+                                 reflow="true"
+                                 >
 
-                <p:headerRow field="homeServerName"
-                             expandable="true"
-                             expanded="false"
-                             >
+                        <p:headerRow field="homeServerName"
+                                     expandable="true"
+                                     expanded="false"
+                                     >
 
-                    <p:column colspan="9" styleClass="ui-message-info">
-                        <div class="inline-flex align-items-center" style="vertical-align: middle">
-                            <p:graphicImage name="images"  width="32" style="vertical-align: middle"/>
-                            <h:outputText styleClass="ml-2" value="#{metric.homeServerName}"/>
-                        </div>
-                    </p:column>
-                </p:headerRow>
+                            <p:column colspan="9" styleClass="ui-message-info">
+                                <div class="inline-flex align-items-center" style="vertical-align: middle">
+                                    <p:graphicImage name="images"  width="32" style="vertical-align: middle"/>
+                                    <h:outputText styleClass="ml-2" value="#{metric.homeServerName}"/>
+                                </div>
+                            </p:column>
+                        </p:headerRow>
 
-<!--                <p:column filterBy="#{metric.homeServerName}" filterMatchMode="contains" headerText="Server Name:">
+                <p:column filterBy="#{metric.homeServerName}" filterMatchMode="contains" headerText="Server Name:">
                     <span>#{metric.homeServerName}</span>
-                </p:column>-->
-                <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="Server Name:" >
-                    <span class = "#{metric.homeServerName}_remoteServerName_#{metric.connId}">#{metric.remoteServerName}</span>
                 </p:column>
-                <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
-                    <span class="#{metric.homeServerName}_instanceId_#{metric.connId}">#{metric.instanceId}</span>
-                </p:column>
-                <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
-                    <span class="#{metric.homeServerName}_ipAddress_#{metric.connId}">#{metric.ipAddress}</span>
-                </p:column>
-                <p:column sortBy="#{metric.connType}" filterMatchMode="contains" headerText="Type">
-                    <span class="#{metric.homeServerName}_connType_#{metric.connId}">#{metric.connType}</span>
-                </p:column>
-                <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
-                    <span class="#{metric.homeServerName}_rxCount_#{metric.connId}">#{metric.rxCount}</span>
-                </p:column>
-                <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
-                    <span class="#{metric.homeServerName}_txCount_#{metric.connId}">#{metric.txCount}</span>
-                </p:column>
-                <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
-                    <span class="#{metric.homeServerName}_errCount_#{metric.connId}">#{metric.errCount}</span>
-                </p:column>
-                <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
-                    <span class="#{metric.homeServerName}_timeoutCount_#{metric.connId}">#{metric.timeoutCount}</span>
-                </p:column>
-                <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
-                    <span class="#{metric.homeServerName}_reqRespMapSize_#{metric.connId}">#{metric.reqRespMapSize}</span>
-                </p:column>
+                        <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="Server Name:" >
+                            <span class = "#{metric.homeServerName}_remoteServerName_#{metric.connId}">#{metric.remoteServerName}</span>
+                        </p:column>
+                        <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
+                            <span class="#{metric.homeServerName}_instanceId_#{metric.connId}">#{metric.instanceId}</span>
+                        </p:column>
+                        <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
+                            <span class="#{metric.homeServerName}_ipAddress_#{metric.connId}">#{metric.ipAddress}</span>
+                        </p:column>
+                        <p:column sortBy="#{metric.connType}" filterMatchMode="contains" headerText="Type">
+                            <span class="#{metric.homeServerName}_connType_#{metric.connId}">#{metric.connType}</span>
+                        </p:column>
+                        <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
+                            <span class="#{metric.homeServerName}_rxCount_#{metric.connId}">#{metric.rxCount}</span>
+                        </p:column>
+                        <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
+                            <span class="#{metric.homeServerName}_txCount_#{metric.connId}">#{metric.txCount}</span>
+                        </p:column>
+                        <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
+                            <span class="#{metric.homeServerName}_errCount_#{metric.connId}">#{metric.errCount}</span>
+                        </p:column>
+                        <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
+                            <span class="#{metric.homeServerName}_timeoutCount_#{metric.connId}">#{metric.timeoutCount}</span>
+                        </p:column>
+                        <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
+                            <span class="#{metric.homeServerName}_reqRespMapSize_#{metric.connId}">#{metric.reqRespMapSize}</span>
+                        </p:column>
 
-            </p:dataTable>
+                    </p:dataTable>-->
+                    <div class="jcConnTab"></div>
+                </p:tab>
+                <p:tab title="Chart" titleStyle="display:inline-block" >
+                    <div id="chartdiv" class="actDataContainer" style="width:100%; height: 500px; display: flex; flex-direction: column"></div>
+                </p:tab>
+                <p:tab title="Server Resources" titleStyle="display:inline-block">
+                    <div class="jcResTab actDataContainer"></div>
+                </p:tab>
+            </p:tabView>
 
 
-            <p:outputLabel style="font-size: x-large" id="outputMsg" value="Result: #{coolView.result}"></p:outputLabel>
+            <!--</div>-->
 
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:inputText id="filter" value="#{coolView.filter}"/>
-                <p:commandButton value="TestFilter and return" update="filter outputMsg  metricsTable" actionListener="#{coolView.testFilterAndReturn()}"/>
-            </div>
+            <p:outputLabel style="font-size: x-large" id="outputMsg" value="Result: #{jClusterStatView.result}"></p:outputLabel>
 
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:commandButton value="Test No Return" update="outputMsg  metricsTable" actionListener="#{coolView.testNoReturn()}"/>
-            </div>
-
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:inputNumber id="delay_ms" value="#{coolView.delay_ms}"/>
-                <p:commandButton value="Test Delay Return" update="delay_ms outputMsg  metricsTable" actionListener="#{coolView.testDelayReturn()}"/>
-            </div>
-
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:inputNumber id="dataSize" value="#{coolView.dataSizeInKb}"/>
-                <p:commandButton value="Test 2Way Data By Size in KB" update="dataSize outputMsg  metricsTable" actionListener="#{coolView.testLargeDataSendAndReturn()}"/>
-            </div>
-
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:commandButton value="Test Exception Throw" update="outputMsg  metricsTable" actionListener="#{coolView.testThrowException()}"/>
-            </div>
-
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:inputText id="instanceId" value="#{coolView.instanceId}"/>
-                <p:commandButton value="Close In/Out connetion by InstanceId" update="instanceId outputMsg  metricsTable" actionListener="#{coolView.testKillInstanceIdConnections()}"/>
-            </div>
-
-            <div style="margin-top: 10px; font-size: large; text-align: center">
-                <p:inputNumber id="multiCals" label="Cals" value="#{coolView.multipleCalls}"/>
-                <p:inputNumber id="multiTh" label="Threads" value="#{coolView.multipleThreads}"/>
-                <p:commandButton value="Test MultipleCall multi Thread" update="multiTh multiCals outputMsg  metricsTable" actionListener="#{coolView.testNoReturnMultiple()}"/>
-            </div>
+           
 
             <div style="margin-top: 10px; font-size: large; text-align: center">
 
             </div>
 
         </h:form>
+
     </h:body>
+
 </html>

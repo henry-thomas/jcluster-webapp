@@ -1544,7 +1544,7 @@ html {
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: monospace, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   color: #000001;
   -webkit-font-smoothing: antialiased;
