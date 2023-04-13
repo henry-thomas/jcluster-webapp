@@ -78,7 +78,8 @@
                 let dataOb = {};
                 dataOb.target = connMetric['homeServerName'];
                 dataOb.source = connMetric['remoteServerName'];
-                dataOb.value = connMetric['rxCount'];
+                dataOb.value = 1;
+//                dataOb.value = connMetric['rxCount'];
                 chartData.push(dataOb);
             }
 

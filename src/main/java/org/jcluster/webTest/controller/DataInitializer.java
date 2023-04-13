@@ -35,42 +35,42 @@ public class DataInitializer {
     @PostConstruct
     public void init() {
 
-        for (int i = 0; i < 100; i++) {
-            smallData.add("1234567890_" + i);
-        }
-
-        for (int i = 0; i < 100_000; i++) {
-            bigData.add("1234567890_" + i);
-        }
-
-        
-        Integer port = JcAppConfig.getINSTANCE().getPort();
-        String hostName = JcAppConfig.getINSTANCE().getHostName();
-        String appName = JcAppConfig.getINSTANCE().getAppName();
-
-        //Initialize J-Cluster for this app
-//        JcFactory.initManager(appName, hostName, port);
-
-        //For Testing, add values to filter here
-        String ser;
-        if (port == 4566) {
-            ser = "SLV01234";
-            dataMap.put("Nathan", new Dummy("Nathan", "Brill"));
-            dataMap.put("Lawrence", new Dummy("Lawrence", "Biffy"));
-        } else {
-            ser = "SLV012345";
-            dataMap.put("Pieter", new Dummy("Pieter", "Oberholzer"));
-            dataMap.put("Kostadin", new Dummy("Kostadin", "Petkov"));
-        }
-
-        JcFactory.getManager().addFilter("loggerSerial", ser);
-
-        //Adding some dummy data
-        for (Map.Entry<String, Dummy> entry : dataMap.entrySet()) {
-            String key = entry.getKey();
-
-            JcFactory.getManager().addFilter("name", key);
-        }
+//        for (int i = 0; i < 100; i++) {
+//            smallData.add("1234567890_" + i);
+//        }
+//
+//        for (int i = 0; i < 100_000; i++) {
+//            bigData.add("1234567890_" + i);
+//        }
+//
+//        
+//        Integer port = JcAppConfig.getINSTANCE().getPort();
+//        String hostName = JcAppConfig.getINSTANCE().getHostName();
+//        String appName = JcAppConfig.getINSTANCE().getAppName();
+//
+//        //Initialize J-Cluster for this app
+////        JcFactory.initManager(appName, hostName, port);
+//
+//        //For Testing, add values to filter here
+//        String ser;
+//        if (port == 4566) {
+//            ser = "SLV01234";
+//            dataMap.put("Nathan", new Dummy("Nathan", "Brill"));
+//            dataMap.put("Lawrence", new Dummy("Lawrence", "Biffy"));
+//        } else {
+//            ser = "SLV012345";
+//            dataMap.put("Pieter", new Dummy("Pieter", "Oberholzer"));
+//            dataMap.put("Kostadin", new Dummy("Kostadin", "Petkov"));
+//        }
+//
+//        JcFactory.getManager().addFilter("loggerSerial", ser);
+//
+//        //Adding some dummy data
+//        for (Map.Entry<String, Dummy> entry : dataMap.entrySet()) {
+//            String key = entry.getKey();
+//
+//            JcFactory.getManager().addFilter("name", key);
+//        }
     }
 
     public HashMap<String, Dummy> getDataMap() {
