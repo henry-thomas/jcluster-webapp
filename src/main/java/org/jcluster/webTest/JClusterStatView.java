@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -23,7 +22,6 @@ import org.jcluster.core.JcFactory;
 import org.jcluster.core.bean.JcInstanceResMetrics;
 import org.jcluster.core.bean.JcMetrics;
 import org.jcluster.core.monitor.AppMetricMonitorInterface;
-import org.jcluster.core.monitor.InstanceResMonitorBean;
 import org.jcluster.webTest.interfaces.JcTestRemoteInterface;
 import org.jcluster.webTest.util.PfUtil;
 import org.primefaces.shaded.json.JSONObject;
@@ -101,7 +99,7 @@ public class JClusterStatView implements Serializable {
                 JcMetrics metrics = jcMonitor.getMetricsMap(appName);
                 JcInstanceResMetrics jcResMetrics = metrics.getResBean().getMetrics();
                 allResMap.put(appName, jcResMetrics);
-                
+
                 Map<String, List<JcConnectionMetrics>> metricsMap = metrics.getConnMetricsMap();
                 for (Map.Entry<String, List<JcConnectionMetrics>> entry : metricsMap.entrySet()) {
                     String key = entry.getKey();
@@ -121,11 +119,11 @@ public class JClusterStatView implements Serializable {
 
         JSONObject response = new JSONObject(allMetricsMap);
         PfUtil.executeJs("updateMetrics", response.toString());
-        
+
         JSONObject metricsResp = new JSONObject(allResMap);
         PfUtil.executeJs("updateResMetrics", metricsResp.toString());
     }
-   
+
     public void testKillInstanceIdConnections() {
 //        try {
 //            long start = System.currentTimeMillis();
@@ -152,6 +150,10 @@ public class JClusterStatView implements Serializable {
 
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
+    }
+
+    public String getResult() {
+        return result;
     }
 
 }

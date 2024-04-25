@@ -36,6 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <h:outputScript library="platar86" name="customJsComp/tabPanel.1.0.3.js"/>
         <h:outputScript library="platar86" name="htmlHelper1.0.1.js"/>
         <h:outputScript library="platar86" name="customJsComp/dataField_1.0.1.js"/>
+        <h:outputScript library="platar86" name="jcFilters_1.0.1.js"/>
 
         <h:outputStylesheet name="css/tempDev.css" library="platar86" />
 
@@ -52,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <div style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 10px">
             <h3>J-Cluster Monitor</h3>
         </div>
-        <h:form>
+        <h:form id="monForm">
             <p:remoteCommand name="loggerStatUpdate" actionListener="#{jClusterStatView.updateMetrics}" async="true"/>
             <!--<p:poll autoStart="true" interval="1" update="metricsTable" listener="#{jClusterStatView.updateMetrics()}"/>-->
             <!--<div class="jcStatView">-->
@@ -60,59 +61,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <p:tabView dynamic="true" activeIndex="0" id="dataTabsView" >
                 <p:tab  title="JCluster Connections" titleStyle="display:inline-block" >
                     <h3>All connections</h3>
-<!--                    <p:dataTable id="metricsTable" 
-                                 value="#{jClusterStatView.allMetrics}"
-                                 var="metric"
-                                 emptyMessage="No inbound connections found." 
-                                 widgetVar="metricsTableWg"
-                                 reflow="true"
-                                 >
-
-                        <p:headerRow field="homeServerName"
-                                     expandable="true"
-                                     expanded="false"
-                                     >
-
-                            <p:column colspan="9" styleClass="ui-message-info">
-                                <div class="inline-flex align-items-center" style="vertical-align: middle">
-                                    <p:graphicImage name="images"  width="32" style="vertical-align: middle"/>
-                                    <h:outputText styleClass="ml-2" value="#{metric.homeServerName}"/>
-                                </div>
-                            </p:column>
-                        </p:headerRow>
-
-                <p:column filterBy="#{metric.homeServerName}" filterMatchMode="contains" headerText="Server Name:">
-                    <span>#{metric.homeServerName}</span>
-                </p:column>
-                        <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="Server Name:" >
-                            <span class = "#{metric.homeServerName}_remoteServerName_#{metric.connId}">#{metric.remoteServerName}</span>
-                        </p:column>
-                        <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
-                            <span class="#{metric.homeServerName}_instanceId_#{metric.connId}">#{metric.instanceId}</span>
-                        </p:column>
-                        <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
-                            <span class="#{metric.homeServerName}_ipAddress_#{metric.connId}">#{metric.ipAddress}</span>
-                        </p:column>
-                        <p:column sortBy="#{metric.connType}" filterMatchMode="contains" headerText="Type">
-                            <span class="#{metric.homeServerName}_connType_#{metric.connId}">#{metric.connType}</span>
-                        </p:column>
-                        <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
-                            <span class="#{metric.homeServerName}_rxCount_#{metric.connId}">#{metric.rxCount}</span>
-                        </p:column>
-                        <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
-                            <span class="#{metric.homeServerName}_txCount_#{metric.connId}">#{metric.txCount}</span>
-                        </p:column>
-                        <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
-                            <span class="#{metric.homeServerName}_errCount_#{metric.connId}">#{metric.errCount}</span>
-                        </p:column>
-                        <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
-                            <span class="#{metric.homeServerName}_timeoutCount_#{metric.connId}">#{metric.timeoutCount}</span>
-                        </p:column>
-                        <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
-                            <span class="#{metric.homeServerName}_reqRespMapSize_#{metric.connId}">#{metric.reqRespMapSize}</span>
-                        </p:column>
-
-                    </p:dataTable>-->
+                    <!--                    <p:dataTable id="metricsTable" 
+                                                     value="#{jClusterStatView.allMetrics}"
+                                                     var="metric"
+                                                     emptyMessage="No inbound connections found." 
+                                                     widgetVar="metricsTableWg"
+                                                     reflow="true"
+                                                     >
+                    
+                                            <p:headerRow field="homeServerName"
+                                                         expandable="true"
+                                                         expanded="false"
+                                                         >
+                    
+                                                <p:column colspan="9" styleClass="ui-message-info">
+                                                    <div class="inline-flex align-items-center" style="vertical-align: middle">
+                                                        <p:graphicImage name="images"  width="32" style="vertical-align: middle"/>
+                                                        <h:outputText styleClass="ml-2" value="#{metric.homeServerName}"/>
+                                                    </div>
+                                                </p:column>
+                                            </p:headerRow>
+                    
+                                    <p:column filterBy="#{metric.homeServerName}" filterMatchMode="contains" headerText="Server Name:">
+                                        <span>#{metric.homeServerName}</span>
+                                    </p:column>
+                                            <p:column filterBy="#{metric.appName}" filterMatchMode="contains" headerText="Server Name:" >
+                                                <span class = "#{metric.homeServerName}_remoteServerName_#{metric.connId}">#{metric.remoteServerName}</span>
+                                            </p:column>
+                                            <p:column filterBy="#{metric.instanceId}" filterMatchMode="contains" headerText="Instance ID:">
+                                                <span class="#{metric.homeServerName}_instanceId_#{metric.connId}">#{metric.instanceId}</span>
+                                            </p:column>
+                                            <p:column filterBy="#{metric.ipAddress}" filterMatchMode="contains" headerText="IP:">
+                                                <span class="#{metric.homeServerName}_ipAddress_#{metric.connId}">#{metric.ipAddress}</span>
+                                            </p:column>
+                                            <p:column sortBy="#{metric.connType}" filterMatchMode="contains" headerText="Type">
+                                                <span class="#{metric.homeServerName}_connType_#{metric.connId}">#{metric.connType}</span>
+                                            </p:column>
+                                            <p:column sortBy="#{metric.rxCount}" filterMatchMode="contains" headerText="RX">
+                                                <span class="#{metric.homeServerName}_rxCount_#{metric.connId}">#{metric.rxCount}</span>
+                                            </p:column>
+                                            <p:column sortBy="#{metric.txCount}" filterMatchMode="contains" headerText="TX">
+                                                <span class="#{metric.homeServerName}_txCount_#{metric.connId}">#{metric.txCount}</span>
+                                            </p:column>
+                                            <p:column sortBy="#{metric.errCount}" filterMatchMode="contains" headerText="Error">
+                                                <span class="#{metric.homeServerName}_errCount_#{metric.connId}">#{metric.errCount}</span>
+                                            </p:column>
+                                            <p:column sortBy="#{metric.timeoutCount}" filterMatchMode="contains" headerText="Timeouts">
+                                                <span class="#{metric.homeServerName}_timeoutCount_#{metric.connId}">#{metric.timeoutCount}</span>
+                                            </p:column>
+                                            <p:column sortBy="#{metric.reqRespMapSize}" headerText="ReqResp Map Size">
+                                                <span class="#{metric.homeServerName}_reqRespMapSize_#{metric.connId}">#{metric.reqRespMapSize}</span>
+                                            </p:column>
+                    
+                                        </p:dataTable>-->
                     <div class="jcConnTab"></div>
                 </p:tab>
                 <p:tab title="Chart" titleStyle="display:inline-block" >
@@ -121,20 +122,46 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <p:tab title="Server Resources" titleStyle="display:inline-block">
                     <div class="jcResTab actDataContainer"></div>
                 </p:tab>
+                <p:tab title="JCluster Filters" titleStyle="display:inline-block">
+                    <div class="jcFilterTab actDataContainer"></div>
+                    <p:commandButton value="Update" actionListener="#{jcHzStatView.getHzFilterStats()}" update="monForm"></p:commandButton>
+
+                    <p:dataTable
+                        var="filter" value="#{jcHzStatView.allFilterList}" paginator="true" rows="10"
+                        paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                        rowsPerPageTemplate="5,10,15"
+                        id="filterTable"
+                        >
+
+                        <p:column headerText="appName" sortBy="#{filter.appName}" filterBy="#{filter.appName}">
+                            <h:outputText value="#{filter.appName}"/>
+                        </p:column>
+                        <p:column headerText="serverName" sortBy="#{filter.serverName}" filterBy="#{filter.serverName}">
+                            <h:outputText value="#{filter.serverName}"/>
+                        </p:column>
+                        <p:column headerText="instanceId" sortBy="#{filter.instanceId}" filterBy="#{filter.instanceId}">
+                            <h:outputText value="#{filter.instanceId}"/>
+                        </p:column>
+                        <p:column headerText="filterName" sortBy="#{filter.filterName}" filterBy="#{filter.filterName}">
+                            <h:outputText value="#{filter.filterName}"/>
+                        </p:column>
+                        <p:column headerText="filterValue" sortBy="#{filter.filterValue}" filterBy="#{filter.filterValue}">
+                            <h:outputText value="#{filter.filterValue}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
             </p:tabView>
 
 
             <!--</div>-->
 
-            <p:outputLabel style="font-size: x-large" id="outputMsg" value="Result: #{jClusterStatView.result}"></p:outputLabel>
-
-           
 
             <div style="margin-top: 10px; font-size: large; text-align: center">
 
             </div>
 
         </h:form>
+
 
     </h:body>
 
